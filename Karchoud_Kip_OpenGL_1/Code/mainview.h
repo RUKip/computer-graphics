@@ -23,6 +23,8 @@ public:
         GLfloat posX;
         GLfloat posY;
     };
+    GLuint *VBO;
+    GLuint *VAO;
 
 protected:
     void initializeGL();

@@ -40,9 +40,15 @@ void MainView::initializeGL() {
     glVersion = reinterpret_cast<const char*>(glGetString(GL_VERSION));
     qDebug() << ":: Using OpenGL" << qPrintable(glVersion);
 
+    //initialization of buffers and shaders
     addShaders();
-    vertex vertices[] = {{0,1,0,-1,-1}, {0,0,1,1,0}, {1,0,0,-1,1}}; //our triangle
+    vao = new GLuint();
+    vbo = new Gluint();
+    glGenVertexArrays(1, &vao); //TODO: What size should we use here?
+    glGenBuffers(5*sizeof(GLfloat), &vbo); //TODO: Is this the correct size??, or should it be sizeof(vertex)? What if we want to add more shapes?
 
+    //initalization of shapes/world
+    vertex vertices[] = {{0,1,0,0,1}, {0,0,1,-1,-1}, {1,0,0,1,-1}}; //our triangle, TODO: correct like this??
 }
 
 void MainView::resizeGL(int newWidth, int newHeight) {
