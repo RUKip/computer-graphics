@@ -42,13 +42,11 @@ void MainView::initializeGL() {
 
     //initialization of buffers and shaders
     addShaders();
-    vao = new GLuint();
-    vbo = new Gluint();
-    glGenVertexArrays(1, &vao); //TODO: What size should we use here?
-    glGenBuffers(5*sizeof(GLfloat), &vbo); //TODO: Is this the correct size??, or should it be sizeof(vertex)? What if we want to add more shapes?
+    glGenVertexArrays(1, vao);
+    glGenBuffers(1, vbo);
 
     //initalization of shapes/world
-    vertex vertices[] = {{0,1,0,0,1}, {0,0,1,-1,-1}, {1,0,0,1,-1}}; //our triangle, TODO: correct like this??
+    vertex vertices[] = {{0.0f,1.0f,0.0f,0.0f,1.0f}, {0.0f,0.0f,1.0f,-1.0f,-1.0f}, {1.0f,0.0f,0.0f,1.0f,-1.0f}}; //our triangle, TODO: correct like this??
 }
 
 void MainView::resizeGL(int newWidth, int newHeight) {
