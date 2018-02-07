@@ -17,14 +17,14 @@ public:
     MainView(QWidget *parent = 0);
     ~MainView();
     struct vertex{
+        GLfloat posX;
+        GLfloat posY;
         GLfloat colorR;
         GLfloat colorG;
         GLfloat colorB;
-        GLfloat posX;
-        GLfloat posY;
     };
-    GLuint *vbo;
-    GLuint *vao;
+    GLuint vbo;
+    GLuint vao;
 
 protected:
     void initializeGL();

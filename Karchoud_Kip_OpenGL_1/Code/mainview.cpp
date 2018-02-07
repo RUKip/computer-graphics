@@ -42,11 +42,26 @@ void MainView::initializeGL() {
 
     //initialization of buffers and shaders
     addShaders();
-    glGenVertexArrays(1, vao);
-    glGenBuffers(1, vbo);
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
+
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
     //initalization of shapes/world
-    vertex vertices[] = {{0.0f,1.0f,0.0f,0.0f,1.0f}, {0.0f,0.0f,1.0f,-1.0f,-1.0f}, {1.0f,0.0f,0.0f,1.0f,-1.0f}}; //our triangle, TODO: correct like this??
+    vertex vertices[] = {
+        {0.0f,1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,0.0f,0.0f,1.0f},
+        {1.0f,-1.0f,1.0f,0.0f,0.0f}
+    }; //our triangle
+
+    glBufferData(GL_ARRAY_BUFFER, 3*sizeof(vertex), vertices, GL_STATIC_DRAW); //set vertices as data of our vbo
+
+    glEnableVertexAttribArray(0);   //Say we send data for postion 0 to shaders, (still to define what is data and match in shader)
+    glEnableVertexAttribArray(1);   //Say we send data for postion 1 to shaders
+
+    glVertexAttribPointer(0,2, GL_FLOAT, false, sizeof(vertex), 0);
+    glVertexAttribPointer(1,3, GL_FLOAT, false, sizeof(vertex), (GLvoid*)(2*sizeof(GLfloat)));
 }
 
 void MainView::resizeGL(int newWidth, int newHeight) {
@@ -56,7 +71,8 @@ void MainView::resizeGL(int newWidth, int newHeight) {
 }
 
 void MainView::paintGL() {
-
+    glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 void MainView::onMessageLogged( QOpenGLDebugMessage Message ) {
