@@ -29,6 +29,16 @@ public:
 
     MainView(QWidget *parent = 0);
     ~MainView();
+    struct vertex{
+        GLfloat posX;
+        GLfloat posY;
+        GLfloat posZ;
+        GLfloat colorR;
+        GLfloat colorG;
+        GLfloat colorB;
+    };
+    GLuint vbo;
+    GLuint vao;
 
     // Functions for widget input events
     void setRotation(int rotateX, int rotateY, int rotateZ);

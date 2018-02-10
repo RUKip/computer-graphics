@@ -69,6 +69,37 @@ void MainView::initializeGL() {
     glClearColor(0.2f, 0.5f, 0.7f, 0.0f);
 
     createShaderProgram();
+
+    //creates objects below
+    vertex cube[] = {
+        //front square
+        {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+        {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
+
+        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+
+        //left side square
+        {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},\
+        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+
+        {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+
+        //top square
+
+        //bottom square
+
+        //right square
+
+        //back square
+
+    };
+
 }
 
 void MainView::createShaderProgram()
