@@ -26,7 +26,8 @@ MainView::MainView(QWidget *parent) : QOpenGLWidget(parent) {
  */
 MainView::~MainView() {
     debugLogger->stopLogging();
-
+    glDeleteVertexArrays(1, &cubeVao); //TODO: destructor correct?
+    glDeleteBuffers(1, &cubeVbo);
     qDebug() << "MainView destructor";
 }
 
@@ -70,7 +71,9 @@ void MainView::initializeGL() {
 
     createShaderProgram();
 
-    //creates objects below
+    //TODO: the pyramid has to be added aswell
+
+    //creates objects below //TODO: defined correctly? does order matter
     vertex cube[] = {
         //front square
         {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
@@ -82,23 +85,64 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
 
         //left side square
-        {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},\
-        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,1.0f,1.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,-1.0f,1.0f,1.0f,0.0f},
+        {-1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
 
-        {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
-        {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,1.0f,1.0f,1.0f,0.0f,0.0f},
+        {-1.0f,1.0f,-1.0f,1.0f,0.0f,0.0f},
+        {-1.0f,-1.0f,-1.0f,1.0f,0.0f,0.0f},
 
         //top square
+        {-1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
+        {1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
+        {-1.0f,1.0f,-1.0f,0.0f,0.0f,1.0f},
+
+        {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+        {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
 
         //bottom square
+        {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+
+        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
 
         //right square
+        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+        {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+
+        {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
 
         //back square
+        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
 
+        {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
     };
+
+    //create VAO
+    glGenVertexArrays(1, &cubeVao);
+
+    //create VB
+    glGenBuffers(1, &cubeVbo);
+
+    glBufferData(GL_ARRAY_BUFFER, 6*6*sizeof(vertex), cube, GL_STATIC_DRAW); //set vertices as data of our vbo
+
+    glEnableVertexAttribArray(0);   //Say we send data for postion 0(coordinates) to shaders, (still to define what is data and match in shader)
+    glEnableVertexAttribArray(1);   //Say we send data for postion 1(colors) to shaders
+
+    glVertexAttribPointer(0,3, GL_FLOAT, false, sizeof(vertex), 0);
+    glVertexAttribPointer(1,3, GL_FLOAT, false, sizeof(vertex), (GLvoid*)(3*sizeof(GLfloat)));
 
 }
 
@@ -127,6 +171,11 @@ void MainView::paintGL() {
     shaderProgram.bind();
 
     // Draw here
+    glBindVertexArray(cubeVao); //TODO: bind like this?? Do we also need to bind our VBO?
+    glBindBuffer(GL_ARRAY_BUFFER, cubeVbo);
+
+    glDrawArrays(GL_TRIANGLES, 0, 6*6);
+
 
     shaderProgram.release();
 }
