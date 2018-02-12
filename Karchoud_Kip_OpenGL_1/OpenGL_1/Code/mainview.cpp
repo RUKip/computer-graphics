@@ -60,7 +60,7 @@ void MainView::initializeGL() {
     // Enable depth buffer
     glEnable(GL_DEPTH_TEST);
 
-    // Enable backface culling
+    // Enable backface culling //TODO: check if vertices are in the right order of the culling
     glEnable(GL_CULL_FACE);
 
     // Default is GL_LESS
@@ -132,11 +132,14 @@ void MainView::initializeGL() {
 
     //create VAO
     glGenVertexArrays(1, &cubeVao);
+    glBindVertexArray(cubeVao);
 
     //create VB
     glGenBuffers(1, &cubeVbo);
+    glBindBuffer(GL_ARRAY_BUFFER, cubeVbo);
 
     glBufferData(GL_ARRAY_BUFFER, 6*6*sizeof(vertex), cube, GL_STATIC_DRAW); //set vertices as data of our vbo
+
 
     glEnableVertexAttribArray(0);   //Say we send data for postion 0(coordinates) to shaders, (still to define what is data and match in shader)
     glEnableVertexAttribArray(1);   //Say we send data for postion 1(colors) to shaders
@@ -171,8 +174,7 @@ void MainView::paintGL() {
     shaderProgram.bind();
 
     // Draw here
-    glBindVertexArray(cubeVao); //TODO: bind like this?? Do we also need to bind our VBO?
-    glBindBuffer(GL_ARRAY_BUFFER, cubeVbo);
+    glBindVertexArray(cubeVao);
 
     glDrawArrays(GL_TRIANGLES, 0, 6*6);
 
