@@ -38,7 +38,10 @@ public:
         GLfloat colorB;
     };
     GLuint cubeVbo;
+    GLuint pyVbo;
     GLuint cubeVao;
+    GLuint pyVao;
+
 
     // Functions for widget input events
     void setRotation(int rotateX, int rotateY, int rotateZ);

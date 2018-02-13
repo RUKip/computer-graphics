@@ -26,8 +26,10 @@ MainView::MainView(QWidget *parent) : QOpenGLWidget(parent) {
  */
 MainView::~MainView() {
     debugLogger->stopLogging();
-    glDeleteVertexArrays(1, &cubeVao); //TODO: destructor correct?
+    glDeleteVertexArrays(1, &cubeVao);
     glDeleteBuffers(1, &cubeVbo);
+    glDeleteVertexArrays(1, &pyVao);
+    glDeleteBuffers(1, &pyVbo);
     qDebug() << "MainView destructor";
 }
 
@@ -63,6 +65,8 @@ void MainView::initializeGL() {
     // Enable backface culling //TODO: check if vertices are in the right order of the culling
     glEnable(GL_CULL_FACE);
 
+    glFrontFace(GL_CW); //TODO: because we defined everthing clockwise
+
     // Default is GL_LESS
     glDepthFunc(GL_LEQUAL);
 
@@ -71,22 +75,30 @@ void MainView::initializeGL() {
 
     createShaderProgram();
 
-    //TODO: the pyramid has to be added aswell
     vertex pyramid[] = {
-        //front side
+        //front sideGL_CW
+        {0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.5f},
+        {1.0f, -1.0f, 1.0f, 0.0f, 0.5f, 0.0f},
+        {-1.0f, -1.0f, 1.0f, 0.5f, 0.0f, 0.0f},
 
         //left side
+        {0.0f, 1.0f, 0.0f, 0.0f, 0.3f, 1.0f},
+        {-1.0f, -1.0f, 1.0f, 0.9f, 0.4f, 1.0f},
+        {0.0f, -1.0f, -1.0f, 0.3f, 0.2f, 1.0f},
 
         //right side
-
-        //back side
+        {0.0f, 1.0f, 0.0f, 0.1f, 0.2f, 0.7f},
+        {0.0f, -1.0f, -1.0f, 0.1f, 0.0f, 1.0f},
+        {1.0f, -1.0f, 1.0f, 0.2f, 1.0f, 0.3f},
 
         //bottom side
-
+        {-1.0f, -1.0f, 1.0f, 0.0f, 1.0f, 0.0f},
+        {1.0f, -1.0f, 1.0f, 0.9f, 1.0f, 0.0f},
+        {0.0f, -1.0f, -1.0f, 1.0f, 0.3f, 1.0f}
     };
     //creates objects below //TODO: defined correctly? does order matter
     vertex cube[] = {
-        //front square TODO:(correct i think, clockwise)
+        //front square
         {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
@@ -95,16 +107,16 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
         {1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
 
-        //left side square TODO:(correct i think, clockwise)
+        //left side square
         {-1.0f,-1.0f,1.0f,1.0f,1.0f,0.0f},
         {-1.0f,1.0f,-1.0f,1.0f,1.0f,0.0f},
         {-1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
 
         {-1.0f,-1.0f,1.0f,1.0f,0.0f,0.0f},
-        {-1.0f,-1.0f,-1.0f,1.0f,0.0f,0.0f},
+        {-1.0f,-1.0f,GL_CW-1.0f,1.0f,0.0f,0.0f},
         {-1.0f,1.0f,-1.0f,1.0f,0.0f,0.0f},
 
-        //top square TODO:(correct i think, clockwise so BF)
+        //top square
         {-1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
         {-1.0f,1.0f,-1.0f,0.0f,0.0f,1.0f},
         {1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
@@ -113,7 +125,7 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
         {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
 
-        //bottom square TODO:(correct i think, clockwise so BF)
+        //bottom square
         {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
@@ -122,7 +134,7 @@ void MainView::initializeGL() {
         {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
 
-        //right square TODO:(correct i think, clockwise so BF)
+        //right square
         {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
@@ -131,7 +143,7 @@ void MainView::initializeGL() {
         {1.0f,1.0f,-1.0f,1.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,1.0f,1.0f,0.0f},
 
-        //back square TODO:(correct i think, clockwise so BF)
+        //back square
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
         {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
         {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
@@ -141,6 +153,7 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,-1.0f,0.0f,1.0f,1.0f},
     };
 
+    //create cube
     //create VAO
     glGenVertexArrays(1, &cubeVao);
     glBindVertexArray(cubeVao);
@@ -151,13 +164,26 @@ void MainView::initializeGL() {
 
     glBufferData(GL_ARRAY_BUFFER, 6*6*sizeof(vertex), cube, GL_STATIC_DRAW); //set vertices as data of our vbo
 
-
     glEnableVertexAttribArray(0);   //Say we send data for postion 0(coordinates) to shaders, (still to define what is data and match in shader)
     glEnableVertexAttribArray(1);   //Say we send data for postion 1(colors) to shaders
 
     glVertexAttribPointer(0,3, GL_FLOAT, false, sizeof(vertex), 0);
     glVertexAttribPointer(1,3, GL_FLOAT, false, sizeof(vertex), (GLvoid*)(3*sizeof(GLfloat)));
 
+    //create pyramid
+    glGenVertexArrays(1, &pyVao);
+    glBindVertexArray(pyVao);
+
+    glGenBuffers(1, &pyVbo);
+    glBindBuffer(GL_ARRAY_BUFFER, pyVbo);
+
+    glBufferData(GL_ARRAY_BUFFER, 3*4*sizeof(vertex), pyramid, GL_STATIC_DRAW); //set vertices as data of our vbo
+
+    glEnableVertexAttribArray(0);   //Say we send data for postion 0(coordinates) to shaders, (still to define what is data and match in shader)
+    glEnableVertexAttribArray(1);   //Say we send data for postion 1(colors) to shaders
+
+    glVertexAttribPointer(0,3, GL_FLOAT, false, sizeof(vertex), 0);
+    glVertexAttribPointer(1,3, GL_FLOAT, false, sizeof(vertex), (GLvoid*)(3*sizeof(GLfloat)));
 }
 
 void MainView::createShaderProgram()
@@ -184,10 +210,13 @@ void MainView::paintGL() {
 
     shaderProgram.bind();
 
-    // Draw here
+    // Draw here cube
     glBindVertexArray(cubeVao);
-
     glDrawArrays(GL_TRIANGLES, 0, 6*6);
+
+    // Draw here pyramide
+    glBindVertexArray(pyVao);
+    glDrawArrays(GL_TRIANGLES, 0, 3*4);
 
 
     shaderProgram.release();
