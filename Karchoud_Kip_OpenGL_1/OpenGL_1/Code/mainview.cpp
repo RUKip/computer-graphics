@@ -75,59 +75,59 @@ void MainView::initializeGL() {
 
     //creates objects below //TODO: defined correctly? does order matter
     vertex cube[] = {
-        //front square
+        //front square TODO:(correct i think, clockwise)
         {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
-        {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
-        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
-
         {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
-        {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
 
-        //left side square
-        {-1.0f,-1.0f,1.0f,1.0f,1.0f,0.0f},
-        {-1.0f,-1.0f,-1.0f,1.0f,1.0f,0.0f},
-        {-1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
-
-        {-1.0f,1.0f,1.0f,1.0f,0.0f,0.0f},
-        {-1.0f,1.0f,-1.0f,1.0f,0.0f,0.0f},
-        {-1.0f,-1.0f,-1.0f,1.0f,0.0f,0.0f},
-
-        //top square
+        {1.0f,-1.0f,1.0f,0.0f,0.0f,1.0f},
         {-1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
         {1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
+
+        //left side square TODO:(correct i think, clockwise)
+        {-1.0f,-1.0f,1.0f,1.0f,1.0f,0.0f},
+        {-1.0f,1.0f,-1.0f,1.0f,1.0f,0.0f},
+        {-1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
+
+        {-1.0f,-1.0f,1.0f,1.0f,0.0f,0.0f},
+        {-1.0f,-1.0f,-1.0f,1.0f,0.0f,0.0f},
+        {-1.0f,1.0f,-1.0f,1.0f,0.0f,0.0f},
+
+        //top square TODO:(correct i think, clockwise so BF)
+        {-1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
         {-1.0f,1.0f,-1.0f,0.0f,0.0f,1.0f},
+        {1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
 
         {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
-        {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
         {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
 
-        //bottom square
+        //bottom square TODO:(correct i think, clockwise so BF)
         {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
-        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
 
         {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
 
-        //right square
-        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
-        {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
-
+        //right square TODO:(correct i think, clockwise so BF)
+        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
 
-        //back square
-        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
+        {1.0f,1.0f,-1.0f,1.0f,1.0f,0.0f},
+        {1.0f,-1.0f,-1.0f,1.0f,1.0f,0.0f},
+
+        //back square TODO:(correct i think, clockwise so BF)
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
-
         {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+
+        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,1.0f},
+        {1.0f,1.0f,-1.0f,0.0f,1.0f,1.0f},
+        {-1.0f,1.0f,-1.0f,0.0f,1.0f,1.0f},
     };
 
     //create VAO
