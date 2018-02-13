@@ -200,7 +200,7 @@ void MainView::createShaderProgram()
                                            ":/shaders/fragshader.glsl");
     shaderProgram.link();
 
-    modelTransformVert = shaderProgram.uniformLocation("modelTransform");
+    modelTransformVert = shaderProgram.uniformLocation("modelTransform"); //TODO: uniform's or projection matrices still not working fully?
     modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
 }
 

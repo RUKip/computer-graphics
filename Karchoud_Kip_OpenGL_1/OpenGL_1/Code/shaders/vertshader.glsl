@@ -9,8 +9,8 @@ layout (location = 1) in vec3 vertColor_in;
 
 // Specify the Uniforms of the vertex shader
 // uniform mat4 modelTransform; for example
-uniform mat4 modelTransform;
 uniform mat4 projectionTransform;
+uniform mat4 modelTransform;
 
 // Specify the output of the vertex stage
 out vec3 vertColor;
