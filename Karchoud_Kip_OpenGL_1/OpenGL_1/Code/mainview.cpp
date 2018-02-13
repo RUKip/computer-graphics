@@ -96,7 +96,7 @@ void MainView::initializeGL() {
         {1.0f, -1.0f, 1.0f, 0.9f, 1.0f, 0.0f},
         {0.0f, -1.0f, -1.0f, 1.0f, 0.3f, 1.0f}
     };
-    //creates objects below //TODO: defined correctly? does order matter
+    //creates objects below
     vertex cube[] = {
         //front square
         {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
@@ -113,7 +113,7 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
 
         {-1.0f,-1.0f,1.0f,1.0f,0.0f,0.0f},
-        {-1.0f,-1.0f,GL_CW-1.0f,1.0f,0.0f,0.0f},
+        {-1.0f,-1.0f,-1.0f,1.0f,0.0f,0.0f},
         {-1.0f,1.0f,-1.0f,1.0f,0.0f,0.0f},
 
         //top square
@@ -152,6 +152,12 @@ void MainView::initializeGL() {
         {1.0f,1.0f,-1.0f,0.0f,1.0f,1.0f},
         {-1.0f,1.0f,-1.0f,0.0f,1.0f,1.0f},
     };
+
+    QMatrix4x4 projectionCube;
+    projectionCube.translate(2,0,6);
+    QMatrix4x4 projectionPy;
+    projectionPy.translate(-2,0,-6);
+
 
     //create cube
     //create VAO

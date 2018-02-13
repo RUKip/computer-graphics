@@ -42,7 +42,6 @@ public:
     GLuint cubeVao;
     GLuint pyVao;
 
-
     // Functions for widget input events
     void setRotation(int rotateX, int rotateY, int rotateZ);
     void setScale(int scale);
@@ -69,7 +68,6 @@ private slots:
 
 private:
     void createShaderProgram();
-
 };
 
 #endif // MAINVIEW_H
