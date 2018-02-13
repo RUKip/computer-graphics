@@ -72,7 +72,18 @@ void MainView::initializeGL() {
     createShaderProgram();
 
     //TODO: the pyramid has to be added aswell
+    vertex pyramid[] = {
+        //front side
 
+        //left side
+
+        //right side
+
+        //back side
+
+        //bottom side
+
+    };
     //creates objects below //TODO: defined correctly? does order matter
     vertex cube[] = {
         //front square TODO:(correct i think, clockwise)
