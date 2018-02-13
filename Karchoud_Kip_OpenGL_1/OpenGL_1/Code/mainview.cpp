@@ -153,11 +153,10 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,-1.0f,0.0f,1.0f,1.0f},
     };
 
-    QMatrix4x4 projectionCube;
+    //creat projection matrices
     projectionCube.translate(2,0,6);
-    QMatrix4x4 projectionPy;
     projectionPy.translate(-2,0,-6);
-
+    projectionModel.perspective(60, 2/2, 0.1, 1000);
 
     //create cube
     //create VAO
@@ -200,6 +199,9 @@ void MainView::createShaderProgram()
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Fragment,
                                            ":/shaders/fragshader.glsl");
     shaderProgram.link();
+
+    modelTransformVert = shaderProgram.uniformLocation("modelTransform");
+    modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
 }
 
 // --- OpenGL drawing
@@ -216,9 +218,18 @@ void MainView::paintGL() {
 
     shaderProgram.bind();
 
+    //set uniform matrices projection
+    glUniformMatrix4fv(modelProjectionVert, 1, false, projectionModel.data());
+
+    //set uniform matrices shaders (cube)
+    glUniformMatrix4fv(modelTransformVert, 1, false, projectionCube.data());
+
     // Draw here cube
     glBindVertexArray(cubeVao);
     glDrawArrays(GL_TRIANGLES, 0, 6*6);
+
+    //set uniform matrices shaders (pyrmamide)
+    glUniformMatrix4fv(modelTransformVert, 1, false, projectionPy.data());
 
     // Draw here pyramide
     glBindVertexArray(pyVao);
@@ -241,6 +252,7 @@ void MainView::resizeGL(int newWidth, int newHeight)
     // TODO: Update projection to fit the new aspect ratio
     Q_UNUSED(newWidth)
     Q_UNUSED(newHeight)
+    projectionModel.perspective(60, newWidth/newHeight, 0.1, 1000);
 }
 
 // --- Public interface

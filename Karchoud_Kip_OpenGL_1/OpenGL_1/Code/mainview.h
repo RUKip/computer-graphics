@@ -42,6 +42,14 @@ public:
     GLuint cubeVao;
     GLuint pyVao;
 
+    QMatrix4x4 projectionPy;
+    QMatrix4x4 projectionCube;
+    QMatrix4x4 projectionModel;
+
+    GLint modelTransformVert;
+    GLint modelProjectionVert;
+
+
     // Functions for widget input events
     void setRotation(int rotateX, int rotateY, int rotateZ);
     void setScale(int scale);
