@@ -62,10 +62,8 @@ void MainView::initializeGL() {
     // Enable depth buffer
     glEnable(GL_DEPTH_TEST);
 
-    // Enable backface culling //TODO: check if vertices are in the right order of the culling
+    // Enable backface culling
     glEnable(GL_CULL_FACE);
-
-    glFrontFace(GL_CW); //TODO: because we defined everthing clockwise
 
     // Default is GL_LESS
     glDepthFunc(GL_LEQUAL);
@@ -75,88 +73,106 @@ void MainView::initializeGL() {
 
     createShaderProgram();
 
+    //set scales and rotation variables of the world
+    initScale = 1.0f;
+    worldRotationX = 0;
+    worldRotationY = 0;
+    worldRotationZ = 0;
+
     vertex pyramid[] = {
         //front sideGL_CW
-        {0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.5f},
+//        {0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.5f},
+//        {1.0f, -1.0f, 1.0f, 0.0f, 0.5f, 0.0f},
+//        {-1.0f, -1.0f, 1.0f, 0.5f, 0.0f, 0.0f},
         {1.0f, -1.0f, 1.0f, 0.0f, 0.5f, 0.0f},
+        {0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.5f},
         {-1.0f, -1.0f, 1.0f, 0.5f, 0.0f, 0.0f},
 
+
         //left side
-        {0.0f, 1.0f, 0.0f, 0.0f, 0.3f, 1.0f},
+//        {0.0f, 1.0f, 0.0f, 0.0f, 0.3f, 1.0f},
+//        {-1.0f, -1.0f, 1.0f, 0.9f, 0.4f, 1.0f},
+//        {0.0f, -1.0f, -1.0f, 0.3f, 0.2f, 1.0f},
         {-1.0f, -1.0f, 1.0f, 0.9f, 0.4f, 1.0f},
+        {0.0f, 1.0f, 0.0f, 0.0f, 0.3f, 1.0f},
         {0.0f, -1.0f, -1.0f, 0.3f, 0.2f, 1.0f},
 
         //right side
-        {0.0f, 1.0f, 0.0f, 0.1f, 0.2f, 0.7f},
+//        {0.0f, 1.0f, 0.0f, 0.1f, 0.2f, 0.7f},
+//        {0.0f, -1.0f, -1.0f, 0.1f, 0.0f, 1.0f},
+//        {1.0f, -1.0f, 1.0f, 0.2f, 1.0f, 0.3f},
         {0.0f, -1.0f, -1.0f, 0.1f, 0.0f, 1.0f},
+        {0.0f, 1.0f, 0.0f, 0.1f, 0.2f, 0.7f},
         {1.0f, -1.0f, 1.0f, 0.2f, 1.0f, 0.3f},
 
         //bottom side
-        {-1.0f, -1.0f, 1.0f, 0.0f, 1.0f, 0.0f},
+//        {-1.0f, -1.0f, 1.0f, 0.0f, 1.0f, 0.0f},
+//        {1.0f, -1.0f, 1.0f, 0.9f, 1.0f, 0.0f},
+//        {0.0f, -1.0f, -1.0f, 1.0f, 0.3f, 1.0f}
         {1.0f, -1.0f, 1.0f, 0.9f, 1.0f, 0.0f},
+        {-1.0f, -1.0f, 1.0f, 0.0f, 1.0f, 0.0f},
         {0.0f, -1.0f, -1.0f, 1.0f, 0.3f, 1.0f}
     };
-    //creates objects below
+    //creates objects below //TODO: misses bottom vertices, fix
     vertex cube[] = {
         //front square
-        {-1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
-        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
-        {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,1.0f,0.4f,1.0f,0.0f},
+        {-1.0f,1.0f,1.0f,0.2f,1.0f,0.0f},
+        {-1.0f,-1.0f,1.0f,0.3f,1.0f,0.0f},
 
-        {1.0f,-1.0f,1.0f,0.0f,0.0f,1.0f},
-        {-1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
-        {1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
+        {-1.0f,1.0f,1.0f,0.5f,0.1f,1.0f},
+        {1.0f,-1.0f,1.0f,0.1f,0.2f,1.0f},
+        {1.0f,1.0f,1.0f,0.2f,0.1f,1.0f},
 
         //left side square
-        {-1.0f,-1.0f,1.0f,1.0f,1.0f,0.0f},
         {-1.0f,1.0f,-1.0f,1.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,1.0f,1.0f,1.0f,0.0f},
         {-1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
 
-        {-1.0f,-1.0f,1.0f,1.0f,0.0f,0.0f},
         {-1.0f,-1.0f,-1.0f,1.0f,0.0f,0.0f},
+        {-1.0f,-1.0f,1.0f,1.0f,0.0f,0.0f},
         {-1.0f,1.0f,-1.0f,1.0f,0.0f,0.0f},
 
         //top square
-        {-1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
-        {-1.0f,1.0f,-1.0f,0.0f,0.0f,1.0f},
-        {1.0f,1.0f,1.0f,0.0f,0.0f,1.0f},
+        {-1.0f,1.0f,-1.0f,0.1f,0.5f,1.0f},
+        {-1.0f,1.0f,1.0f,0.1f,0.6f,1.0f},
+        {1.0f,1.0f,1.0f,0.2f,0.7f,1.0f},
 
-        {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
         {-1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
 
         //bottom square
-        {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {-1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
 
-        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
 
         //right square
-        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,1.0f,1.0f,0.0f,1.0f,0.0f},
+        {1.0f,-1.0f,1.0f,0.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
 
-        {1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
         {1.0f,1.0f,-1.0f,1.0f,1.0f,0.0f},
+        {1.0f,1.0f,1.0f,1.0f,1.0f,0.0f},
         {1.0f,-1.0f,-1.0f,1.0f,1.0f,0.0f},
 
         //back square
-        {1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {1.0f,1.0f,-1.0f,0.0f,1.0f,0.0f},
-        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,0.0f},
+        {1.0f,1.0f,-1.0f,0.6f,0.8f,0.1},
+        {1.0f,-1.0f,-1.0f,0.6f,0.7f,0.2f},
+        {-1.0f,-1.0f,-1.0f,0.6f,0.6f,0.3f},
 
-        {-1.0f,-1.0f,-1.0f,0.0f,1.0f,1.0f},
-        {1.0f,1.0f,-1.0f,0.0f,1.0f,1.0f},
-        {-1.0f,1.0f,-1.0f,0.0f,1.0f,1.0f},
+        {1.0f,1.0f,-1.0f,0.2f,0.1f,1.0f},
+        {-1.0f,-1.0f,-1.0f,0.2f,0.1f,1.0f},
+        {-1.0f,1.0f,-1.0f,0.2f,0.1f,1.0f},
     };
 
-    //creat projection matrices
-    projectionCube.translate(2,0,6);
-    projectionPy.translate(-2,0,-6);
-    projectionModel.perspective(60, 2/2, 0.1, 1000);
+    //create projection matrices
+    projectionModel.setToIdentity();
+    projectionModel.perspective(60, 1, 0.1, 1000);
 
     //create cube
     //create VAO
@@ -200,7 +216,7 @@ void MainView::createShaderProgram()
                                            ":/shaders/fragshader.glsl");
     shaderProgram.link();
 
-    modelTransformVert = shaderProgram.uniformLocation("modelTransform"); //TODO: uniform's or projection matrices still not working fully?
+    modelTransformVert = shaderProgram.uniformLocation("modelTransform");
     modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
 }
 
@@ -218,18 +234,32 @@ void MainView::paintGL() {
 
     shaderProgram.bind();
 
+    modelTransformCube.setToIdentity();
+    modelTransformPy.setToIdentity();
+    modelTransformCube.translate(2,0,-6);
+    modelTransformPy.translate(-2,0,-6);
+    modelTransformCube.scale(initScale);
+    modelTransformPy.scale(initScale);
+    modelTransformCube.rotate(worldRotationX, {1,0,0});
+    modelTransformCube.rotate(worldRotationY, {0,1,0});
+    modelTransformCube.rotate(worldRotationZ, {0,0,1});
+    modelTransformPy.rotate(worldRotationX, {1,0,0});
+    modelTransformPy.rotate(worldRotationY, {0,1,0});
+    modelTransformPy.rotate(worldRotationZ, {0,0,1});
+
+
     //set uniform matrices projection
     glUniformMatrix4fv(modelProjectionVert, 1, false, projectionModel.data());
 
     //set uniform matrices shaders (cube)
-    glUniformMatrix4fv(modelTransformVert, 1, false, projectionCube.data());
+    glUniformMatrix4fv(modelTransformVert, 1, false, modelTransformCube.data());
 
     // Draw here cube
     glBindVertexArray(cubeVao);
     glDrawArrays(GL_TRIANGLES, 0, 6*6);
 
     //set uniform matrices shaders (pyrmamide)
-    glUniformMatrix4fv(modelTransformVert, 1, false, projectionPy.data());
+    glUniformMatrix4fv(modelTransformVert, 1, false, modelTransformPy.data());
 
     // Draw here pyramide
     glBindVertexArray(pyVao);
@@ -249,9 +279,9 @@ void MainView::paintGL() {
  */
 void MainView::resizeGL(int newWidth, int newHeight) 
 {
-    // TODO: Update projection to fit the new aspect ratio
-    Q_UNUSED(newWidth)
-    Q_UNUSED(newHeight)
+//    Q_UNUSED(newWidth)
+//    Q_UNUSED(newHeight)
+    projectionModel.setToIdentity();
     projectionModel.perspective(60, newWidth/newHeight, 0.1, 1000);
 }
 
@@ -260,13 +290,20 @@ void MainView::resizeGL(int newWidth, int newHeight)
 void MainView::setRotation(int rotateX, int rotateY, int rotateZ)
 {
     qDebug() << "Rotation changed to (" << rotateX << "," << rotateY << "," << rotateZ << ")";
-    Q_UNIMPLEMENTED();
+//    Q_UNIMPLEMENTED();
+    worldRotationX = rotateX;
+    worldRotationY = rotateY;
+    worldRotationZ = rotateZ;
+    update();
 }
 
 void MainView::setScale(int scale)
 {
     qDebug() << "Scale changed to " << scale;
-    Q_UNIMPLEMENTED();
+    //Q_UNIMPLEMENTED();
+    //min 1, max 200
+    initScale = ((float) scale/100);
+    update();
 }
 
 void MainView::setShadingMode(ShadingMode shading)
