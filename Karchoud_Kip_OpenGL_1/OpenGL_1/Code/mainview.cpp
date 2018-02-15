@@ -73,11 +73,8 @@ void MainView::initializeGL() {
 
     createShaderProgram();
 
-    //set scales and rotation variables of the world
-    initScale = 1.0f;
-    worldRotationX = 0;
-    worldRotationY = 0;
-    worldRotationZ = 0;
+    //Initialze camera an world settings
+    initWorld();
 
     vertex pyramid[] = {
         //front sideGL_CW
@@ -158,10 +155,6 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,-1.0f,0.2f,0.9f,1.0f},
     };
 
-    //create projection matrices
-    projectionModel.setToIdentity();
-    projectionModel.perspective(60, 1, 0.1, 1000);
-
     //create cube
     //create VAO
     glGenVertexArrays(1, &cubeVao);
@@ -208,6 +201,21 @@ void MainView::createShaderProgram()
     modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
 }
 
+//initialize rotation and scale variables and set initial projection
+void MainView::initWorld()
+{
+    initScale = 1.0f;
+    worldRotationX = 0;
+    worldRotationY = 0;
+    worldRotationZ = 0;
+
+    //create projection matrices
+    projectionModel.setToIdentity();
+    projectionModel.perspective(60, 1, 0.1, 1000);
+
+}
+
+
 // --- OpenGL drawing
 
 /**
@@ -222,19 +230,7 @@ void MainView::paintGL() {
 
     shaderProgram.bind();
 
-    modelTransformCube.setToIdentity();
-    modelTransformPy.setToIdentity();
-    modelTransformCube.translate(2,0,-6);
-    modelTransformPy.translate(-2,0,-6);
-    modelTransformCube.scale(initScale);
-    modelTransformPy.scale(initScale);
-    modelTransformCube.rotate(worldRotationX, {1,0,0});
-    modelTransformCube.rotate(worldRotationY, {0,1,0});
-    modelTransformCube.rotate(worldRotationZ, {0,0,1});
-    modelTransformPy.rotate(worldRotationX, {1,0,0});
-    modelTransformPy.rotate(worldRotationY, {0,1,0});
-    modelTransformPy.rotate(worldRotationZ, {0,0,1});
-
+    doModelTransformations();
 
     //set uniform matrices projection
     glUniformMatrix4fv(modelProjectionVert, 1, false, projectionModel.data());
@@ -255,6 +251,24 @@ void MainView::paintGL() {
 
 
     shaderProgram.release();
+}
+
+//transformations on the objects in the world
+void MainView::doModelTransformations()
+{
+    modelTransformCube.setToIdentity();
+    modelTransformPy.setToIdentity();
+    modelTransformCube.translate(2,0,-6);
+    modelTransformPy.translate(-2,0,-6);
+    modelTransformCube.scale(initScale);
+    modelTransformPy.scale(initScale);
+    modelTransformCube.rotate(worldRotationX, {1,0,0}); //x-axis rotation cube
+    modelTransformCube.rotate(worldRotationY, {0,1,0}); //y-axis rotation cube
+    modelTransformCube.rotate(worldRotationZ, {0,0,1}); //z-axis rotation cube
+    modelTransformPy.rotate(worldRotationX, {1,0,0}); //x-axis rotation pyramid
+    modelTransformPy.rotate(worldRotationY, {0,1,0}); //y-axis rotation pyramid
+    modelTransformPy.rotate(worldRotationZ, {0,0,1}); //z-axis rotatoin pyramid
+
 }
 
 /**

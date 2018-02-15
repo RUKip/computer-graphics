@@ -80,6 +80,8 @@ private slots:
 
 private:
     void createShaderProgram();
+    void initWorld();
+    void doModelTransformations();
 };
 
 #endif // MAINVIEW_H
