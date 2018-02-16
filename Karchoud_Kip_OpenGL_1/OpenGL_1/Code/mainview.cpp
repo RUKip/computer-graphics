@@ -155,35 +155,39 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,-1.0f,0.2f,0.9f,1.0f},
     };
 
+    //TODO: creation of VAO, VBO and enabling can be made a function?
+
+    //TODO: make a function?
+    //create sphere (from model)
+    sphereModel = new Model(":/models/sphere.obj");
+    vertex sphere[sphereModel->getNumTriangles()*3];
+    modelToVertices(sphereModel, sphere);
+    createObjectBuffers(sphereVao, sphereVbo, sphere, sphereModel->getNumTriangles()*3);
+
     //create cube
-    //create VAO
-    glGenVertexArrays(1, &cubeVao);
-    glBindVertexArray(cubeVao);
-
-    //create VB
-    glGenBuffers(1, &cubeVbo);
-    glBindBuffer(GL_ARRAY_BUFFER, cubeVbo);
-
-    glBufferData(GL_ARRAY_BUFFER, 6*6*sizeof(vertex), cube, GL_STATIC_DRAW); //set vertices as data of our vbo
-
-    glEnableVertexAttribArray(0);   //Say we send data for postion 0(coordinates) to shaders, (still to define what is data and match in shader)
-    glEnableVertexAttribArray(1);   //Say we send data for postion 1(colors) to shaders
-
-    glVertexAttribPointer(0,3, GL_FLOAT, false, sizeof(vertex), 0);
-    glVertexAttribPointer(1,3, GL_FLOAT, false, sizeof(vertex), (GLvoid*)(3*sizeof(GLfloat)));
+    createObjectBuffers(cubeVao, cubeVbo, cube, 6*6);
 
     //create pyramid
-    glGenVertexArrays(1, &pyVao);
-    glBindVertexArray(pyVao);
+    createObjectBuffers(pyVao, pyVbo, pyramid, 3*4);
+}
 
-    glGenBuffers(1, &pyVbo);
-    glBindBuffer(GL_ARRAY_BUFFER, pyVbo);
+//creates VAO and VBO buffers and binds them, assumes always uses a vertex with xyz and rgb
+void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int numberOfVertices)
+{
+    //create VAO
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
 
-    glBufferData(GL_ARRAY_BUFFER, 3*4*sizeof(vertex), pyramid, GL_STATIC_DRAW); //set vertices as data of our vbo
+    //create VBO
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+    glBufferData(GL_ARRAY_BUFFER, numberOfVertices*sizeof(vertex), model, GL_STATIC_DRAW); //set vertices as data of our vbo
 
     glEnableVertexAttribArray(0);   //Say we send data for postion 0(coordinates) to shaders, (still to define what is data and match in shader)
     glEnableVertexAttribArray(1);   //Say we send data for postion 1(colors) to shaders
 
+    //give the size and location of the different attributes in the VBO
     glVertexAttribPointer(0,3, GL_FLOAT, false, sizeof(vertex), 0);
     glVertexAttribPointer(1,3, GL_FLOAT, false, sizeof(vertex), (GLvoid*)(3*sizeof(GLfloat)));
 }
@@ -213,6 +217,18 @@ void MainView::initWorld()
     projectionModel.setToIdentity();
     projectionModel.perspective(60, 1, 0.1, 1000);
 
+}
+
+void MainView::modelToVertices(Model* model, vertex* vertices)
+{
+    QVector<QVector3D> sphereVertices = model->getVertices();
+    for(int i=0; i<(model->getNumTriangles()*3); i++){\
+        GLfloat randomColorR = ((float) rand() / RAND_MAX);
+        GLfloat randomColorG = ((float) rand() / RAND_MAX);
+        GLfloat randomColorB = ((float) rand() / RAND_MAX);
+        QVector3D singleVertex = sphereVertices[i];
+        vertices[i] = {singleVertex.x(), singleVertex.y(), singleVertex.z(), randomColorR, randomColorG, randomColorB};
+    }
 }
 
 
@@ -250,16 +266,26 @@ void MainView::paintGL() {
     glDrawArrays(GL_TRIANGLES, 0, 3*4);
 
 
+    //set uniform matrices shaders (sphere)
+    glUniformMatrix4fv(modelTransformVert, 1, false, modelTransformSphere.data());
+
+    // Draw here sphere
+    glBindVertexArray(sphereVao);
+    glDrawArrays(GL_TRIANGLES, 0, sphereModel->getNumTriangles()*3);
+
     shaderProgram.release();
 }
 
-//transformations on the objects in the world
+//transformations on the objects in the world TODO: can be written shorter
 void MainView::doModelTransformations()
 {
+    modelTransformSphere.setToIdentity();
     modelTransformCube.setToIdentity();
     modelTransformPy.setToIdentity();
     modelTransformCube.translate(2,0,-6);
     modelTransformPy.translate(-2,0,-6);
+    modelTransformSphere.translate(0,0,-10);
+    modelTransformSphere.scale(initScale*0.04);
     modelTransformCube.scale(initScale);
     modelTransformPy.scale(initScale);
     modelTransformCube.rotate(worldRotationX, {1,0,0}); //x-axis rotation cube
@@ -267,8 +293,10 @@ void MainView::doModelTransformations()
     modelTransformCube.rotate(worldRotationZ, {0,0,1}); //z-axis rotation cube
     modelTransformPy.rotate(worldRotationX, {1,0,0}); //x-axis rotation pyramid
     modelTransformPy.rotate(worldRotationY, {0,1,0}); //y-axis rotation pyramid
-    modelTransformPy.rotate(worldRotationZ, {0,0,1}); //z-axis rotatoin pyramid
-
+    modelTransformPy.rotate(worldRotationZ, {0,0,1}); //z-axis rotation pyramid
+    modelTransformSphere.rotate(worldRotationX, {1,0,0}); //x-axis rotation sphere
+    modelTransformSphere.rotate(worldRotationY, {0,1,0}); //y-axis rotation sphere
+    modelTransformSphere.rotate(worldRotationZ, {0,0,1}); //z-axis rotatoin sphere
 }
 
 /**

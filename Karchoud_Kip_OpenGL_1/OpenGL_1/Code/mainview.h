@@ -41,13 +41,18 @@ public:
     GLuint pyVbo;
     GLuint cubeVao;
     GLuint pyVao;
+    GLuint sphereVao;
+    GLuint sphereVbo;
 
     QMatrix4x4 modelTransformPy;
     QMatrix4x4 modelTransformCube;
+    QMatrix4x4 modelTransformSphere;
     QMatrix4x4 projectionModel;
 
     GLint modelTransformVert;
     GLint modelProjectionVert;
+
+    Model* sphereModel;
 
     float initScale;
     float worldRotationX;
@@ -82,6 +87,8 @@ private:
     void createShaderProgram();
     void initWorld();
     void doModelTransformations();
+    void modelToVertices(Model* model, vertex* vertices);
+    void createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int numberOfVertices);
 };
 
 #endif // MAINVIEW_H
