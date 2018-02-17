@@ -1,31 +1,48 @@
-This is a README file
-
-When submitting your assignment, describe (briefly) the changes you made and what difficulties you encountered in this file.
-
-Also describe what controls (key short-cuts, mouse clicks, mouse movement etc) and possible bonus assignments you implemented, so we can check them more easily.
-
-If you have any suggestions/feedback for improving the practical assignments or support from teaching assistants, you may include it here OR post in anonymously on Nestor under Feedback.
-
-
+This assignment was about: Transformations and User Input, divided in the following sub tasks. Shape Drawing; Transformations; Scaling and Rotation and Object loading. 
+We implemented all four parts including a bonus assignment, adding a mousewheel zoom. 
 
 #####
-Explanation added code:
-
--part 1 (shape drawing):
+Explanation added code
 
 
--part 2 (transformation):
+-- Part 1 Shape Drawing --
+We had to implement a cube and a pyramid, so we divived the shapes into triangles(6 floats, 3 xyz coordinates and 3rgb colours) and put them into an object. The cube has 6 square sides, which are devided in 2 triangles, so we have 2*6=16 triangles. 
+The pyramid has only 4 triangle sides, so that one only had 4 triangles. Then we implemented the VBO and the VAO for both the shapes. Then we gave the size and location of the different attributes in the VBO with glVertexAttribPointer(), so the first three xyz-coordinates and next three rgb-colours. 
+And glEnableVertexAttribArray(0) was set for the coordinates and glEnableVertexAttribArray(1) was set for the colours. After we all did this, we could clean them up with glDeleteBuffer and glDeleteVertex in the mainView deconstructor
+
+Then we implemented the glDrawArrays() with the corresponding VAO binded before it with glBindVertexArray() and the right number of vertices. (cube 6*6 and pyramid 3*4). 
 
 
--part 3 (scaling and rotation):
+-- Part 2 Transformation --
+We defined a  MainView::doModelTransformations where we apply translation(and also scaling and rotating, part 3). We first set the modelTransform to the identity. Then we can use inbuild functions translate() to translate the object to the according coordinates.
+We then set the projectionModel to the identity matrix in the resizeGL part and changed the perspective with perspective() with our new field of view, newWidth and newHeight, new nearPlane and  newfarPlane. 
+
+We then had to change the vertex shader to accept a uniform 4 x 4 matrix for our changes(transformation/projection), so we used glUniformMatrix4fv() with the according model data(projection/cube/pyramid), but we also had to change the main function of the vertex shaders so that it does the transformations.
+We did this with 2 specifications one for the projection: uniform mat4 projectionTransform and one for the transformations: 
+uniform mat4 modelTransform;
 
 
--part 4 (object loading):
+-- Part 3 Scaling and Rotating --
+In this part we were asked to scale and rotate our shapes. First, we initialised the world where we have a scale set on 1 and no xyz-rotation, so 0. We also set the perspective to 60 degrees here. Then we a MainView::doModelTransformations where we do the scaling and rotation by using scale(initial scale * new scale) and rotate(worldRotateX/Y/Z, with the corresponding vertex) on modelTransform.
+Where worldRotateX/Y/Z is set in the setRotation by assigning new values to worldRotateX/Y/Z and updating it. We do the same for initScale in setScale and the new scale is calculated and updated after. 
+
+
+
+
+-- Part 4 Object Loading --
+
+
+
+
 
 
 
 #####
 Problems/difficulties:
+
+First, we defined the triangles clockwise, but it was not very handy, so we defined then all counter clockwise.
+
+
 
 
 
