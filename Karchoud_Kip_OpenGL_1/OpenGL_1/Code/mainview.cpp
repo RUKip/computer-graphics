@@ -30,6 +30,8 @@ MainView::~MainView() {
     glDeleteBuffers(1, &cubeVbo);
     glDeleteVertexArrays(1, &pyVao);
     glDeleteBuffers(1, &pyVbo);
+    glDeleteBuffers(1,&sphereVao);
+    glDeleteBuffers(1,&sphereVbo);
     qDebug() << "MainView destructor";
 }
 
@@ -98,7 +100,7 @@ void MainView::initializeGL() {
         {-1.0f, -1.0f, 1.0f, 0.0f, 1.0f, 0.0f},
         {0.0f, -1.0f, -1.0f, 1.0f, 0.3f, 1.0f}
     };
-    //creates objects below //TODO: misses bottom vertices, fix
+    //creates objects below
     vertex cube[] = {
         //front square
         {1.0f,-1.0f,1.0f,0.4f,1.0f,0.5f},
@@ -155,9 +157,6 @@ void MainView::initializeGL() {
         {-1.0f,1.0f,-1.0f,0.2f,0.9f,1.0f},
     };
 
-    //TODO: creation of VAO, VBO and enabling can be made a function?
-
-    //TODO: make a function?
     //create sphere (from model)
     sphereModel = new Model(":/models/sphere.obj");
     vertex sphere[sphereModel->getNumTriangles()*3];
@@ -246,7 +245,9 @@ void MainView::paintGL() {
 
     shaderProgram.bind();
 
-    doModelTransformations();
+    doModelTransformations(modelTransformCube, {2,0,-6}, 1);
+    doModelTransformations(modelTransformPy, {-2,0,-6}, 1);
+    doModelTransformations(modelTransformSphere, {0,0,-10}, 0.04);
 
     //set uniform matrices projection
     glUniformMatrix4fv(modelProjectionVert, 1, false, projectionModel.data());
@@ -265,7 +266,6 @@ void MainView::paintGL() {
     glBindVertexArray(pyVao);
     glDrawArrays(GL_TRIANGLES, 0, 3*4);
 
-
     //set uniform matrices shaders (sphere)
     glUniformMatrix4fv(modelTransformVert, 1, false, modelTransformSphere.data());
 
@@ -276,27 +276,15 @@ void MainView::paintGL() {
     shaderProgram.release();
 }
 
-//transformations on the objects in the world TODO: can be written shorter
-void MainView::doModelTransformations()
+//transformations on the objects in the world
+void MainView::doModelTransformations(QMatrix4x4 &modelTransform, QVector3D translation, float scale)
 {
-    modelTransformSphere.setToIdentity();
-    modelTransformCube.setToIdentity();
-    modelTransformPy.setToIdentity();
-    modelTransformCube.translate(2,0,-6);
-    modelTransformPy.translate(-2,0,-6);
-    modelTransformSphere.translate(0,0,-10);
-    modelTransformSphere.scale(initScale*0.04);
-    modelTransformCube.scale(initScale);
-    modelTransformPy.scale(initScale);
-    modelTransformCube.rotate(worldRotationX, {1,0,0}); //x-axis rotation cube
-    modelTransformCube.rotate(worldRotationY, {0,1,0}); //y-axis rotation cube
-    modelTransformCube.rotate(worldRotationZ, {0,0,1}); //z-axis rotation cube
-    modelTransformPy.rotate(worldRotationX, {1,0,0}); //x-axis rotation pyramid
-    modelTransformPy.rotate(worldRotationY, {0,1,0}); //y-axis rotation pyramid
-    modelTransformPy.rotate(worldRotationZ, {0,0,1}); //z-axis rotation pyramid
-    modelTransformSphere.rotate(worldRotationX, {1,0,0}); //x-axis rotation sphere
-    modelTransformSphere.rotate(worldRotationY, {0,1,0}); //y-axis rotation sphere
-    modelTransformSphere.rotate(worldRotationZ, {0,0,1}); //z-axis rotatoin sphere
+    modelTransform.setToIdentity();
+    modelTransform.translate(translation.x(), translation.y(), translation.z());
+    modelTransform.scale(initScale*scale);
+    modelTransform.rotate(worldRotationX, {1,0,0}); //x-axis rotation
+    modelTransform.rotate(worldRotationY, {0,1,0}); //y-axis rotation
+    modelTransform.rotate(worldRotationZ, {0,0,1}); //z-axis rotation
 }
 
 /**
