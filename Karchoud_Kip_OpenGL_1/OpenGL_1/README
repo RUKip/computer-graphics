@@ -1,7 +1,7 @@
 This assignment was about: Transformations and User Input, divided in the following sub tasks. Shape Drawing; Transformations; Scaling and Rotation and Object loading. 
 We implemented all four parts. 
 
-Division of labour: (requirement for second year)
+Division of labour: (requirement for second year computer graphics)
 We did most of the work during the computer labs, where we sat next to each other and coded together. We also did some work from home but using skype, so almost everything was done in pairs.
 
 #####
@@ -34,15 +34,12 @@ Where worldRotateX/Y/Z is set in the setRotation by assigning new values to worl
 At the object loading part of the assignment, we follow the instructions and use the given Model class to create the QVector<QVector3D> of the given sphere file. Each of the QVector3D's in this QVector we convert to our own vertex struct, with the content of the QVector3D (coordinates) and 3 random RGB colors. Then the resulting vertex[] is drawn and translated/scaled/rotated like the other shapes. (see part 1,2,3) 
 
 
-
-
-
-
 #####
 Problems/difficulties:
 
-First, we defined the triangles clockwise, but it was not visable with the counter clock wise face culling, we had to change the code to work with counter clockwise, to avoid problems with the object loading part of the assignement.
+-First, we defined the triangles clockwise, but it was not visable with the counter clock wise face culling, we had to change the code to work with counter clockwise, to avoid problems with the object loading part of the assignement. 
 
+-Small c++ syntax stuff. (Mostly pointers and definitions)
 
 
 
