@@ -71,6 +71,10 @@ void MainView::wheelEvent(QWheelEvent *ev)
 {
     // Implement something
     qDebug() << "Mouse wheel:" << ev->delta();
-
+    if(ev->delta()>0){
+        if(initScale<2) initScale+=((float) 1/100);
+    }else{
+        if(initScale>0) initScale-=((float) 1/100);;
+    }
     update();
 }
