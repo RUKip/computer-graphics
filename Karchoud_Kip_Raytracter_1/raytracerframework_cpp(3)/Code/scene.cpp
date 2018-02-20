@@ -1,0 +1,118 @@
+#include "scene.h"
+
+#include "hit.h"
+#include "image.h"
+#include "material.h"
+#include "ray.h"
+
+#include <cmath>
+#include <limits>
+#include <iostream>
+
+using namespace std;
+
+Color Scene::trace(Ray const &ray)
+{
+    // Find hit object and distance
+    Hit min_hit(numeric_limits<double>::infinity(), Vector());
+    ObjectPtr obj = nullptr;
+    for (unsigned idx = 0; idx != objects.size(); ++idx)
+    {
+        Hit hit(objects[idx]->intersect(ray));
+        if (hit.t < min_hit.t)
+        {
+            min_hit = hit;
+            obj = objects[idx];
+        }
+    }
+
+    // No hit? Return background color.
+    if (!obj) return Color(0.0, 0.0, 0.0);
+
+    Material material = obj->material;          //the hit objects material
+    Point hit = ray.at(min_hit.t);                 //the hit point
+    Vector N = min_hit.N;                          //the normal at hit point
+    Vector V = -ray.D;                             //the view vector        //TODO: why is the view vector -ray.D???
+
+    /****************************************************
+    * This is where you should insert the color
+    * calculation (Phong model).
+    *
+    * Given: material, hit, N, V, lights[]
+    * Sought: color
+    *
+    * Hints: (see triple.h)
+    *        Triple.dot(Vector) dot product
+    *        Vector + Vector    vector sum
+    *        Vector - Vector    vector difference
+    *        Point - Point      yields vector
+    *        Vector.normalize() normalizes vector, returns length
+    *        double * Color     scales each color component (r,g,b)
+    *        Color * Color      dito
+    *        pow(a,b)           a to the power of b
+    ****************************************************/
+
+    Color intensityA = material.color * material.ka;
+    Color intensityD = Color(0.0,0.0,0.0);
+    Color intensityS = Color(0.0,0.0,0.0);
+
+    for(unsigned int i=0; i<lights.size(); i++){ //TODO: why unsigned?? Else it complains
+         //material diffuse part
+        Light light = *lights[i];
+        Vector L = (light.position - hit).normalized(); //TODO: do we have to normalize??? Gets pixelated effect otherwise
+        intensityD +=  light.color * max(0.0,(L.dot(N))) * material.color * material.kd;    //TODO: Slides say we have to add material.kd  and material.color everytime?? Why? Why not once?
+
+        //material specular part
+        Vector R = (-L+2*(L.dot(N))*N).normalized();    //TODO: found online but dont really understand how to derive this formula, why is it -L sometimes and +L another..
+        intensityS += light.color * pow(max(0.0, R.dot(V)), material.n) * material.ks;
+    }
+
+    Color color = intensityA + intensityD + intensityS;
+    //cout << N;
+
+    return color;
+}
+
+void Scene::render(Image &img)
+{
+    unsigned w = img.width();
+    unsigned h = img.height();
+    for (unsigned y = 0; y < h; ++y)
+    {
+        for (unsigned x = 0; x < w; ++x)
+        {
+            Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
+            Ray ray(eye, (pixel - eye).normalized());
+            Color col = trace(ray);
+            col.clamp();
+            img(x, y) = col;
+        }
+    }
+}
+
+// --- Misc functions ----------------------------------------------------------
+
+void Scene::addObject(ObjectPtr obj)
+{
+    objects.push_back(obj);
+}
+
+void Scene::addLight(Light const &light)
+{
+    lights.push_back(LightPtr(new Light(light)));
+}
+
+void Scene::setEye(Triple const &position)
+{
+    eye = position;
+}
+
+unsigned Scene::getNumObject()
+{
+    return objects.size();
+}
+
+unsigned Scene::getNumLights()
+{
+    return lights.size();
+}
