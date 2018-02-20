@@ -1,4 +1,4 @@
-The system is: Linux - 4.9.0-040900-generic - x86_64
+The system is: Linux - 4.4.0-112-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/cc 
 Build flags: 
@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,75 +23,75 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f8064/fast"
-/usr/bin/make -f CMakeFiles/cmTC_f8064.dir/build.make CMakeFiles/cmTC_f8064.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_f8064.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_f8064.dir/testCCompiler.c.o   -c "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp/testCCompiler.c"
-Linking C executable cmTC_f8064
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8064.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_f8064.dir/testCCompiler.c.o  -o cmTC_f8064 -rdynamic 
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_94b58/fast"
+/usr/bin/make -f CMakeFiles/cmTC_94b58.dir/build.make CMakeFiles/cmTC_94b58.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_94b58.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_94b58.dir/testCCompiler.c.o   -c "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp/testCCompiler.c"
+Linking C executable cmTC_94b58
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94b58.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_94b58.dir/testCCompiler.c.o  -o cmTC_94b58 -rdynamic 
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0b095/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0b095.dir/build.make CMakeFiles/cmTC_0b095.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_0b095
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0b095.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o  -o cmTC_0b095 -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_48670/fast"
+/usr/bin/make -f CMakeFiles/cmTC_48670.dir/build.make CMakeFiles/cmTC_48670.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_48670
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48670.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o  -o cmTC_48670 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
 Target: x86_64-linux-gnu
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.5' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.6' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
 Thread model: posix
-gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5) 
+gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.6) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0b095' '-rdynamic' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccm3j8SB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_0b095 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_48670' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccgQhN14.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_48670 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0b095/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_0b095.dir/build.make CMakeFiles/cmTC_0b095.dir/build]
-  ignore line: [make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_0b095]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0b095.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o  -o cmTC_0b095 -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_48670/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_48670.dir/build.make CMakeFiles/cmTC_48670.dir/build]
+  ignore line: [make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_48670]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48670.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o  -o cmTC_48670 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
   ignore line: [Target: x86_64-linux-gnu]
-  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.5' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.6' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
   ignore line: [Thread model: posix]
-  ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5) ]
+  ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.6) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0b095' '-rdynamic' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccm3j8SB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_0b095 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_48670' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccgQhN14.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_48670 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccm3j8SB.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccgQhN14.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -109,7 +109,7 @@ Parsed C implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_0b095] ==> ignore
+    arg [cmTC_48670] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
@@ -121,7 +121,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_0b095.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_48670.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -153,17 +153,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_24ccc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_24ccc.dir/build.make CMakeFiles/cmTC_24ccc.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_24ccc.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_24ccc.dir/feature_tests.c.o   -c "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_24ccc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24ccc.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_24ccc.dir/feature_tests.c.o  -o cmTC_24ccc -rdynamic 
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_393e2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_393e2.dir/build.make CMakeFiles/cmTC_393e2.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_393e2.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_393e2.dir/feature_tests.c.o   -c "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_393e2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_393e2.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_393e2.dir/feature_tests.c.o  -o cmTC_393e2 -rdynamic 
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -173,17 +173,17 @@ make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1419d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1419d.dir/build.make CMakeFiles/cmTC_1419d.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1419d.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_1419d.dir/feature_tests.c.o   -c "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_1419d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1419d.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_1419d.dir/feature_tests.c.o  -o cmTC_1419d -rdynamic 
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_90bcb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_90bcb.dir/build.make CMakeFiles/cmTC_90bcb.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_90bcb.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_90bcb.dir/feature_tests.c.o   -c "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_90bcb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90bcb.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_90bcb.dir/feature_tests.c.o  -o cmTC_90bcb -rdynamic 
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -193,17 +193,17 @@ make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_85a64/fast"
-/usr/bin/make -f CMakeFiles/cmTC_85a64.dir/build.make CMakeFiles/cmTC_85a64.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_85a64.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_85a64.dir/feature_tests.c.o   -c "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_85a64
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_85a64.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_85a64.dir/feature_tests.c.o  -o cmTC_85a64 -rdynamic 
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_26130/fast"
+/usr/bin/make -f CMakeFiles/cmTC_26130.dir/build.make CMakeFiles/cmTC_26130.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_26130.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_26130.dir/feature_tests.c.o   -c "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_26130
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26130.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_26130.dir/feature_tests.c.o  -o cmTC_26130 -rdynamic 
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -211,72 +211,72 @@ make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c273a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c273a.dir/build.make CMakeFiles/cmTC_c273a.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c273a.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_c273a.dir/testCXXCompiler.cxx.o -c "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
-Linking CXX executable cmTC_c273a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c273a.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_c273a.dir/testCXXCompiler.cxx.o  -o cmTC_c273a -rdynamic 
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_7fad3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7fad3.dir/build.make CMakeFiles/cmTC_7fad3.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7fad3.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_7fad3.dir/testCXXCompiler.cxx.o -c "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
+Linking CXX executable cmTC_7fad3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7fad3.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_7fad3.dir/testCXXCompiler.cxx.o  -o cmTC_7fad3 -rdynamic 
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_266da/fast"
-/usr/bin/make -f CMakeFiles/cmTC_266da.dir/build.make CMakeFiles/cmTC_266da.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_266da
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_266da.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_266da -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_c9991/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c9991.dir/build.make CMakeFiles/cmTC_c9991.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_c9991
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9991.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_c9991 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
 Target: x86_64-linux-gnu
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.5' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.6' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
 Thread model: posix
-gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5) 
+gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.6) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_266da' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccRXeobR.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_266da /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c9991' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cchntN00.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_c9991 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_266da/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_266da.dir/build.make CMakeFiles/cmTC_266da.dir/build]
-  ignore line: [make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_266da]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_266da.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_266da -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c9991/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_c9991.dir/build.make CMakeFiles/cmTC_c9991.dir/build]
+  ignore line: [make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_c9991]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9991.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_c9991 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
   ignore line: [Target: x86_64-linux-gnu]
-  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.5' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.6' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
   ignore line: [Thread model: posix]
-  ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5) ]
+  ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.6) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_266da' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccRXeobR.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_266da /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c9991' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cchntN00.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_c9991 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccRXeobR.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cchntN00.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -294,7 +294,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_266da] ==> ignore
+    arg [cmTC_c9991] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
@@ -306,7 +306,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_266da.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_c9991.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -336,17 +336,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b7290/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b7290.dir/build.make CMakeFiles/cmTC_b7290.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b7290.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_b7290.dir/feature_tests.cxx.o -c "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_b7290
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7290.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_b7290.dir/feature_tests.cxx.o  -o cmTC_b7290 -rdynamic 
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_f7567/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f7567.dir/build.make CMakeFiles/cmTC_f7567.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f7567.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_f7567.dir/feature_tests.cxx.o -c "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_f7567
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f7567.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_f7567.dir/feature_tests.cxx.o  -o cmTC_f7567 -rdynamic 
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -409,17 +409,17 @@ make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_59e05/fast"
-/usr/bin/make -f CMakeFiles/cmTC_59e05.dir/build.make CMakeFiles/cmTC_59e05.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_59e05.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_59e05.dir/feature_tests.cxx.o -c "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_59e05
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59e05.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_59e05.dir/feature_tests.cxx.o  -o cmTC_59e05 -rdynamic 
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_8c69f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8c69f.dir/build.make CMakeFiles/cmTC_8c69f.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8c69f.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_8c69f.dir/feature_tests.cxx.o -c "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_8c69f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8c69f.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_8c69f.dir/feature_tests.cxx.o  -o cmTC_8c69f -rdynamic 
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -482,17 +482,17 @@ make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
+Change Dir: /home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a4182/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a4182.dir/build.make CMakeFiles/cmTC_a4182.dir/build
-make[1]: Entering directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_a4182.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_a4182.dir/feature_tests.cxx.o -c "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_a4182
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4182.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_a4182.dir/feature_tests.cxx.o  -o cmTC_a4182 -rdynamic 
-make[1]: Leaving directory '/home/chewbaka/Computer-graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_16e8e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_16e8e.dir/build.make CMakeFiles/cmTC_16e8e.dir/build
+make[1]: Entering directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_16e8e.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_16e8e.dir/feature_tests.cxx.o -c "/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_16e8e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16e8e.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_16e8e.dir/feature_tests.cxx.o  -o cmTC_16e8e -rdynamic 
+make[1]: Leaving directory '/home/s2756781/computer_graphics2/computer-grpahics2/Karouch_Kip_Raytracter_1/raytracerframework_cpp(3)/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
