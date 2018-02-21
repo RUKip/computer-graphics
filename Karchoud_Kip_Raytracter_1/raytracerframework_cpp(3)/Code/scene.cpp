@@ -1,4 +1,4 @@
-#include "scene.h"
+ #include "scene.h"
 
 #include "hit.h"
 #include "image.h"
@@ -32,7 +32,7 @@ Color Scene::trace(Ray const &ray)
     Material material = obj->material;          //the hit objects material
     Point hit = ray.at(min_hit.t);                 //the hit point
     Vector N = min_hit.N;                          //the normal at hit point
-    Vector V = -ray.D;                             //the view vector        //TODO: why is the view vector -ray.D???
+    Vector V = -ray.D;                             //the view vector
 
     /****************************************************
     * This is where you should insert the color
@@ -56,19 +56,18 @@ Color Scene::trace(Ray const &ray)
     Color intensityD = Color(0.0,0.0,0.0);
     Color intensityS = Color(0.0,0.0,0.0);
 
-    for(unsigned int i=0; i<lights.size(); i++){ //TODO: why unsigned?? Else it complains
+    for(unsigned int i=0; i<lights.size(); i++){
          //material diffuse part
         Light light = *lights[i];
-        Vector L = (light.position - hit).normalized(); //TODO: do we have to normalize??? Gets pixelated effect otherwise
-        intensityD +=  light.color * max(0.0,(L.dot(N))) * material.color * material.kd;    //TODO: Slides say we have to add material.kd  and material.color everytime?? Why? Why not once?
+        Vector L = (light.position - hit).normalized();
+        intensityD +=  light.color * max(0.0,(L.dot(N))) * material.color * material.kd;
 
         //material specular part
-        Vector R = (-L+2*(L.dot(N))*N).normalized();    //TODO: found online but dont really understand how to derive this formula, why is it -L sometimes and +L another..
+        Vector R = -1*(L - 2*(L.dot(N))*N).normalized();
         intensityS += light.color * pow(max(0.0, R.dot(V)), material.n) * material.ks;
     }
 
     Color color = intensityA + intensityD + intensityS;
-    //cout << N;
 
     return color;
 }

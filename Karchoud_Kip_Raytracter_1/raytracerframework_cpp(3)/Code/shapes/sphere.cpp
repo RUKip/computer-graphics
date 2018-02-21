@@ -44,7 +44,7 @@ Hit Sphere::intersect(Ray const &ray)
     ****************************************************/
 
     Vector hitPoint = ray.O + t*ray.D;
-    Vector N = (hitPoint - position).normalized(); //TODO: why normalized??
+    Vector N = (hitPoint - position).normalized();
 
     return Hit(t,N);
 }
