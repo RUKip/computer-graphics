@@ -158,7 +158,7 @@ void MainView::initializeGL() {
     };
 
     //create sphere (from model)
-    sphereModel = new Model(":/models/sphere.obj");
+    sphereModel = new Model(":/models/cat.obj");
     vertex sphere[sphereModel->getNumTriangles()*3];
     modelToVertices(sphereModel, sphere);
     createObjectBuffers(sphereVao, sphereVbo, sphere, sphereModel->getNumTriangles()*3);
@@ -247,7 +247,7 @@ void MainView::paintGL() {
 
     doModelTransformations(modelTransformCube, {2,0,-6}, 1);
     doModelTransformations(modelTransformPy, {-2,0,-6}, 1);
-    doModelTransformations(modelTransformSphere, {0,0,-10}, 0.04);
+    doModelTransformations(modelTransformSphere, {0,0,-10}, 1);
 
     //set uniform matrices projection
     glUniformMatrix4fv(modelProjectionVert, 1, false, projectionModel.data());

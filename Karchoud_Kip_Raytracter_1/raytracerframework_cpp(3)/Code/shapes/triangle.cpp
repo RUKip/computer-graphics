@@ -6,42 +6,30 @@
 using namespace std;
 Hit Triangle::intersect(Ray const &ray)
 {
-    /* Your intersect calculation goes here */
 
-    Vector N1 = pos1 - pos2;
-    Vector N2 = pos3 - pos2;
+    //https://en.wikipedia.org/wiki/M%C3%B6ller%E2%80%93Trumbore_intersection_algorithm, for orignal code and used intersection algorithm
+    Vector h, s, q;
+    double a,f,u,v;
+    Vector edge1 = pos2 - pos1;
+    Vector edge2 = pos3 - pos1;
+    Vector N = (edge1.cross(edge2)).normalized();
+    h = (ray.D).cross(edge2);
+    a = edge1.dot(h);
+    if (a<0.000001 && a>-0.000001) return Hit::NO_HIT(); //ray is parallel to triangle
+    f = 1/a;
+    s = ray.O - pos1;
+    u = f * (s.dot(h));
+    if (u < 0.0 || u > 1.0) return Hit::NO_HIT();
+    q = s.cross(edge1);
+    v = f*((ray.D).dot(q));
+    if (v < 0.0 || u + v > 1.0) return Hit::NO_HIT();
 
-    Vector N = (N1.cross(N2)).normalized();
-
-    if(N.dot(ray.D)==0) return Hit::NO_HIT();
-    double d = N.dot(pos1);
-    double t = -1*(N.dot(ray.O) + d) / N.dot(ray.D);
-    Vector hitPoint = ray.O+(t*ray.D);
-
-    //cout << N;
-
-    double rightsideCheck;
-    //inside triangle?? (culling)
-    Vector Edge1 = pos3 - pos2;
-    Vector pointToHit1 = hitPoint - pos2;
-    rightsideCheck =  N.dot(Edge1.cross(pointToHit1));
-    if(rightsideCheck<0) return Hit::NO_HIT();
-    Vector Edge2 = pos2 - pos1;
-    Vector pointToHit2 = hitPoint - pos1;
-    rightsideCheck = N.dot(Edge2.cross(pointToHit2));
-    if(rightsideCheck<0) return Hit::NO_HIT();
-    Vector Edge3 = pos1 - pos3;
-    Vector pointToHit3 = hitPoint - pos3;               //TODO: rightside check always below 0 here... //check formula or check data
-    rightsideCheck =  N.dot(Edge3.cross(pointToHit3));
-    cout << rightsideCheck;
-
-    if(rightsideCheck<0) return Hit::NO_HIT();
-    cout << t;
-    if(t<0) return Hit::NO_HIT();
-
-    //double t = 0 /* = ... */;
-
-    return Hit(t, N);
+    double t = f * edge2.dot(q);
+    if (t > 0.000001){ //rays intersect with triangle
+        Vector hitPoint = ray.O + ray.D * t; //dont really need hitpoint, but kept for testing purposes
+        return Hit(t, N);
+    }
+    return Hit::NO_HIT();
 }
 
 Triangle::Triangle(Point const &pos1, Point const &pos2, Point const &pos3)
