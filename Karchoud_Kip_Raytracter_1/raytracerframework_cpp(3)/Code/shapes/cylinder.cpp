@@ -21,18 +21,13 @@ Hit Cylinder::intersect(Ray const &ray)
     * If the ray does not intersect the sphere, return false.
     * Otherwise, return true and place the distance of the
     * intersection point from the ray origin in *t (see example).
-    ****************************************************/
+    *
+    * ray       = q = p +vt
+    * cylinder  = (q-pa-(va,q-pa)va)^2-r^2
+     ****************************************************/
 
-    //intersection calculation
-    Vector L  = (ray.O - position);
-    double b = 2*(ray.D.dot(L));
-    double c = L.dot(L) - r*r;
-    double discriminant = pow(b,2) - 4*c;
-    if(discriminant<0) return Hit::NO_HIT();
-    double hit1 = (-b + sqrt(discriminant))/2;
-    double hit2 = (-b - sqrt(discriminant))/2;
-    double t = min(hit1, hit2);
-    if(t<0) return Hit::NO_HIT();
+    //intersection calculation http://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf
+
 
     /****************************************************
     * RT1.2: NORMAL CALCULATION
@@ -40,13 +35,10 @@ Hit Cylinder::intersect(Ray const &ray)
     * Given: t, C, r
     * Sought: N
     *
-    * Insert calculation of the sphere's normal at the intersection point.
+    * Insert calculation of the cylinder's normal at the intersection point.
     ****************************************************/
 
-    Vector hitPoint = ray.O + t*ray.D;
-    Vector N = (hitPoint - position).normalized();
 
-    return Hit(t,N);
 }
 
 Sphere::Sphere(Point const &pos, double radius, double height)
