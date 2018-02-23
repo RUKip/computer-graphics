@@ -17,6 +17,19 @@
                 "ks": 0.6,
                 "n": 32
             }
+        },
+        {
+            "type": "plane",
+            "comment": "infinite plane",
+            "pos": [220, 230, 240],
+            "normal": [1,1,1],
+            "material": {
+                "color": [0.0, 1.0, 0.0],
+                "ka": 0.0,
+                "kd": 0.3,
+                "ks": 0.5,
+                "n": 8
+            }
         }
     ]
 }
