@@ -22,7 +22,7 @@
             "type": "plane",
             "comment": "infinite plane",
             "pos": [220, 230, 240],
-            "normal": [1,1,1],
+            "normal": [0.2,0.7,0.6],
             "material": {
                 "color": [0.0, 1.0, 0.0],
                 "ka": 0.0,

@@ -11,7 +11,6 @@
 
 #include "shapes/sphere.h"
 #include "shapes/triangle.h"
-#include "shapes/cylinder.h"
 #include "shapes/plane.h"
 
 // =============================================================================
@@ -46,12 +45,6 @@ bool Raytracer::parseObjectNode(json const &node)
         Point pos2(node["pos2"]);
         Point pos3(node["pos3"]);
         obj = ObjectPtr(new Triangle(pos1, pos2, pos3));
-    }else if(node["type"] == "cylinder")
-    {
-        Point pos(node["position"]);
-        double radius = node["radius"];
-        double hight = node["hight"];
-        obj = ObjectPtr(new Cylinder(pos, radius, hight));
     }else if(node["type"] == "plane")
     {
         Point pos(node["position"]);
