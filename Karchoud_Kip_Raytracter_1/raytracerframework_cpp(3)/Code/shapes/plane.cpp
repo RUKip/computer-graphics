@@ -8,8 +8,7 @@ Hit Plane::intersect(Ray const &ray)
 {
 
     //https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-plane-and-ray-disk-intersection
-    //
-    //(p−p0)⋅n=0, l0+l∗t=p => (l0+l∗t−p0)⋅n=0
+    //infinite plane
      if (L.dot(normal) > 1e-6) {
         Vector L = (ray.D - pos);
         double t = ((pos - ray.O).dot(normal)) / L.dot(normal);
@@ -18,7 +17,7 @@ Hit Plane::intersect(Ray const &ray)
     return Hit::NO_HIT();
 }
 
-Triangle::Plane(Point const &pos, Vector normal)
+Plane::Plane(Point const &pos, Vector normal)
 :
     pos(pos),
     normal(normal)
