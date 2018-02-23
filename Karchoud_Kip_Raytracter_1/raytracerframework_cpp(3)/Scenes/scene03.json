@@ -21,15 +21,17 @@
         {
             "type": "plane",
             "comment": "infinite plane",
-            "pos": [220, 230, 240],
-            "normal": [0.2,0.7,0.6],
-            "material": {
-                "color": [0.0, 1.0, 0.0],
-                "ka": 0.0,
+            "position": [200,200, 300],
+            "normal": [1.0,2.0,10.0],
+            "material":
+            {
+                "color": [1.0, 0.0, 0.0],
+                "ka": 0.2,
                 "kd": 0.3,
                 "ks": 0.5,
-                "n": 8
+                "n": 40
             }
         }
+        
     ]
 }
