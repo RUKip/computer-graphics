@@ -21,8 +21,8 @@
         {
             "type": "plane",
             "comment": "infinite plane",
-            "position": [200,200, 300],
-            "normal": [1.0,2.0,10.0],
+            "position": [200, 200, -200],
+            "normal": [1.0,1.0,1.0],
             "material":
             {
                 "color": [1.0, 0.0, 0.0],
@@ -30,6 +30,20 @@
                 "kd": 0.3,
                 "ks": 0.5,
                 "n": 40
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "Green sphere",
+            "position": [200, 200, -200],
+            "radius": 50,
+            "material":
+            {
+                "color": [0.0, 1.0, 0.0],
+                "ka": 0.2,
+                "kd": 0.3,
+                "ks": 0.5,
+                "n": 8
             }
         }
         
