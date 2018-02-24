@@ -13,6 +13,8 @@
 #include "shapes/sphere.h"
 #include "shapes/triangle.h"
 #include "shapes/mesh.h"
+#include "shapes/plane.h"
+#include "shapes/cylinder.h"
 
 // =============================================================================
 // -- End of shape includes ----------------------------------------------------
@@ -59,8 +61,18 @@ bool Raytracer::parseObjectNode(json const &node)
 //            triangles.push_back(Triangle(point1, point2, point3));
 //        }
 //        obj = ObjectPtr(new Mesh(triangles));
-    }
-    else
+    }else if(node["type"] == "plane")
+    {
+        Point pos(node["position"]);
+        Vector normal(node["normal"]);
+        obj = ObjectPtr(new Plane(pos, normal));
+    } else if (node["type"] == "cylinder")
+    {
+        Point pos(node["position"]);
+        double radius = node["radius"];
+        double height = node["height"];
+        obj = ObjectPtr(new Cylinder(pos, radius, height));
+    }else
     {
         cerr << "Unknown object type: " << node["type"] << ".\n";
     }

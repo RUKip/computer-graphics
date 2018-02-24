@@ -285,6 +285,33 @@ Code/scene.cpp.s:
 	$(MAKE) -f CMakeFiles/ray.dir/build.make CMakeFiles/ray.dir/Code/scene.cpp.s
 .PHONY : Code/scene.cpp.s
 
+Code/shapes/cylinder.o: Code/shapes/cylinder.cpp.o
+
+.PHONY : Code/shapes/cylinder.o
+
+# target to build an object file
+Code/shapes/cylinder.cpp.o:
+	$(MAKE) -f CMakeFiles/ray.dir/build.make CMakeFiles/ray.dir/Code/shapes/cylinder.cpp.o
+.PHONY : Code/shapes/cylinder.cpp.o
+
+Code/shapes/cylinder.i: Code/shapes/cylinder.cpp.i
+
+.PHONY : Code/shapes/cylinder.i
+
+# target to preprocess a source file
+Code/shapes/cylinder.cpp.i:
+	$(MAKE) -f CMakeFiles/ray.dir/build.make CMakeFiles/ray.dir/Code/shapes/cylinder.cpp.i
+.PHONY : Code/shapes/cylinder.cpp.i
+
+Code/shapes/cylinder.s: Code/shapes/cylinder.cpp.s
+
+.PHONY : Code/shapes/cylinder.s
+
+# target to generate assembly for a file
+Code/shapes/cylinder.cpp.s:
+	$(MAKE) -f CMakeFiles/ray.dir/build.make CMakeFiles/ray.dir/Code/shapes/cylinder.cpp.s
+.PHONY : Code/shapes/cylinder.cpp.s
+
 Code/shapes/example.o: Code/shapes/example.cpp.o
 
 .PHONY : Code/shapes/example.o
@@ -338,6 +365,33 @@ Code/shapes/mesh.s: Code/shapes/mesh.cpp.s
 Code/shapes/mesh.cpp.s:
 	$(MAKE) -f CMakeFiles/ray.dir/build.make CMakeFiles/ray.dir/Code/shapes/mesh.cpp.s
 .PHONY : Code/shapes/mesh.cpp.s
+
+Code/shapes/plane.o: Code/shapes/plane.cpp.o
+
+.PHONY : Code/shapes/plane.o
+
+# target to build an object file
+Code/shapes/plane.cpp.o:
+	$(MAKE) -f CMakeFiles/ray.dir/build.make CMakeFiles/ray.dir/Code/shapes/plane.cpp.o
+.PHONY : Code/shapes/plane.cpp.o
+
+Code/shapes/plane.i: Code/shapes/plane.cpp.i
+
+.PHONY : Code/shapes/plane.i
+
+# target to preprocess a source file
+Code/shapes/plane.cpp.i:
+	$(MAKE) -f CMakeFiles/ray.dir/build.make CMakeFiles/ray.dir/Code/shapes/plane.cpp.i
+.PHONY : Code/shapes/plane.cpp.i
+
+Code/shapes/plane.s: Code/shapes/plane.cpp.s
+
+.PHONY : Code/shapes/plane.s
+
+# target to generate assembly for a file
+Code/shapes/plane.cpp.s:
+	$(MAKE) -f CMakeFiles/ray.dir/build.make CMakeFiles/ray.dir/Code/shapes/plane.cpp.s
+.PHONY : Code/shapes/plane.cpp.s
 
 Code/shapes/sphere.o: Code/shapes/sphere.cpp.o
 
@@ -447,12 +501,18 @@ help:
 	@echo "... Code/scene.o"
 	@echo "... Code/scene.i"
 	@echo "... Code/scene.s"
+	@echo "... Code/shapes/cylinder.o"
+	@echo "... Code/shapes/cylinder.i"
+	@echo "... Code/shapes/cylinder.s"
 	@echo "... Code/shapes/example.o"
 	@echo "... Code/shapes/example.i"
 	@echo "... Code/shapes/example.s"
 	@echo "... Code/shapes/mesh.o"
 	@echo "... Code/shapes/mesh.i"
 	@echo "... Code/shapes/mesh.s"
+	@echo "... Code/shapes/plane.o"
+	@echo "... Code/shapes/plane.i"
+	@echo "... Code/shapes/plane.s"
 	@echo "... Code/shapes/sphere.o"
 	@echo "... Code/shapes/sphere.i"
 	@echo "... Code/shapes/sphere.s"
