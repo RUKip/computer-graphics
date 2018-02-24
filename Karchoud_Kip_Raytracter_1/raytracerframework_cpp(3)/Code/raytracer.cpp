@@ -4,6 +4,7 @@
 #include "light.h"
 #include "material.h"
 #include "triple.h"
+#include "objloader.h"
 
 // =============================================================================
 // -- Include all your shapes here ---------------------------------------------
@@ -11,6 +12,7 @@
 
 #include "shapes/sphere.h"
 #include "shapes/triangle.h"
+#include "shapes/mesh.h"
 
 // =============================================================================
 // -- End of shape includes ----------------------------------------------------
@@ -44,6 +46,19 @@ bool Raytracer::parseObjectNode(json const &node)
         Point pos2(node["pos2"]);
         Point pos3(node["pos3"]);
         obj = ObjectPtr(new Triangle(pos1, pos2, pos3));
+    }else if(node["type"] == "mesh"){
+      string model = node["model"];
+//      OBJLoader loader(model);
+//        //loader.unitize(); //TODO: unitize here, if implemented
+//        vector<Triangle> triangles;
+//        vector<Vertex> vertices = loader.vertex_data();
+//        for(unsigned int nr_vertex=0; nr_vertex<(loader.numTriangles()*3); nr_vertex+=3){
+//            Point point1(vertices[nr_vertex]);
+//            Point point2(vertices[nr_vertex+1]);
+//            Point point3(vertices[nr_vertex+2]);
+//            triangles.push_back(Triangle(point1, point2, point3));
+//        }
+//        obj = ObjectPtr(new Mesh(triangles));
     }
     else
     {

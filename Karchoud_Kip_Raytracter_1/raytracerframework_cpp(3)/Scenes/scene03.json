@@ -17,6 +17,10 @@
                 "ks": 0.6,
                 "n": 32
             }
+        },
+        {
+            "type": "mesh",
+            "model": "objects/cat.obj"
         }
     ]
 }

@@ -33,13 +33,16 @@ CMakeFiles/ray.dir/Code/raytracer.cpp.o
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/light.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/material.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/object.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/objloader.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/ray.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/raytracer.cpp
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/raytracer.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/scene.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/mesh.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/sphere.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/triangle.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/triple.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/vertex.h
 CMakeFiles/ray.dir/Code/scene.cpp.o
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/hit.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/image.h
@@ -59,6 +62,16 @@ CMakeFiles/ray.dir/Code/shapes/example.cpp.o
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/ray.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/example.cpp
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/example.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/triple.h
+CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/hit.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/json/json_fwd.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/material.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/object.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/ray.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/mesh.cpp
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/mesh.h
+ /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/triangle.h
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/triple.h
 CMakeFiles/ray.dir/Code/shapes/sphere.cpp.o
  /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/hit.h

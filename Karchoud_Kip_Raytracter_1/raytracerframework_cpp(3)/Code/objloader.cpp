@@ -99,6 +99,7 @@ void OBJLoader::unitize()
     // Loop over all coordinate data and scale the coordinates
     //  and apply the translate/scaling
 
+
     cerr << "unitize() is not implemented!\n";
 }
 

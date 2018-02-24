@@ -393,10 +393,14 @@ material.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/material.h
 triple.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/triple.h
+objloader.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/objloader.h
 shapes/sphere.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/sphere.h
 shapes/triangle.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/triangle.h
+shapes/mesh.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/mesh.h
 json/json.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/json/json.h
 exception
@@ -451,6 +455,22 @@ cmath
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/example.h
 ../object.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/object.h
+
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/mesh.cpp
+mesh.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/mesh.h
+limits
+-
+cmath
+-
+iostream
+-
+
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/mesh.h
+../object.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/object.h
+triangle.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/triangle.h
 
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/sphere.cpp
 sphere.h
