@@ -19,8 +19,30 @@
             }
         },
         {
+			"type": "cylinder",
+			"position": [210, 270, 100],
+			"direction": [0.2, 0.2, 0.6],
+			"radius": 30,
+			"material":
+			{
+                "color": [0.3, 0.8, 0.3],
+                "ka": 0.2,
+                "kd": 0.3,
+                "ks": 0.5,
+                "n": 18
+            }
+		},
+        {
             "type": "mesh",
             "model": "objects/cat.obj"
+            "material":
+			{
+                "color": [0.3, 0.8, 0.3],
+                "ka": 0.2,
+                "kd": 0.3,
+                "ks": 0.5,
+                "n": 18
+            }
 		},
 		{
             "type": "plane",

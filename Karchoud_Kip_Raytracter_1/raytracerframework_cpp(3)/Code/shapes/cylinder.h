@@ -6,13 +6,13 @@
 class Cylinder: public Object
 {
     public:
-        Cylinder(Point const &pos, double radius, double height);
+        Cylinder(Point const &pos, Vector direction, double radius);
 
         virtual Hit intersect(Ray const &ray);
 
         Point const position;
         double const r;
-        double const height;
+        Vector const direction;
 };
 
 #endif //CYLINDER

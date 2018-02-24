@@ -69,9 +69,10 @@ bool Raytracer::parseObjectNode(json const &node)
     } else if (node["type"] == "cylinder")
     {
         Point pos(node["position"]);
+        Vector direction(node["direction"]);
         double radius = node["radius"];
-        double height = node["height"];
-        obj = ObjectPtr(new Cylinder(pos, radius, height));
+        //double height = node["height"];
+        obj = ObjectPtr(new Cylinder(pos, direction, radius));
     }else
     {
         cerr << "Unknown object type: " << node["type"] << ".\n";
