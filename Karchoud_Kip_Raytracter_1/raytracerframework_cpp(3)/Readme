@@ -1,0 +1,39 @@
+Students: Jamil Karchoud & Ruben Kip
+
+This assignment was about: Raytracing
+
+Division of labour: (requirement for second year computer graphics)
+We worked together on the sphere calcutions and part of the phong shading in the first practical, Jamil also did the plane intersection at home however cause of personal problems he was unable to participate in the rest of the assignment.
+
+#####
+Explanation added code
+
+-- Part 1 Phong shading --
+We added the phong shading according to the rules given in the slides. So diffuse, specular and ambient colors which are then added at the end for the final color.
+Further we added the normal for the sphere, which is the vector from origin to hitpoint. The sphere-ray intersection/hitpoint is calculated using the formula from the slides. (quadratic-formula)
+
+-- Part 2 Shapes --
+We added triangle, planar quad and plane. Which are all used in the dog.json file. (which also contains the unfinished mesh object and the extra unfinished cylinder shape)
+The intersection algorithms were all taken from the internet, however some of the normal calculations we could do ourselves.
+For the triangle we use the Möller–Trumbore intersection algorithm, the normal is calculated by taking the crossproduct of two edges. 
+For the plane we check if the line is parralel or behind the eye, else we simply take the hit, using the algorithm (see code). 
+For the planar quad we use the same algorithm as the plane however we added a check were we calculate the crossproduct between the lines of the quad and the hitpoint (and quad point), so to find out if the hitpoint is always to the left or right of all the edges(thus inside the quad), the normal is calculated like the triangle(cause we assume its planar). 
+
+-- Part 3 Object loading --
+This part we tried to implement by converting the vertices to an array of triangles in the mesh object. However because of some unknown json error we were unable to finish it.
+
+#####
+Problems/difficulties:
+
+-Normalizing the normal (strangely) gave us some trouble with the sphere intersection, which costed us a whole practical to figure out.
+-All the intersection algorithms, they were hard to understand and to implement correctly.
+-The object loader gave us lots of trouble, mostly conversion/json problems.
+
+#####
+Bonus code: 
+None (not working cylinder)
+
+
+
+
+

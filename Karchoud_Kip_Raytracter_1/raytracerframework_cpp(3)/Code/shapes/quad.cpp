@@ -22,7 +22,6 @@ Hit Quad::intersect(Ray const &ray)
         double t = (temp / denom);
         if(t<0)return Hit::NO_HIT();
         if(t > 0.000001){
-            //cout << "so far so good \n ";
             Vector hitPoint = (t*ray.D) + ray.O;
             //check if hitpoint is to the left of each line in the polygon(this case quad) source: https://math.stackexchange.com/questions/1232773/is-the-point-on-the-left-or-the-right-of-the-vector-in-2d-space
             double s1 = ((pos2 - pos1).cross(hitPoint - pos1)).z;
