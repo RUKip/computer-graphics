@@ -5,9 +5,10 @@
 
 using namespace std;
 
+//TODO: not implemented yet, do if we find the time (t = -nan, now)
 Hit Cylinder::intersect(Ray const &ray)
 {
-    //intersection calculation, original from http://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf
+    //intersection calculation, original from http://mrl.nyu.edu/~dzorin/rend05/lecture2.pdf and https://www.cl.cam.ac.uk/teaching/1999/AGraphHCI/SMAG/node2.html
 
 
     //TODO: ^2, should be a double?
@@ -22,7 +23,7 @@ Hit Cylinder::intersect(Ray const &ray)
     double t1 = (-1*B - discriminant) / (2*A); //nearest?
     double t2 = (-1*B + discriminant) / (2*A);
 
-    cout << "t1: " << t1 << " and t2: " << t2 << "\n";
+    //cout << "t1: " << t1 << " and t2: " << t2 << "\n";
 
     return Hit::NO_HIT();
 

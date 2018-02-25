@@ -405,6 +405,8 @@ shapes/plane.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/plane.h
 shapes/cylinder.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/cylinder.h
+shapes/quad.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/quad.h
 json/json.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/json/json.h
 exception
@@ -497,6 +499,18 @@ iostream
 -
 
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/plane.h
+../object.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/object.h
+
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/quad.cpp
+quad.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/quad.h
+cmath
+-
+iostream
+-
+
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/quad.h
 ../object.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/object.h
 

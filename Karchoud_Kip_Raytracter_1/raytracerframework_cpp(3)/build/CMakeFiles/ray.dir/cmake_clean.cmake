@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ray.dir/Code/scene.cpp.o"
   "CMakeFiles/ray.dir/Code/objloader.cpp.o"
   "CMakeFiles/ray.dir/Code/shapes/sphere.cpp.o"
+  "CMakeFiles/ray.dir/Code/shapes/quad.cpp.o"
   "CMakeFiles/ray.dir/Code/shapes/cylinder.cpp.o"
   "CMakeFiles/ray.dir/Code/shapes/example.cpp.o"
   "CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o"
