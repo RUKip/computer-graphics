@@ -32,6 +32,7 @@ MainView::~MainView() {
     glDeleteBuffers(1, &pyVbo);
     glDeleteBuffers(1,&sphereVao);
     glDeleteBuffers(1,&sphereVbo);
+    free(sphereModel);
     qDebug() << "MainView destructor";
 }
 
@@ -300,7 +301,7 @@ void MainView::resizeGL(int newWidth, int newHeight)
 //    Q_UNUSED(newWidth)
 //    Q_UNUSED(newHeight)
     projectionModel.setToIdentity();
-    projectionModel.perspective(60, newWidth/newHeight, 0.1, 1000);
+    projectionModel.perspective(60.0f, ((float) newWidth/newHeight), 0.1f, 1000.0f);
 }
 
 // --- Public interface
