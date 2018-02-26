@@ -8,8 +8,6 @@ Hit Triangle::intersect(Ray const &ray)
 {
 
     //https://en.wikipedia.org/wiki/M%C3%B6ller%E2%80%93Trumbore_intersection_algorithm, for orignal code and used intersection algorithm
-    //cout << "pos 1: " << pos1  << "\n";
-    //TODO: positioning is all screwed up
     Vector h, s, q;
     double a,f,u,v;
     Vector edge1 = pos2 - pos1;
@@ -25,13 +23,10 @@ Hit Triangle::intersect(Ray const &ray)
     q = s.cross(edge1);
     v = f*((ray.D).dot(q));
     if (v < 0.0 || u + v > 1.0) return Hit::NO_HIT();
-    cout << "not v\n";
-
 
     double t = f * edge2.dot(q);
     if (t > 0.000001){ //rays intersect with triangle
         Vector hitPoint = ray.O + ray.D * t; //dont really need hitpoint, but kept for testing purposes
-        cout << "hit: " << t << "\n";
         return Hit(t, N);
     }
     return Hit::NO_HIT();

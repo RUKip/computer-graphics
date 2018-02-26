@@ -79,11 +79,13 @@ CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/hit.h
 CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/json/json_fwd.h
 CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/material.h
 CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/object.h
+CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/objloader.h
 CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/ray.h
 CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/shapes/mesh.cpp
 CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/shapes/mesh.h
 CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/shapes/triangle.h
 CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/triple.h
+CMakeFiles/ray.dir/Code/shapes/mesh.cpp.o: ../Code/vertex.h
 
 CMakeFiles/ray.dir/Code/shapes/plane.cpp.o: ../Code/hit.h
 CMakeFiles/ray.dir/Code/shapes/plane.cpp.o: ../Code/json/json_fwd.h

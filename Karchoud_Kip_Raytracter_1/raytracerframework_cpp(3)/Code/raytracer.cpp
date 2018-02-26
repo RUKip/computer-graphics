@@ -51,22 +51,11 @@ bool Raytracer::parseObjectNode(json const &node)
         obj = ObjectPtr(new Triangle(pos1, pos2, pos3));
     }else if(node["type"] == "mesh"){
       string model = node["model"];
-      OBJLoader loader(model);
-        //loader.unitize(); //TODO: unitize here, if implemented
-        vector<Triangle*> triangles;
-        vector<Vertex> vertices = loader.vertex_data();
-        for(unsigned int nr_vertex=0; nr_vertex<(loader.numTriangles()*3); nr_vertex+=3){ //TODO: add a scaling factor to object
-            double scalingFactor = 1;
-            Vertex v1 = vertices[nr_vertex];
-            Point point1(scalingFactor*v1.x, scalingFactor*v1.y, scalingFactor*v1.z);
-            Vertex v2 = vertices[nr_vertex+1];
-            Point point2(scalingFactor*v2.x, scalingFactor*v2.y, scalingFactor*v2.z);
-            Vertex v3 = vertices[nr_vertex+2];
-            Point point3(scalingFactor*v3.x, scalingFactor*v3.y, scalingFactor*v3.z);
-            //TODO: here the points are still nice
-            triangles.push_back(new Triangle(point1, point2, point3));
-        }
-        obj = ObjectPtr(new Mesh(triangles));
+      double scaling = node["scaling"];
+      double xTransform = node["xAdded"];
+      double yTransform = node["yAdded"];
+      double zTransform = node["zAdded"];
+      obj = ObjectPtr(new Mesh(model, scaling, xTransform, yTransform, zTransform));
     }else if(node["type"] == "plane")
     {
         Point pos(node["position"]);

@@ -8,6 +8,10 @@
 		{
             "type": "mesh",
             "model": "../Scenes/objects/cat.obj",
+            "scaling": 100,
+            "xAdded": 100,
+            "yAdded": 100,
+            "zAdded": 0,
             "material":
 			{
                 "color": [0.3, 0.8, 0.3],

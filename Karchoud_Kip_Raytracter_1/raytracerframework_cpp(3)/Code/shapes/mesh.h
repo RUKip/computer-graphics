@@ -3,16 +3,18 @@
 
 #include "../object.h"
 #include "triangle.h"
-using std::vector;
+#include "../objloader.h"
+
+using namespace std;
 
 class Mesh: public Object
 {
     public:
-        Mesh(vector<Triangle*> &triangles);
+        Mesh(string path, double scaling, double xTransform, double yTransform, double zTransform);
 
         virtual Hit intersect(Ray const &ray);
 
-        vector<Triangle*> triangles;
+        vector<ObjectPtr> triangles;
 };
 
 #endif

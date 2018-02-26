@@ -481,6 +481,8 @@ limits
 -
 cmath
 -
+math.h
+-
 iostream
 -
 
@@ -489,6 +491,8 @@ iostream
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/object.h
 triangle.h
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/triangle.h
+../objloader.h
+/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/objloader.h
 
 /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_1/raytracerframework_cpp(3)/Code/shapes/plane.cpp
 plane.h
