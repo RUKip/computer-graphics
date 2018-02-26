@@ -8,11 +8,11 @@ using std::vector;
 class Mesh: public Object
 {
     public:
-        Mesh(vector<Triangle> &triangles);
+        Mesh(vector<Triangle*> &triangles);
 
         virtual Hit intersect(Ray const &ray);
 
-        vector<Triangle> triangles;
+        vector<Triangle*> triangles;
 };
 
 #endif

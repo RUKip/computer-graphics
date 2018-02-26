@@ -9,8 +9,9 @@ Hit Mesh::intersect(Ray const &ray)
 {
     double smallestT = std::numeric_limits<double>::max();
     Hit smallestHit = Hit::NO_HIT();
-    for(Triangle triangle : triangles){
-        Hit hit = triangle.intersect(ray);
+    for(Triangle* triangle : triangles){
+        cout << triangle->pos1 << "\n"; // TODO: Here the triangles are screwed up
+        Hit hit = triangle->intersect(ray);
         if(hit.t){
             if(hit.t<smallestT) smallestHit = hit;
         }
@@ -20,7 +21,7 @@ Hit Mesh::intersect(Ray const &ray)
     return smallestHit;
 }
 
-Mesh::Mesh(vector<Triangle> &triangles)
+Mesh::Mesh(vector<Triangle*> &triangles)
 :
     triangles(triangles)
 {}
