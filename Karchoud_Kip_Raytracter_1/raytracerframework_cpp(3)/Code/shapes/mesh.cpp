@@ -16,6 +16,7 @@ Hit Mesh::intersect(Ray const &ray)
         }
     }
     if(smallestT == std::numeric_limits<double>::max()) return Hit::NO_HIT();
+    cout << smallestHit.t << "\n";
     return smallestHit;
 }
 

@@ -1,0 +1,48 @@
+{
+    "Eye": [200, 200, 1000],
+    "Lights": [{
+        "position": [-1000, 600, 500],
+        "color": [1.0, 1.0, 1.0]
+    }],
+    "Objects": [
+		{
+            "type": "mesh",
+            "model": "../Scenes/objects/cat.obj",
+            "material":
+			{
+                "color": [0.3, 0.8, 0.3],
+                "ka": 0.2,
+                "kd": 0.3,
+                "ks": 0.5,
+                "n": 18
+            }
+		},
+		{
+            "type": "triangle",
+            "pos1": [0, 10, -100],
+            "pos2": [10, 60, -200],
+            "pos3": [50, 180, -200],
+            "material": {
+                "color": [0.7, 0.4, 0.3],
+                "ka": 0.3,
+                "kd": 0.06,
+                "ks": 0.6,
+                "n": 32
+            }
+		},
+		{
+            "type": "triangle",
+            "comment": "Green triangle",
+			"pos1": [210, 340, -90],
+            "pos2": [240, 400, -90],
+            "pos3": [250, 340, -100],
+            "material": {
+                "color": [0.7, 0.4, 0.3],
+                "ka": 0.3,
+                "kd": 0.06,
+                "ks": 0.6,
+                "n": 32
+            }
+		}
+	]
+}
