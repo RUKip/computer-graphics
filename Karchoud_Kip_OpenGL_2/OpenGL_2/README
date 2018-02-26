@@ -1,51 +1,39 @@
-This assignment was about: Transformations and User Input, divided in the following sub tasks. Shape Drawing; Transformations; Scaling and Rotation and Object loading. 
-We implemented all four parts. 
+This assignment was about: Shading types and texturing
 
 Division of labour: (requirement for second year computer graphics)
-We did most of the work during the computer labs, where we sat next to each other and coded together. We also did some work from home but using skype, so almost everything was done in pairs.
+
 
 #####
 Explanation added code
 
 
--- Part 1 Shape Drawing --
-We had to implement a cube and a pyramid, so we divived the shapes into triangles(6 floats, 3 xyz coordinates and 3rgb colours) and put them into an object. The cube has 6 square sides, which are devided in 2 triangles, so we have 2*6=16 triangles. 
-The pyramid has only 4 triangle sides, so that one only had 4 triangles. Then we implemented the VBO and the VAO for both the shapes. Then we gave the size and location of the different attributes in the VBO with glVertexAttribPointer(), so the first three xyz-coordinates and next three rgb-colours. 
-And glEnableVertexAttribArray(0) was set for the coordinates and glEnableVertexAttribArray(1) was set for the colours. After we all did this, we could clean them up with glDeleteBuffer and glDeleteVertex in the mainView deconstructor
+-- Part 1 Normal Shader --
 
-Then we implemented the glDrawArrays() with the corresponding VAO binded before it with glBindVertexArray() and the right number of vertices. (cube 6*6 and pyramid 3*4). 
+Without the normal matrix, the colors of our cat stay the same, so the normals of base model make up the colors of the cat.
+With the normal matrix... 
 
-
--- Part 2 Transformation --
-We defined a  MainView::doModelTransformations where we apply translation(and also scaling and rotating, part 3). We first set the modelTransform to the identity. Then we can use inbuild functions translate() to translate the object to the according coordinates.
-We then set the projectionModel to the identity matrix in the resizeGL part and changed the perspective with perspective() with our new field of view, newWidth and newHeight, new nearPlane and  newfarPlane. 
-
-We then had to change the vertex shader to accept a uniform 4 x 4 matrix for our changes(transformation/projection), so we used glUniformMatrix4fv() with the according model data(projection/cube/pyramid), but we also had to change the main function of the vertex shaders so that it does the transformations.
-We did this with 2 specifications one for the projection: uniform mat4 projectionTransform and one for the transformations: 
-uniform mat4 modelTransform;
+-- Part 2 Selecting shaders --
 
 
--- Part 3 Scaling and Rotating --
-In this part we were asked to scale and rotate our shapes. First, we initialised the world where we have a scale set on 1 and no xyz-rotation, so 0. We also set the perspective to 60 degrees here. Then we a MainView::doModelTransformations where we do the scaling and rotation by using scale(initial scale * new scale) and rotate(worldRotateX/Y/Z, with the corresponding vertex) on modelTransform.
-Where worldRotateX/Y/Z is set in the setRotation by assigning new values to worldRotateX/Y/Z and updating it. We do the same for initScale in setScale and the new scale is calculated and updated after. 
+-- Part 3 Gourad Shader --
 
 
--- Part 4 Object Loading --
-At the object loading part of the assignment, we follow the instructions and use the given Model class to create the QVector<QVector3D> of the given sphere file. Each of the QVector3D's in this QVector we convert to our own vertex struct, with the content of the QVector3D (coordinates) and 3 random RGB colors. Then the resulting vertex[] is drawn and translated/scaled/rotated like the other shapes. (see part 1,2,3) 
+-- Part 4 Phong Shader --
+
+
+-- Part 5 Texture mapping --
+
 
 
 #####
 Problems/difficulties:
 
--First, we defined the triangles clockwise, but it was not visable with the counter clock wise face culling, we had to change the code to work with counter clockwise, to avoid problems with the object loading part of the assignement. 
-
--Small c++ syntax stuff. (Mostly pointers and definitions)
-
-
+-
+-
 
 #####
 Bonus code: 
-Mouse wheel zoom.
+
 
 
 

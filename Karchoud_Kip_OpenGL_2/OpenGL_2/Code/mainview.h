@@ -37,20 +37,15 @@ public:
         GLfloat colorG;
         GLfloat colorB;
     };
-    GLuint cubeVbo;
-    GLuint pyVbo;
-    GLuint cubeVao;
-    GLuint pyVao;
     GLuint sphereVao;
     GLuint sphereVbo;
 
-    QMatrix4x4 modelTransformPy;
-    QMatrix4x4 modelTransformCube;
     QMatrix4x4 modelTransformSphere;
     QMatrix4x4 projectionModel;
 
     GLint modelTransformVert;
     GLint modelProjectionVert;
+    GLint modelNormalVert;
 
     Model* sphereModel;
 

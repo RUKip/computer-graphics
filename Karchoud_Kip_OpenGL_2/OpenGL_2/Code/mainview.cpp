@@ -26,10 +26,6 @@ MainView::MainView(QWidget *parent) : QOpenGLWidget(parent) {
  */
 MainView::~MainView() {
     debugLogger->stopLogging();
-    glDeleteVertexArrays(1, &cubeVao);
-    glDeleteBuffers(1, &cubeVbo);
-    glDeleteVertexArrays(1, &pyVao);
-    glDeleteBuffers(1, &pyVbo);
     glDeleteBuffers(1,&sphereVao);
     glDeleteBuffers(1,&sphereVbo);
     free(sphereModel);
@@ -163,12 +159,6 @@ void MainView::initializeGL() {
     vertex sphere[sphereModel->getNumTriangles()*3];
     modelToVertices(sphereModel, sphere);
     createObjectBuffers(sphereVao, sphereVbo, sphere, sphereModel->getNumTriangles()*3);
-
-    //create cube
-    createObjectBuffers(cubeVao, cubeVbo, cube, 6*6);
-
-    //create pyramid
-    createObjectBuffers(pyVao, pyVbo, pyramid, 3*4);
 }
 
 //creates VAO and VBO buffers and binds them, assumes always uses a vertex with xyz and rgb
@@ -221,13 +211,12 @@ void MainView::initWorld()
 
 void MainView::modelToVertices(Model* model, vertex* vertices)
 {
-    QVector<QVector3D> sphereVertices = model->getVertices();
-    for(int i=0; i<(model->getNumTriangles()*3); i++){\
-        GLfloat randomColorR = ((float) rand() / RAND_MAX);
-        GLfloat randomColorG = ((float) rand() / RAND_MAX);
-        GLfloat randomColorB = ((float) rand() / RAND_MAX);
-        QVector3D singleVertex = sphereVertices[i];
-        vertices[i] = {singleVertex.x(), singleVertex.y(), singleVertex.z(), randomColorR, randomColorG, randomColorB};
+    QVector<QVector3D> modelVertices = model->getVertices();
+    QVector<QVector3D> modelNormals = model->getNormals();
+    for(int i=0; i<(model->getNumTriangles()*3); i++){
+        QVector3D singleVertex = modelVertices[i];
+        QVector3D normals = modelNormals[i];
+        vertices[i] = {singleVertex.x(), singleVertex.y(), singleVertex.z(), normals.x(), normals.y(), normals.z()};
     }
 }
 
@@ -246,26 +235,14 @@ void MainView::paintGL() {
 
     shaderProgram.bind();
 
-    doModelTransformations(modelTransformCube, {2,0,-6}, 1);
-    doModelTransformations(modelTransformPy, {-2,0,-6}, 1);
-    doModelTransformations(modelTransformSphere, {0,0,-10}, 1);
+    doModelTransformations(modelTransformSphere, {0,0,-10}, 4);
+
+    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+
+    glUniformMatrix3fv(modelNormalVert, 1, false, normalTransformation.data());
 
     //set uniform matrices projection
     glUniformMatrix4fv(modelProjectionVert, 1, false, projectionModel.data());
-
-    //set uniform matrices shaders (cube)
-    glUniformMatrix4fv(modelTransformVert, 1, false, modelTransformCube.data());
-
-    // Draw here cube
-    glBindVertexArray(cubeVao);
-    glDrawArrays(GL_TRIANGLES, 0, 6*6);
-
-    //set uniform matrices shaders (pyrmamide)
-    glUniformMatrix4fv(modelTransformVert, 1, false, modelTransformPy.data());
-
-    // Draw here pyramide
-    glBindVertexArray(pyVao);
-    glDrawArrays(GL_TRIANGLES, 0, 3*4);
 
     //set uniform matrices shaders (sphere)
     glUniformMatrix4fv(modelTransformVert, 1, false, modelTransformSphere.data());
