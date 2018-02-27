@@ -7,6 +7,7 @@
 layout (location = 0) in vec3 vertCoordinates_in;
 layout (location = 1) in vec3 vertNormal_in;
 
+//TODO: why use uniform over input locations or otherway around for things like material.diffuse
 
 // Specify the Uniforms of the vertex shader
 // uniform mat4 modelTransform; for example
