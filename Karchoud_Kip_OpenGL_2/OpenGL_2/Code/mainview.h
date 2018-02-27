@@ -40,12 +40,22 @@ public:
     GLuint sphereVao;
     GLuint sphereVbo;
 
+    ShadingMode shadingMode;
+
     QMatrix4x4 modelTransformSphere; //TODO: add to a struct?
     QMatrix4x4 projectionModel;
 
-    GLint modelTransformVert;
-    GLint modelProjectionVert;
-    GLint modelNormalVert;
+    GLint modelTransformVert_Normal;
+    GLint modelProjectionVert_Normal;
+    GLint modelNormalVert_Normal;
+
+    GLint modelTransformVert_Phong;
+    GLint modelProjectionVert_Phong;
+    GLint modelNormalVert_Phong;
+
+    GLint modelTransformVert_Gouraud;
+    GLint modelProjectionVert_Gouraud;
+    GLint modelNormalVert_Gouraud;
 
     Model* sphereModel;
 

@@ -154,6 +154,7 @@ void MainView::initializeGL() {
     // Set the color of the screen to be black on clear (new frame)
     glClearColor(0.2f, 0.5f, 0.7f, 0.0f);
 
+    //Selecting shader
     createNormalShaderProgram();
 
     //Initialze camera an world settings
@@ -201,37 +202,37 @@ void MainView::createNormalShaderProgram()
                                            ":/shaders/fragshader_normal.glsl");
     shaderProgram.link();
 
-    modelTransformVert = shaderProgram.uniformLocation("modelTransform");
-    modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
-    modelNormalVert = shaderProgram.uniformLocation("normalTransform");
+    modelTransformVert_Normal = shaderProgram.uniformLocation("modelTransform");
+    modelProjectionVert_Normal = shaderProgram.uniformLocation("projectionTransform");
+    modelNormalVert_Normal = shaderProgram.uniformLocation("normalTransform");
 }
 
 void MainView::createGouraudShaderProgram()
 {
     // Create shader program
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
-                                           ":/shaders/vertshader_normal.glsl");
+                                           ":/shaders/vertshader_gouraud.glsl");
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Fragment,
-                                           ":/shaders/fragshader_normal.glsl");
+                                           ":/shaders/fragshader_gouraud.glsl");
     shaderProgram.link();
 
-    modelTransformVert = shaderProgram.uniformLocation("modelTransform");
-    modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
-    modelNormalVert = shaderProgram.uniformLocation("normalTransform");
+    modelTransformVert_Gouraud = shaderProgram.uniformLocation("modelTransform_Gouraud");
+    modelProjectionVert_Gouraud = shaderProgram.uniformLocation("projectionTransform_Gouraud");
+    modelNormalVert_Gouraud = shaderProgram.uniformLocation("normalTransform_Gouraud");
 }
 
 void MainView::createPhongShaderProgram()
 {
     // Create shader program
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
-                                           ":/shaders/vertshader_normal.glsl");
+                                           ":/shaders/vertshader_phong.glsl");
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Fragment,
-                                           ":/shaders/fragshader_normal.glsl");
+                                           ":/shaders/fragshader_phong.glsl");
     shaderProgram.link();
 
-    modelTransformVert = shaderProgram.uniformLocation("modelTransform");
-    modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
-    modelNormalVert = shaderProgram.uniformLocation("normalTransform");
+    modelTransformVert_Phong = shaderProgram.uniformLocation("modelTransform_Phong");
+    modelProjectionVert_Phong = shaderProgram.uniformLocation("projectionTransform_Phong");
+    modelNormalVert_Phong = shaderProgram.uniformLocation("normalTransform_Phong");
 }
 
 //initialize rotation and scale variables and set initial projection
@@ -279,6 +280,18 @@ void MainView::paintGL() {
     QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
 
     glUniformMatrix3fv(modelNormalVert, 1, false, normalTransformation.data());
+
+    switch(shadingMode){
+        case 1:
+            uploadUniformPhong();
+            break;
+        case 2:
+            uploadUniformNormal();
+            break;
+        case 3:
+            uploadUniformGouraud();
+            break;
+    }
 
     //set uniform matrices projection
     glUniformMatrix4fv(modelProjectionVert, 1, false, projectionModel.data());
@@ -343,8 +356,7 @@ void MainView::setScale(int scale)
 
 void MainView::setShadingMode(ShadingMode shading)
 {
-    qDebug() << "Changed shading to" << shading;
-    Q_UNIMPLEMENTED();
+    shadingMode = shading;
 }
 
 // --- Private helpers

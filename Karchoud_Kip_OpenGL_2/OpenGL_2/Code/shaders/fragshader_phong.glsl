@@ -19,7 +19,7 @@ void main()
 {
     vec3 normal = normalize(vertNormal);
     normal += vec3(1,1,1);
-    normal /= 3;
-    fNormal = vec4(normal, 1.0);
+    normal /= 2;
+    fNormal = vec4(normal/3, 1.0);
 
 }
