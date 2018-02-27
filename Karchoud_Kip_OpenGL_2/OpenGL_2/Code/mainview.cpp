@@ -155,7 +155,20 @@ void MainView::initializeGL() {
     glClearColor(0.2f, 0.5f, 0.7f, 0.0f);
 
     //Selecting shader
-    createNormalShaderProgram();
+    switch (shadingMode) {
+    case 0:
+        createPhongShaderProgram();
+        break;
+    case 1:
+        createNormalShaderProgram();
+        break;
+    case 2:
+        createGouraudShaderProgram();
+        break;
+    default:
+        qDebug() << "unknown shader setting <" << shadingMode << ">\n";
+        break;
+    }
 
     //Initialze camera an world settings
     initWorld();
@@ -277,33 +290,61 @@ void MainView::paintGL() {
 
     doModelTransformations(modelTransformSphere, {0,0,-10}, 4);
 
-    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
 
-    glUniformMatrix3fv(modelNormalVert, 1, false, normalTransformation.data());
 
     switch(shadingMode){
-        case 1:
+        case 0:
             uploadUniformPhong();
             break;
-        case 2:
+        case 1:
             uploadUniformNormal();
             break;
-        case 3:
+        case 2:
             uploadUniformGouraud();
             break;
+        default:
+            qDebug() << "unknown shader setting <" << shadingMode << ">\n";
+            break;
     }
-
-    //set uniform matrices projection
-    glUniformMatrix4fv(modelProjectionVert, 1, false, projectionModel.data());
-
-    //set uniform matrices shaders (sphere)
-    glUniformMatrix4fv(modelTransformVert, 1, false, modelTransformSphere.data());
 
     // Draw here sphere
     glBindVertexArray(sphereVao);
     glDrawArrays(GL_TRIANGLES, 0, sphereModel->getNumTriangles()*3);
 
     shaderProgram.release();
+}
+
+void MainView::uploadUniformPhong(){
+    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+    glUniformMatrix3fv(modelNormalVert_Phong, 1, false, normalTransformation.data());
+
+    //set uniform matrices projection
+    glUniformMatrix4fv(modelProjectionVert_Phong, 1, false, projectionModel.data());
+
+    //set uniform matrices shaders
+    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, modelTransformSphere.data());
+}
+
+void MainView::uploadUniformNormal(){
+    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+    glUniformMatrix3fv(modelNormalVert_Normal, 1, false, normalTransformation.data());
+
+    //set uniform matrices projection
+    glUniformMatrix4fv(modelProjectionVert_Normal, 1, false, projectionModel.data());
+
+    //set uniform matrices shaders
+    glUniformMatrix4fv(modelTransformVert_Normal, 1, false, modelTransformSphere.data());
+}
+
+void MainView::uploadUniformGouraud(){
+    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+    glUniformMatrix3fv(modelNormalVert_Gouraud, 1, false, normalTransformation.data());
+
+    //set uniform matrices projection
+    glUniformMatrix4fv(modelProjectionVert_Gouraud, 1, false, projectionModel.data());
+
+    //set uniform matrices shaders
+    glUniformMatrix4fv(modelTransformVert_Gouraud, 1, false, modelTransformSphere.data());
 }
 
 //transformations on the objects in the world
@@ -357,6 +398,24 @@ void MainView::setScale(int scale)
 void MainView::setShadingMode(ShadingMode shading)
 {
     shadingMode = shading;
+    shaderProgram.removeAllShaders();
+    shaderProgram.release();
+    //Selecting shader
+    switch (shadingMode) {
+    case 0:
+        createPhongShaderProgram();
+        break;
+    case 1:
+        createNormalShaderProgram();
+        break;
+    case 2:
+        createGouraudShaderProgram();
+        break;
+    default:
+        qDebug() << "unknown shader setting <" << shadingMode << ">\n";
+        break;
+    }
+
 }
 
 // --- Private helpers

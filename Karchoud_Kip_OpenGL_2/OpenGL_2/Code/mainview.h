@@ -98,6 +98,9 @@ private:
     void createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int numberOfVertices);
     QVector<vertex> giveCubeData();
     QVector<vertex> givePyramidData();
+    void uploadUniformPhong();
+    void uploadUniformNormal();
+    void uploadUniformGouraud();
 };
 
 #endif // MAINVIEW_H
