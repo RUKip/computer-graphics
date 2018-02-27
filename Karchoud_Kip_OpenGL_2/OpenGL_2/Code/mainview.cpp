@@ -32,50 +32,8 @@ MainView::~MainView() {
     qDebug() << "MainView destructor";
 }
 
-// --- OpenGL initialization
-
-/**
- * @brief MainView::initializeGL
- *
- * Called upon OpenGL initialization
- * Attaches a debugger and calls other init functions
- */
-void MainView::initializeGL() {
-    qDebug() << ":: Initializing OpenGL";
-    initializeOpenGLFunctions();
-
-    debugLogger = new QOpenGLDebugLogger();
-    connect( debugLogger, SIGNAL( messageLogged( QOpenGLDebugMessage ) ),
-             this, SLOT( onMessageLogged( QOpenGLDebugMessage ) ), Qt::DirectConnection );
-
-    if ( debugLogger->initialize() ) {
-        qDebug() << ":: Logging initialized";
-        debugLogger->startLogging( QOpenGLDebugLogger::SynchronousLogging );
-        debugLogger->enableMessages();
-    }
-
-    QString glVersion;
-    glVersion = reinterpret_cast<const char*>(glGetString(GL_VERSION));
-    qDebug() << ":: Using OpenGL" << qPrintable(glVersion);
-
-    // Enable depth buffer
-    glEnable(GL_DEPTH_TEST);
-
-    // Enable backface culling
-    glEnable(GL_CULL_FACE);
-
-    // Default is GL_LESS
-    glDepthFunc(GL_LEQUAL);
-
-    // Set the color of the screen to be black on clear (new frame)
-    glClearColor(0.2f, 0.5f, 0.7f, 0.0f);
-
-    createShaderProgram();
-
-    //Initialze camera an world settings
-    initWorld();
-
-    vertex pyramid[] = {
+QVector<MainView::vertex> MainView::givePyramidData(){
+    QVector<vertex> pyramid = {
         //front sideGL_CW
         {1.0f, -1.0f, 1.0f, 0.0f, 0.5f, 0.0f},
         {0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.5f},
@@ -97,8 +55,11 @@ void MainView::initializeGL() {
         {-1.0f, -1.0f, 1.0f, 0.0f, 1.0f, 0.0f},
         {0.0f, -1.0f, -1.0f, 1.0f, 0.3f, 1.0f}
     };
-    //creates objects below
-    vertex cube[] = {
+    return pyramid;
+}
+
+QVector<MainView::vertex> MainView::giveCubeData(){
+     QVector<vertex> cube = {
         //front square
         {1.0f,-1.0f,1.0f,0.4f,1.0f,0.5f},
         {-1.0f,1.0f,1.0f,0.2f,1.0f,0.0f},
@@ -153,6 +114,55 @@ void MainView::initializeGL() {
         {-1.0f,-1.0f,-1.0f,0.6f,0.1f,1.0f},
         {-1.0f,1.0f,-1.0f,0.2f,0.9f,1.0f},
     };
+    return cube;
+}
+
+// --- OpenGL initialization
+
+/**
+ * @brief MainView::initializeGL
+ *
+ * Called upon OpenGL initialization
+ * Attaches a debugger and calls other init functions
+ */
+void MainView::initializeGL() {
+    qDebug() << ":: Initializing OpenGL";
+    initializeOpenGLFunctions();
+
+    debugLogger = new QOpenGLDebugLogger();
+    connect( debugLogger, SIGNAL( messageLogged( QOpenGLDebugMessage ) ),
+             this, SLOT( onMessageLogged( QOpenGLDebugMessage ) ), Qt::DirectConnection );
+    if ( debugLogger->initialize() ) {
+        qDebug() << ":: Logging initialized";
+        debugLogger->startLogging( QOpenGLDebugLogger::SynchronousLogging );
+        debugLogger->enableMessages();
+    }
+
+    QString glVersion;
+    glVersion = reinterpret_cast<const char*>(glGetString(GL_VERSION));
+    qDebug() << ":: Using OpenGL" << qPrintable(glVersion);
+
+    // Enable depth buffer
+    glEnable(GL_DEPTH_TEST);
+
+    // Enable backface culling
+    glEnable(GL_CULL_FACE);
+
+    // Default is GL_LESS
+    glDepthFunc(GL_LEQUAL);
+
+    // Set the color of the screen to be black on clear (new frame)
+    glClearColor(0.2f, 0.5f, 0.7f, 0.0f);
+
+    createShaderProgram();
+
+    //Initialze camera an world settings
+    initWorld();
+
+     QVector<vertex> pyramid = givePyramidData();
+
+    //creates objects below
+     QVector<vertex> cube = giveCubeData();
 
     //create sphere (from model)
     sphereModel = new Model(":/models/cat.obj");
@@ -193,6 +203,7 @@ void MainView::createShaderProgram()
 
     modelTransformVert = shaderProgram.uniformLocation("modelTransform");
     modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
+    modelNormalVert = shaderProgram.uniformLocation("normalTransform");
 }
 
 //initialize rotation and scale variables and set initial projection

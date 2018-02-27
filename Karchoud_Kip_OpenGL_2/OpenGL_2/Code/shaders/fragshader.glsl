@@ -17,6 +17,5 @@ out vec3 fNormal;
 
 void main()
 {
-    //vertNormal = normalize(vertNormal);
-    fNormal = vertNormal;
+    fNormal = normalize(vertNormal);
 }

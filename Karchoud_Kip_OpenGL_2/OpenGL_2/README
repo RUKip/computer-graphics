@@ -10,7 +10,7 @@ Explanation added code
 -- Part 1 Normal Shader --
 
 Without the normal matrix, the colors of our cat stay the same, so the normals of base model make up the colors of the cat.
-With the normal matrix... 
+With the normal matrix the normals move with the object so if we rotate the object we also rotate the normals and the colors.
 
 -- Part 2 Selecting shaders --
 

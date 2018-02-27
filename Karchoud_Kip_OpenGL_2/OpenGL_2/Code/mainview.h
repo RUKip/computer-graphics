@@ -84,6 +84,8 @@ private:
     void doModelTransformations(QMatrix4x4 &modelTransform, QVector3D translation, float scale);
     void modelToVertices(Model* model, vertex* vertices);
     void createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int numberOfVertices);
+    QVector<vertex> giveCubeData();
+    QVector<vertex> givePyramidData();
 };
 
 #endif // MAINVIEW_H
