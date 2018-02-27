@@ -154,21 +154,7 @@ void MainView::initializeGL() {
     // Set the color of the screen to be black on clear (new frame)
     glClearColor(0.2f, 0.5f, 0.7f, 0.0f);
 
-    //Selecting shader
-    switch (shadingMode) {
-    case 0:
-        createPhongShaderProgram();
-        break;
-    case 1:
-        createNormalShaderProgram();
-        break;
-    case 2:
-        createGouraudShaderProgram();
-        break;
-    default:
-        qDebug() << "unknown shader setting <" << shadingMode << ">\n";
-        break;
-    }
+    createPhongShaderProgram();
 
     //Initialze camera an world settings
     initWorld();
@@ -215,9 +201,9 @@ void MainView::createNormalShaderProgram()
                                            ":/shaders/fragshader_normal.glsl");
     shaderProgram.link();
 
-    modelTransformVert_Normal = shaderProgram.uniformLocation("modelTransform");
-    modelProjectionVert_Normal = shaderProgram.uniformLocation("projectionTransform");
-    modelNormalVert_Normal = shaderProgram.uniformLocation("normalTransform");
+    modelTransformVert_Normal = shaderProgram.uniformLocation("modelTransform_Normal");
+    modelProjectionVert_Normal = shaderProgram.uniformLocation("projectionTransform_Normal");
+    modelNormalVert_Normal = shaderProgram.uniformLocation("normalTransform_Normal");
 }
 
 void MainView::createGouraudShaderProgram()
@@ -290,8 +276,6 @@ void MainView::paintGL() {
 
     doModelTransformations(modelTransformSphere, {0,0,-10}, 4);
 
-
-
     switch(shadingMode){
         case 0:
             uploadUniformPhong();
@@ -304,6 +288,7 @@ void MainView::paintGL() {
             break;
         default:
             qDebug() << "unknown shader setting <" << shadingMode << ">\n";
+            uploadUniformPhong();
             break;
     }
 
