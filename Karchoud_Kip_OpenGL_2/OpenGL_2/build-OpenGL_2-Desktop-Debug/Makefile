@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = OpenGL_transformations1.0.0
-DISTDIR = /home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_OpenGL_2/OpenGL_2/build-OpenGL_2-Desktop-Debug/.tmp/OpenGL_transformations1.0.0
+DISTDIR = /home/s2756560/Desktop/computer-grpahics2/Karchoud_Kip_OpenGL_2/OpenGL_2/build-OpenGL_2-Desktop-Debug/.tmp/OpenGL_transformations1.0.0
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -331,8 +331,12 @@ compiler_rcc_make_all: qrc_resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../Code/resources.qrc \
-		../Code/shaders/fragshader.glsl \
-		../Code/shaders/vertshader.glsl \
+		../Code/shaders/fragshader_normal.glsl \
+		../Code/shaders/vertshader_normal.glsl \
+		../Code/shaders/fragshader_gouraud.glsl \
+		../Code/shaders/vertshader_phong.glsl \
+		../Code/shaders/fragshader_phong.glsl \
+		../Code/shaders/vertshader_gouraud.glsl \
 		../Code/models/flat_surface.obj \
 		../Code/models/cube.obj \
 		../Code/models/cat.obj \
@@ -347,11 +351,11 @@ compiler_moc_header_make_all: moc_mainwindow.cpp moc_mainview.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_mainview.cpp
 moc_mainwindow.cpp: ../Code/mainwindow.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_OpenGL_2/OpenGL_2/Code -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Code/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/s2756560/Desktop/computer-grpahics2/Karchoud_Kip_OpenGL_2/OpenGL_2/Code -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Code/mainwindow.h -o moc_mainwindow.cpp
 
 moc_mainview.cpp: ../Code/model.h \
 		../Code/mainview.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_OpenGL_2/OpenGL_2/Code -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Code/mainview.h -o moc_mainview.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/s2756560/Desktop/computer-grpahics2/Karchoud_Kip_OpenGL_2/OpenGL_2/Code -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Code/mainview.h -o moc_mainview.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
