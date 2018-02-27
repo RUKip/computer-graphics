@@ -45,17 +45,30 @@ public:
     QMatrix4x4 modelTransformSphere; //TODO: add to a struct?
     QMatrix4x4 projectionModel;
 
+    float materialColor[3];
+    float colorLight[3];
+    float positionLight[3];
+
+    //All normal shading specific uniforms
     GLint modelTransformVert_Normal;
     GLint modelProjectionVert_Normal;
     GLint modelNormalVert_Normal;
 
+    //All phong shading specific uniforms
     GLint modelTransformVert_Phong;
     GLint modelProjectionVert_Phong;
     GLint modelNormalVert_Phong;
+    GLint positionLight_Phong;
+    GLint colorLight_Phong;
+    GLint material_Phong;
 
+    //All gourad shading specific uniforms
     GLint modelTransformVert_Gouraud;
     GLint modelProjectionVert_Gouraud;
     GLint modelNormalVert_Gouraud;
+    GLint positionLight_Gouraud;
+    GLint colorLight_Gouraud;
+    GLint material_Gouraud;
 
     Model* sphereModel;
 
@@ -68,6 +81,12 @@ public:
     void setRotation(int rotateX, int rotateY, int rotateZ);
     void setScale(int scale);
     void setShadingMode(ShadingMode shading);
+    void setRLight(int R);
+    void setGLight(int G);
+    void setBLight(int B);
+    void setRMaterial(int R);
+    void setGMaterial(int G);
+    void setBMaterial(int B);
 
 protected:
     void initializeGL();

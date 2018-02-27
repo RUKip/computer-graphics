@@ -30,6 +30,14 @@ private slots:
     void on_NormalButton_toggled(bool checked);
     void on_GouraudButton_toggled(bool checked);
 
+    void on_RLight_valueChanged(int value);
+    void on_GLight_valueChanged(int value);
+    void on_BLight_valueChanged(int value);
+
+    void on_RMaterial_valueChanged(int value);
+    void on_GMaterial_valueChanged(int value);
+    void on_BMaterial_valueChanged(int value);
+
 };
 
 #endif // MAINWINDOW_H

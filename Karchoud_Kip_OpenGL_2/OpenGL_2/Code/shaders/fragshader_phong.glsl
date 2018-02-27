@@ -7,9 +7,11 @@
 // These must have the same type and name!
 in vec3 vertNormal;
 
-
 // Specify the Uniforms of the fragment shaders
 // uniform vec3 lightPosition; // for example
+uniform vec3 material_Phong;
+uniform vec3 positionLight_Phong;
+uniform vec3 colorLight_Phong;
 
 // Specify the output of the fragment shader
 // Usually a vec4 describing a color (Red, Green, Blue, Alpha/Transparency)

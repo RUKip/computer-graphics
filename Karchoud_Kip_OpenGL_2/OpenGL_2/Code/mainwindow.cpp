@@ -24,6 +24,12 @@ void MainWindow::on_ResetRotationButton_clicked(bool checked)
     ui->RotationDialX->setValue(0);
     ui->RotationDialY->setValue(0);
     ui->RotationDialZ->setValue(0);
+    ui->RLight->setValue(255);
+    ui->GLight->setValue(0);
+    ui->BLight->setValue(0);
+    ui->RMaterial->setValue(0);
+    ui->GMaterial->setValue(0);
+    ui->BMaterial->setValue(255);
     ui->mainView->setRotation(0, 0, 0);
 }
 
@@ -86,3 +92,34 @@ void MainWindow::on_GouraudButton_toggled(bool checked)
         ui->mainView->update();
     }
 }
+
+void MainWindow::on_RLight_valueChanged(int value)
+{
+    ui->mainView->setRLight(value);
+}
+
+void MainWindow::on_GLight_valueChanged(int value)
+{
+    ui->mainView->setGLight(value);
+}
+
+void MainWindow::on_BLight_valueChanged(int value)
+{
+    ui->mainView->setBLight(value);
+}
+
+void MainWindow::on_RMaterial_valueChanged(int value)
+{
+    ui->mainView->setRMaterial(value);
+}
+
+void MainWindow::on_GMaterial_valueChanged(int value)
+{
+    ui->mainView->setGMaterial(value);
+}
+
+void MainWindow::on_BMaterial_valueChanged(int value)
+{
+    ui->mainView->setBMaterial(value);
+}
+
