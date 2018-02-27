@@ -12,5 +12,10 @@
         <file>shaders/fragshader_normal.glsl</file>
         <file>shaders/vertshader_gouraud.glsl</file>
         <file>shaders/vertshader_normal.glsl</file>
+<<<<<<< HEAD
+=======
+        <file>shaders/vertshader_phong.glsl</file>
+        <file>shaders/fragshader_phong.glsl</file>
+>>>>>>> 341962c929b3742b4277b47493910566c9a0df02
     </qresource>
 </RCC>
