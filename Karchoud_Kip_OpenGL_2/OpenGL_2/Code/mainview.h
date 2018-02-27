@@ -40,7 +40,7 @@ public:
     GLuint sphereVao;
     GLuint sphereVbo;
 
-    QMatrix4x4 modelTransformSphere;
+    QMatrix4x4 modelTransformSphere; //TODO: add to a struct?
     QMatrix4x4 projectionModel;
 
     GLint modelTransformVert;
@@ -79,7 +79,9 @@ private slots:
     void onMessageLogged( QOpenGLDebugMessage Message );
 
 private:
-    void createShaderProgram();
+    void createNormalShaderProgram();
+    void createGouraudShaderProgram();
+    void createPhongShaderProgram();
     void initWorld();
     void doModelTransformations(QMatrix4x4 &modelTransform, QVector3D translation, float scale);
     void modelToVertices(Model* model, vertex* vertices);

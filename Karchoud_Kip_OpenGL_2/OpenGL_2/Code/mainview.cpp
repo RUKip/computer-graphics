@@ -154,7 +154,7 @@ void MainView::initializeGL() {
     // Set the color of the screen to be black on clear (new frame)
     glClearColor(0.2f, 0.5f, 0.7f, 0.0f);
 
-    createShaderProgram();
+    createNormalShaderProgram();
 
     //Initialze camera an world settings
     initWorld();
@@ -192,13 +192,41 @@ void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int 
     glVertexAttribPointer(1,3, GL_FLOAT, false, sizeof(vertex), (GLvoid*)(3*sizeof(GLfloat)));
 }
 
-void MainView::createShaderProgram()
+void MainView::createNormalShaderProgram()
 {
     // Create shader program
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
-                                           ":/shaders/vertshader.glsl");
+                                           ":/shaders/vertshader_normal.glsl");
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Fragment,
-                                           ":/shaders/fragshader.glsl");
+                                           ":/shaders/fragshader_normal.glsl");
+    shaderProgram.link();
+
+    modelTransformVert = shaderProgram.uniformLocation("modelTransform");
+    modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
+    modelNormalVert = shaderProgram.uniformLocation("normalTransform");
+}
+
+void MainView::createGouraudShaderProgram()
+{
+    // Create shader program
+    shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
+                                           ":/shaders/vertshader_normal.glsl");
+    shaderProgram.addShaderFromSourceFile(QOpenGLShader::Fragment,
+                                           ":/shaders/fragshader_normal.glsl");
+    shaderProgram.link();
+
+    modelTransformVert = shaderProgram.uniformLocation("modelTransform");
+    modelProjectionVert = shaderProgram.uniformLocation("projectionTransform");
+    modelNormalVert = shaderProgram.uniformLocation("normalTransform");
+}
+
+void MainView::createPhongShaderProgram()
+{
+    // Create shader program
+    shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
+                                           ":/shaders/vertshader_normal.glsl");
+    shaderProgram.addShaderFromSourceFile(QOpenGLShader::Fragment,
+                                           ":/shaders/fragshader_normal.glsl");
     shaderProgram.link();
 
     modelTransformVert = shaderProgram.uniformLocation("modelTransform");

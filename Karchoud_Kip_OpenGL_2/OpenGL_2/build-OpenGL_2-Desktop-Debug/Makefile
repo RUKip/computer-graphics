@@ -331,8 +331,10 @@ compiler_rcc_make_all: qrc_resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../Code/resources.qrc \
-		../Code/shaders/fragshader.glsl \
-		../Code/shaders/vertshader.glsl \
+		../Code/shaders/fragshader_normal.glsl \
+		../Code/shaders/vertshader_normal.glsl \
+		../Code/shaders/fragshader_gouraud.glsl \
+		../Code/shaders/vertshader_gouraud.glsl \
 		../Code/models/flat_surface.obj \
 		../Code/models/cube.obj \
 		../Code/models/cat.obj \
