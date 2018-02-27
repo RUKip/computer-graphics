@@ -13,10 +13,13 @@ in vec3 vertNormal;
 
 // Specify the output of the fragment shader
 // Usually a vec4 describing a color (Red, Green, Blue, Alpha/Transparency)
-out vec3 fNormal;
+out vec4 fNormal;
 
 void main()
 {
-    fNormal = normalize(vertNormal);
-    fNormal /=3;
+    vec3 normal = normalize(vertNormal);
+    normal += vec3(1,1,1);
+    normal /= 3;
+    fNormal = vec4(normal, 1.0);
+
 }
