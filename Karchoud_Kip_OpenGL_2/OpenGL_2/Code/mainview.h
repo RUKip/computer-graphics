@@ -46,6 +46,7 @@ public:
     QMatrix4x4 projectionModel;
 
     float materialColor[3];
+    float materialComponents[4];
     float colorLight[3];
     float positionLight[3];
 
@@ -58,17 +59,19 @@ public:
     GLint modelTransformVert_Phong;
     GLint modelProjectionVert_Phong;
     GLint modelNormalVert_Phong;
-    GLint positionLight_Phong;
-    GLint colorLight_Phong;
-    GLint material_Phong;
+    GLint light_Position_Phong;
+    GLint light_Color_Phong;
+    GLint material_Color_Phong;
+    GLint material_Components_Phong;
 
     //All gourad shading specific uniforms
     GLint modelTransformVert_Gouraud;
     GLint modelProjectionVert_Gouraud;
     GLint modelNormalVert_Gouraud;
-    GLint positionLight_Gouraud;
-    GLint colorLight_Gouraud;
-    GLint material_Gouraud;
+    GLint light_Position_Gouraud;
+    GLint light_Color_Gouraud;
+    GLint material_Color_Gouraud;
+    GLint material_Components_Gouraud;
 
     Model* sphereModel;
 

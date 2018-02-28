@@ -15,6 +15,7 @@ uniform mat4 modelTransform_Phong;
 uniform mat3 normalTransform_Phong;
 
 // Specify the output of the vertex stage
+out vec4 worldPosition;
 out vec3 vertNormal;
 
 
@@ -23,5 +24,6 @@ void main()
     // gl_Position is the output (a vec4) of the vertex shader
     // Currently without any transformation
     gl_Position = projectionTransform_Phong * modelTransform_Phong * vec4(vertCoordinates_in, 1.0);
-    vertNormal = normalTransform_Phong*vertNormal_in;
+    worldPosition = vec4(modelTransform_Phong*vertCoordinates_in,1);
+    vertNormal = vertNormal_in;
 }

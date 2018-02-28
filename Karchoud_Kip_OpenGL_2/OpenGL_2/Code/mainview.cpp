@@ -207,17 +207,22 @@ void MainView::initWorld()
     projectionModel.perspective(60, 1, 0.1, 1000);
 
     //TODO: Now we have some random value for light position here
-    positionLight[0] = -2.0f;
+    positionLight[0] = 2.0f;
     positionLight[1] = 10.0f;
-    positionLight[2] = -1.0f;
+    positionLight[2] = 1.0f;
 
     colorLight[0] = 1.0f;
-    colorLight[1] = 0.0f;
-    colorLight[2] = 0.0f;
+    colorLight[1] = 1.0f;
+    colorLight[2] = 1.0f;
 
     materialColor[0] = 0.0f;
     materialColor[1] = 0.0f;
     materialColor[2] = 1.0f;
+
+    materialComponents[0] = 0.2f;
+    materialComponents[1] = 1.0f;
+    materialComponents[2] = 0.0f;
+    materialComponents[3] = 0.0f;
 }
 
 void MainView::modelToVertices(Model* model, vertex* vertices)
@@ -276,9 +281,10 @@ void MainView::uploadUniformPhong(){
     //set unifrom matrices normals
     QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
     glUniformMatrix3fv(modelNormalVert_Phong, 1, false, normalTransformation.data());
-    glUniform3fv(material_Phong, 1, materialColor);
-    glUniform3fv(colorLight_Phong, 1, colorLight);
-    glUniform3fv(positionLight_Phong, 1, positionLight);
+    glUniform3fv(material_Color_Phong, 1, materialColor);
+    glUniform4fv(material_Components_Phong, 1, materialComponents);
+    glUniform3fv(light_Color_Phong, 1, colorLight);
+    glUniform3fv(light_Position_Phong, 1, positionLight);
 
     //set uniform matrices projection
     glUniformMatrix4fv(modelProjectionVert_Phong, 1, false, projectionModel.data());
@@ -296,9 +302,10 @@ void MainView::uploadUniformNormal(){
 
 void MainView::uploadUniformGouraud(){
     QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
-    glUniform3fv(material_Gouraud, 1, materialColor);
-    glUniform3fv(colorLight_Gouraud, 1, colorLight);
-    glUniform3fv(positionLight_Gouraud, 1, positionLight);
+    glUniform3fv(material_Color_Gouraud, 1, materialColor);
+    glUniform4fv(material_Components_Gouraud, 1, materialComponents);
+    glUniform3fv(light_Color_Gouraud, 1, colorLight);
+    glUniform3fv(light_Position_Gouraud, 1, positionLight);
     glUniformMatrix3fv(modelNormalVert_Gouraud, 1, false, normalTransformation.data());
     glUniformMatrix4fv(modelProjectionVert_Gouraud, 1, false, projectionModel.data());
     glUniformMatrix4fv(modelTransformVert_Gouraud, 1, false, modelTransformSphere.data());
@@ -328,9 +335,10 @@ void MainView::createGouraudShaderProgram()
     modelTransformVert_Gouraud = shaderProgram.uniformLocation("modelTransform_Gouraud");
     modelProjectionVert_Gouraud = shaderProgram.uniformLocation("projectionTransform_Gouraud");
     modelNormalVert_Gouraud = shaderProgram.uniformLocation("normalTransform_Gouraud");
-    material_Gouraud = shaderProgram.uniformLocation("material_Gouraud");
-    positionLight_Gouraud = shaderProgram.uniformLocation("postionLight_Gouraud");
-    colorLight_Gouraud = shaderProgram.uniformLocation("colorLight_Gouraud");
+    material_Color_Gouraud = shaderProgram.uniformLocation("material_Color_Gouraud");
+    material_Components_Gouraud = shaderProgram.uniformLocation("material_Components_Gouraud");
+    light_Position_Gouraud = shaderProgram.uniformLocation("light_Position_Gouraud");
+    light_Color_Gouraud = shaderProgram.uniformLocation("light_Color_Gouraud");
 
 }
 
@@ -345,9 +353,10 @@ void MainView::createPhongShaderProgram()
     modelTransformVert_Phong = shaderProgram.uniformLocation("modelTransform_Phong");
     modelProjectionVert_Phong = shaderProgram.uniformLocation("projectionTransform_Phong");
     modelNormalVert_Phong = shaderProgram.uniformLocation("normalTransform_Phong");
-    material_Phong = shaderProgram.uniformLocation("material_Phong");
-    positionLight_Phong = shaderProgram.uniformLocation("postionLight_Phong");
-    colorLight_Phong = shaderProgram.uniformLocation("colorLight_Phong");
+    material_Color_Phong = shaderProgram.uniformLocation("material_Color_Phong");
+    material_Components_Phong = shaderProgram.uniformLocation("material_Components_Phong");
+    light_Position_Phong = shaderProgram.uniformLocation("light_Position_Phong");
+    light_Color_Phong = shaderProgram.uniformLocation("light_Color_Phong");
 }
 
 //transformations on the objects in the world
@@ -398,16 +407,19 @@ void MainView::setScale(int scale)
 void MainView::setRLight(int R)
 {
     colorLight[0] = ((float)R/255);
+    update();
     qDebug() << "Light changed to (" << colorLight[0] << "," << colorLight[1] << "," << colorLight[2] << ")";
 }
 void MainView::setGLight(int G)
 {
     colorLight[1] = ((float)G/255);
+    update();
     qDebug() << "Light changed to (" << colorLight[0] << "," << colorLight[1] << "," << colorLight[2] << ")";
 }
 void MainView::setBLight(int B)
 {
     colorLight[2] = ((float)B/255);
+    update();
     qDebug() << "Light changed to (" << colorLight[0] << "," << colorLight[1] << "," << colorLight[2] << ")";
 }
 
@@ -415,16 +427,19 @@ void MainView::setBLight(int B)
 void MainView::setRMaterial(int R)
 {
     materialColor[0] = ((float)R/255);
+    update();
     qDebug() << "Material changed to (" << materialColor[0] << "," << materialColor[1] << "," << materialColor[2] << ")";
 }
 void MainView::setGMaterial(int G)
 {
     materialColor[1] = ((float)G/255);
+    update();
     qDebug() << "Material changed to (" << materialColor[0] << "," << materialColor[1] << "," << materialColor[2] << ")";
 }
 void MainView::setBMaterial(int B)
 {
     materialColor[2] = ((float)B/255);
+    update();
     qDebug() << "Material changed to (" << materialColor[0] << "," << materialColor[1] << "," << materialColor[2] << ")";
 }
 
