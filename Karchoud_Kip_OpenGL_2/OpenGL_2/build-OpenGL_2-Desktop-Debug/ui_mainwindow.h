@@ -208,6 +208,7 @@ public:
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         RLight = new QSpinBox(RGBLight);
         RLight->setObjectName(QStringLiteral("RLight"));
+        RLight->setMinimum(1);
         RLight->setMaximum(255);
         RLight->setValue(255);
 
@@ -215,13 +216,17 @@ public:
 
         GLight = new QSpinBox(RGBLight);
         GLight->setObjectName(QStringLiteral("GLight"));
+        GLight->setMinimum(1);
         GLight->setMaximum(255);
+        GLight->setValue(255);
 
         verticalLayout_3->addWidget(GLight);
 
         BLight = new QSpinBox(RGBLight);
         BLight->setObjectName(QStringLiteral("BLight"));
+        BLight->setMinimum(1);
         BLight->setMaximum(255);
+        BLight->setValue(255);
 
         verticalLayout_3->addWidget(BLight);
 
@@ -239,19 +244,23 @@ public:
         verticalLayout_5->setContentsMargins(1, 1, 1, 1);
         RMaterial = new QSpinBox(RGBMaterial);
         RMaterial->setObjectName(QStringLiteral("RMaterial"));
+        RMaterial->setMinimum(1);
         RMaterial->setMaximum(255);
-        RMaterial->setValue(0);
+        RMaterial->setValue(255);
 
         verticalLayout_5->addWidget(RMaterial);
 
         GMaterial = new QSpinBox(RGBMaterial);
         GMaterial->setObjectName(QStringLiteral("GMaterial"));
+        GMaterial->setMinimum(1);
         GMaterial->setMaximum(255);
+        GMaterial->setValue(255);
 
         verticalLayout_5->addWidget(GMaterial);
 
         BMaterial = new QSpinBox(RGBMaterial);
         BMaterial->setObjectName(QStringLiteral("BMaterial"));
+        BMaterial->setMinimum(1);
         BMaterial->setMaximum(255);
         BMaterial->setValue(255);
 

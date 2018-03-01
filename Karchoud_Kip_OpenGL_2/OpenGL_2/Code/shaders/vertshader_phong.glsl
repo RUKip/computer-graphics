@@ -24,6 +24,10 @@ void main()
     // gl_Position is the output (a vec4) of the vertex shader
     // Currently without any transformation
     gl_Position = projectionTransform_Phong * modelTransform_Phong * vec4(vertCoordinates_in, 1.0);
-    worldPosition = modelTransform_Phong*vec4(vertCoordinates_in,1);
-    vertNormal = normalize(normalTransform_Phong*vertNormal_in);
+
+    worldPosition = vec4(vertCoordinates_in,1);
+    vertNormal = vertNormal_in;
+//    //Below for non fixed lighting
+//    worldPosition = modelTransform_Phong*vec4(vertCoordinates_in,1);
+//    vertNormal = normalize(normalTransform_Phong*vertNormal_in);
 }
