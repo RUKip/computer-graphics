@@ -24,12 +24,6 @@ void MainWindow::on_ResetRotationButton_clicked(bool checked)
     ui->RotationDialX->setValue(0);
     ui->RotationDialY->setValue(0);
     ui->RotationDialZ->setValue(0);
-    ui->RLight->setValue(255);
-    ui->GLight->setValue(0);
-    ui->BLight->setValue(0);
-    ui->RMaterial->setValue(0);
-    ui->GMaterial->setValue(0);
-    ui->BMaterial->setValue(255);
     ui->mainView->setRotation(0, 0, 0);
 }
 

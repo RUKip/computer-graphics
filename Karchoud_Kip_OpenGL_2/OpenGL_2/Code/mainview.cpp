@@ -207,6 +207,7 @@ void MainView::initWorld()
     projectionModel.perspective(60, 1, 0.1, 1000);
 
     //TODO: Now we have some random value for light position here
+    //TODO: fix color light to be the same with widgets, start at white light
     positionLight[0] = 2.0f;
     positionLight[1] = 10.0f;
     positionLight[2] = 1.0f;
@@ -215,14 +216,14 @@ void MainView::initWorld()
     colorLight[1] = 1.0f;
     colorLight[2] = 1.0f;
 
-    materialColor[0] = 0.0f;
-    materialColor[1] = 0.0f;
+    materialColor[0] = 1.0f;
+    materialColor[1] = 1.0f;
     materialColor[2] = 1.0f;
 
     materialComponents[0] = 0.2f;
     materialComponents[1] = 1.0f;
     materialComponents[2] = 0.0f;
-    materialComponents[3] = 0.0f;
+    materialComponents[3] = 1.0f;
 }
 
 void MainView::modelToVertices(Model* model, vertex* vertices)
@@ -285,11 +286,7 @@ void MainView::uploadUniformPhong(){
     glUniform4fv(material_Components_Phong, 1, materialComponents);
     glUniform3fv(light_Color_Phong, 1, colorLight);
     glUniform3fv(light_Position_Phong, 1, positionLight);
-
-    //set uniform matrices projection
     glUniformMatrix4fv(modelProjectionVert_Phong, 1, false, projectionModel.data());
-
-    //set uniform matrices shaders
     glUniformMatrix4fv(modelTransformVert_Phong, 1, false, modelTransformSphere.data());
 }
 

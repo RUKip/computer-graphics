@@ -23,7 +23,6 @@ uniform vec3 light_Color_Gouraud;
 // Specify the output of the vertex stage
 out vec4 color;
 
-
 void main()
 {
     // gl_Position is the output (a vec4) of the vertex shader
@@ -33,10 +32,12 @@ void main()
     vec3 ambient = material_Components_Gouraud.x*material_Color_Gouraud;
     vec3 diffuse = vec3(0.0,0.0,0.0);
     vec3 specular = vec3(0.0,0.0,0.0);
+
     //below should be done over all the lights,  //TODO: what if we want to incorparate more lights?? Do we send an array of lights to the shader??
     vec3 L = normalize(light_Position_Gouraud - worldPosition.xyz);
     vec3 R = normalize(-reflect(L, vertNormal));
     diffuse += max(0.0, dot(L,vertNormal))*material_Color_Gouraud*material_Components_Gouraud.y*light_Color_Gouraud;
-    specular += pow(max(0.0, dot(R, normalize(worldPosition.xyz))), material_Components_Gouraud.w)*light_Color_Gouraud*material_Components_Gouraud.z;
+    specular += pow(max(0.0, dot(R, -1*worldPosition.xyz)), material_Components_Gouraud.w)*light_Color_Gouraud*material_Components_Gouraud.z;
     color = vec4(ambient+diffuse+specular,1.0);
+    //color = vec4(worldPosition);
 }
