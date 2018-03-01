@@ -440,6 +440,35 @@ void MainView::setBMaterial(int B)
     qDebug() << "Material changed to (" << materialColor[0] << "," << materialColor[1] << "," << materialColor[2] << ")";
 }
 
+void MainView::setKAmbient(int A)
+{
+    materialComponents[0]=((float)A/200);
+    update();
+    qDebug() << "Material component changed to (" << materialComponents[0] << "," << materialComponents[1] << "," << materialComponents[2] << "," << materialComponents[3] <<")";
+}
+
+void MainView::setKDiffuse(int D)
+{
+    materialComponents[1]=((float)D/200);
+    update();
+    qDebug() << "Material component changed to (" << materialComponents[0] << "," << materialComponents[1] << "," << materialComponents[2] << "," << materialComponents[3] <<")";
+}
+
+void MainView::setKSpecular(int S)
+{
+    materialComponents[2]=((float)S/200);
+    update();
+    qDebug() << "Material component changed to (" << materialComponents[0] << "," << materialComponents[1] << "," << materialComponents[2] << "," << materialComponents[3] <<")";
+}
+
+void MainView::setKP(int P)
+{
+    materialComponents[3] = P;
+    update();
+    qDebug() << "Material component changed to (" << materialComponents[0] << "," << materialComponents[1] << "," << materialComponents[2] << "," << materialComponents[3] <<")";
+}
+
+
 void MainView::setShadingMode(ShadingMode shading)
 {
     shadingMode = shading;

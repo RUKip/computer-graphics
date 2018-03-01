@@ -117,3 +117,25 @@ void MainWindow::on_BMaterial_valueChanged(int value)
     ui->mainView->setBMaterial(value);
 }
 
+void MainWindow::on_KAmbient_sliderMoved(int value)
+{
+    ui->mainView->setKAmbient(value);
+}
+
+void MainWindow::on_KDiffuse_sliderMoved(int value)
+{
+    ui->mainView->setKDiffuse(value);
+}
+
+void MainWindow::on_KSpecular_sliderMoved(int value)
+{
+    ui->mainView->setKSpecular(value);
+}
+
+void MainWindow::on_KP_sliderMoved(int value)
+{
+    ui->mainView->setKP(value);
+}
+
+
+

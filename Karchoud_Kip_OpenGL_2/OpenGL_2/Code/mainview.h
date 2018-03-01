@@ -90,6 +90,10 @@ public:
     void setRMaterial(int R);
     void setGMaterial(int G);
     void setBMaterial(int B);
+    void setKAmbient(int A);
+    void setKDiffuse(int D);
+    void setKSpecular(int S);
+    void setKP(int P);
 
 protected:
     void initializeGL();
