@@ -38,6 +38,11 @@ private slots:
     void on_GMaterial_valueChanged(int value);
     void on_BMaterial_valueChanged(int value);
 
+    void on_KAmbient_sliderMoved(int value);
+    void on_KDiffuse_sliderMoved(int value);
+    void on_KSpecular_sliderMoved(int value);
+    void on_KP_sliderMoved(int value);
+
 };
 
 #endif // MAINWINDOW_H

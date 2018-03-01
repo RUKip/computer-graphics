@@ -31,6 +31,10 @@ void MainWindow::on_ResetRotationButton_clicked(bool checked)
     ui->GMaterial->setValue(0);
     ui->BMaterial->setValue(255);
     ui->mainView->setRotation(0, 0, 0);
+    ui->KAmbient->setScale(0);
+    ui->KDiffuse->setScale(0);
+    ui->KSpecular->setScale(0);
+    ui->KP->setScale(0);
 }
 
 void MainWindow::on_RotationDialX_sliderMoved(int value)
@@ -122,4 +126,26 @@ void MainWindow::on_BMaterial_valueChanged(int value)
 {
     ui->mainView->setBMaterial(value);
 }
+
+void MainWindow::on_KAmbient_sliderMoved(int value)
+{
+    ui->mainView->setKAmbient(value);
+}
+
+void MainWindow::on_KDiffuse_sliderMoved(int value)
+{
+    ui->mainView->setKDiffuse(value);
+}
+
+void MainWindow::on_KSpecular_sliderMoved(int value)
+{
+    ui->mainView->setKSpecular(value);
+}
+
+void MainWindow::on_KP_sliderMoved(int value)
+{
+    ui->mainView->setKP(value);
+}
+
+
 

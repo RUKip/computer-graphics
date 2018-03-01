@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1272</width>
-    <height>719</height>
+    <height>908</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,6 +39,9 @@
        <string>Settings</string>
       </property>
       <layout class="QFormLayout" name="formLayout">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
        <item row="0" column="0">
         <widget class="QGroupBox" name="rotationBox">
          <property name="sizePolicy">
@@ -349,11 +352,90 @@
          </layout>
         </widget>
        </item>
+       <item row="10" column="0" colspan="2">
+        <widget class="QGroupBox" name="verticalGroupBox">
+         <property name="title">
+          <string>Ambient Material</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QSlider" name="KAmbient">
+            <property name="maximum">
+             <number>200</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="13" column="0" colspan="2">
+        <widget class="QGroupBox" name="verticalGroupBox">
+         <property name="title">
+          <string>Speculalar Material</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QSlider" name="KSpecular">
+            <property name="maximum">
+             <number>200</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="14" column="0" colspan="2">
+        <widget class="QGroupBox" name="verticalGroupBox_2">
+         <property name="title">
+          <string>P Material</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <widget class="QSlider" name="KP">
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="11" column="0" colspan="2">
+        <widget class="QGroupBox" name="verticalGroupBox">
+         <property name="title">
+          <string>Diffuse material</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QSlider" name="KDiffuse">
+            <property name="maximum">
+             <number>200</number>
+            </property>
+            <property name="value">
+             <number>0</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
     <item>
-     <widget class="MainView" name="mainView"/>
+     <widget class="MainView" name="mainView" native="true"/>
     </item>
    </layout>
   </widget>
@@ -362,7 +444,7 @@
  <customwidgets>
   <customwidget>
    <class>MainView</class>
-   <extends>QOpenGLWidget</extends>
+   <extends>QWidget</extends>
    <header location="global">mainview.h</header>
   </customwidget>
  </customwidgets>
