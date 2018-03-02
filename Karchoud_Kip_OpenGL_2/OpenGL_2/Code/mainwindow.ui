@@ -380,7 +380,7 @@
         </widget>
        </item>
        <item row="10" column="0" colspan="2">
-        <widget class="QGroupBox" name="verticalGroupBox">
+        <widget class="QGroupBox" name="Kcoefficient_1">
          <property name="title">
           <string>Ambient Material</string>
          </property>
@@ -405,7 +405,7 @@
         </widget>
        </item>
        <item row="13" column="0" colspan="2">
-        <widget class="QGroupBox" name="verticalGroupBox">
+        <widget class="QGroupBox" name="Kcoefficient_3">
          <property name="title">
           <string>Speculalar Material</string>
          </property>
@@ -427,7 +427,7 @@
         </widget>
        </item>
        <item row="14" column="0" colspan="2">
-        <widget class="QGroupBox" name="verticalGroupBox_2">
+        <widget class="QGroupBox" name="Kcoefficient_4">
          <property name="title">
           <string>P Material</string>
          </property>
@@ -449,7 +449,7 @@
         </widget>
        </item>
        <item row="11" column="0" colspan="2">
-        <widget class="QGroupBox" name="verticalGroupBox">
+        <widget class="QGroupBox" name="Kcoefficient_2">
          <property name="title">
           <string>Diffuse material</string>
          </property>

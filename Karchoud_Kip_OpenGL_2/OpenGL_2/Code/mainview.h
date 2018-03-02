@@ -75,6 +75,11 @@ public:
 
     Model* sphereModel;
 
+
+    //Texture mapping
+    GLuint texture;
+
+
     float initScale;
     float worldRotationX;
     float worldRotationY;
@@ -127,6 +132,7 @@ private:
     void uploadUniformPhong();
     void uploadUniformNormal();
     void uploadUniformGouraud();
+    //QVector<quint8> imagesToBytes(QImage image);
 };
 
 #endif // MAINVIEW_H

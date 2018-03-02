@@ -493,6 +493,11 @@ void MainView::setShadingMode(ShadingMode shading)
 
 }
 
+//void MainView::imagesToBytes(QImage texture){
+
+
+//}
+
 // --- Private helpers
 
 /**

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.1
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -62,16 +62,16 @@ public:
     QSpinBox *RMaterial;
     QSpinBox *GMaterial;
     QSpinBox *BMaterial;
-    QGroupBox *verticalGroupBox;
+    QGroupBox *Kcoefficient_1;
     QVBoxLayout *verticalLayout_7;
     QSlider *KAmbient;
-    QGroupBox *verticalGroupBox1;
+    QGroupBox *Kcoefficient_3;
     QVBoxLayout *verticalLayout_8;
     QSlider *KSpecular;
-    QGroupBox *verticalGroupBox_2;
+    QGroupBox *Kcoefficient_4;
     QVBoxLayout *verticalLayout_9;
     QSlider *KP;
-    QGroupBox *verticalGroupBox2;
+    QGroupBox *Kcoefficient_2;
     QVBoxLayout *verticalLayout_6;
     QSlider *KDiffuse;
     MainView *mainView;
@@ -282,13 +282,13 @@ public:
 
         formLayout->setWidget(8, QFormLayout::LabelRole, RGBMaterial);
 
-        verticalGroupBox = new QGroupBox(settingsBox);
-        verticalGroupBox->setObjectName(QStringLiteral("verticalGroupBox"));
-        verticalLayout_7 = new QVBoxLayout(verticalGroupBox);
+        Kcoefficient_1 = new QGroupBox(settingsBox);
+        Kcoefficient_1->setObjectName(QStringLiteral("Kcoefficient_1"));
+        verticalLayout_7 = new QVBoxLayout(Kcoefficient_1);
         verticalLayout_7->setSpacing(6);
         verticalLayout_7->setContentsMargins(11, 11, 11, 11);
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        KAmbient = new QSlider(verticalGroupBox);
+        KAmbient = new QSlider(Kcoefficient_1);
         KAmbient->setObjectName(QStringLiteral("KAmbient"));
         KAmbient->setMinimum(1);
         KAmbient->setMaximum(200);
@@ -298,15 +298,15 @@ public:
         verticalLayout_7->addWidget(KAmbient);
 
 
-        formLayout->setWidget(10, QFormLayout::SpanningRole, verticalGroupBox);
+        formLayout->setWidget(10, QFormLayout::SpanningRole, Kcoefficient_1);
 
-        verticalGroupBox1 = new QGroupBox(settingsBox);
-        verticalGroupBox1->setObjectName(QStringLiteral("verticalGroupBox1"));
-        verticalLayout_8 = new QVBoxLayout(verticalGroupBox1);
+        Kcoefficient_3 = new QGroupBox(settingsBox);
+        Kcoefficient_3->setObjectName(QStringLiteral("Kcoefficient_3"));
+        verticalLayout_8 = new QVBoxLayout(Kcoefficient_3);
         verticalLayout_8->setSpacing(6);
         verticalLayout_8->setContentsMargins(11, 11, 11, 11);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        KSpecular = new QSlider(verticalGroupBox1);
+        KSpecular = new QSlider(Kcoefficient_3);
         KSpecular->setObjectName(QStringLiteral("KSpecular"));
         KSpecular->setMinimum(1);
         KSpecular->setMaximum(200);
@@ -315,15 +315,15 @@ public:
         verticalLayout_8->addWidget(KSpecular);
 
 
-        formLayout->setWidget(13, QFormLayout::SpanningRole, verticalGroupBox1);
+        formLayout->setWidget(13, QFormLayout::SpanningRole, Kcoefficient_3);
 
-        verticalGroupBox_2 = new QGroupBox(settingsBox);
-        verticalGroupBox_2->setObjectName(QStringLiteral("verticalGroupBox_2"));
-        verticalLayout_9 = new QVBoxLayout(verticalGroupBox_2);
+        Kcoefficient_4 = new QGroupBox(settingsBox);
+        Kcoefficient_4->setObjectName(QStringLiteral("Kcoefficient_4"));
+        verticalLayout_9 = new QVBoxLayout(Kcoefficient_4);
         verticalLayout_9->setSpacing(6);
         verticalLayout_9->setContentsMargins(11, 11, 11, 11);
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        KP = new QSlider(verticalGroupBox_2);
+        KP = new QSlider(Kcoefficient_4);
         KP->setObjectName(QStringLiteral("KP"));
         KP->setMinimum(1);
         KP->setMaximum(100);
@@ -332,15 +332,15 @@ public:
         verticalLayout_9->addWidget(KP);
 
 
-        formLayout->setWidget(14, QFormLayout::SpanningRole, verticalGroupBox_2);
+        formLayout->setWidget(14, QFormLayout::SpanningRole, Kcoefficient_4);
 
-        verticalGroupBox2 = new QGroupBox(settingsBox);
-        verticalGroupBox2->setObjectName(QStringLiteral("verticalGroupBox2"));
-        verticalLayout_6 = new QVBoxLayout(verticalGroupBox2);
+        Kcoefficient_2 = new QGroupBox(settingsBox);
+        Kcoefficient_2->setObjectName(QStringLiteral("Kcoefficient_2"));
+        verticalLayout_6 = new QVBoxLayout(Kcoefficient_2);
         verticalLayout_6->setSpacing(6);
         verticalLayout_6->setContentsMargins(11, 11, 11, 11);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        KDiffuse = new QSlider(verticalGroupBox2);
+        KDiffuse = new QSlider(Kcoefficient_2);
         KDiffuse->setObjectName(QStringLiteral("KDiffuse"));
         KDiffuse->setMinimum(1);
         KDiffuse->setMaximum(200);
@@ -351,7 +351,7 @@ public:
         verticalLayout_6->addWidget(KDiffuse);
 
 
-        formLayout->setWidget(11, QFormLayout::SpanningRole, verticalGroupBox2);
+        formLayout->setWidget(11, QFormLayout::SpanningRole, Kcoefficient_2);
 
 
         horizontalLayout->addWidget(settingsBox);
@@ -370,31 +370,31 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        settingsBox->setTitle(QApplication::translate("MainWindow", "Settings", Q_NULLPTR));
-        rotationBox->setTitle(QApplication::translate("MainWindow", "Rotation", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        settingsBox->setTitle(QApplication::translate("MainWindow", "Settings", 0));
+        rotationBox->setTitle(QApplication::translate("MainWindow", "Rotation", 0));
 #ifndef QT_NO_TOOLTIP
-        RotationDialX->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the X-axis</p></body></html>", Q_NULLPTR));
+        RotationDialX->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the X-axis</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        RotationDialY->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the Y-axis</p></body></html>", Q_NULLPTR));
+        RotationDialY->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the Y-axis</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        RotationDialZ->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the Z-axis</p></body></html>", Q_NULLPTR));
+        RotationDialZ->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the Z-axis</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
-        ResetRotationButton->setText(QApplication::translate("MainWindow", "Reset Rotation", Q_NULLPTR));
-        scalingBox->setTitle(QApplication::translate("MainWindow", "Scaling", Q_NULLPTR));
-        ResetScaleButton->setText(QApplication::translate("MainWindow", "Reset Scaling", Q_NULLPTR));
-        shadingBox->setTitle(QApplication::translate("MainWindow", "Shading", Q_NULLPTR));
-        PhongButton->setText(QApplication::translate("MainWindow", "Pho&ng", Q_NULLPTR));
-        NormalButton->setText(QApplication::translate("MainWindow", "Nor&mal", Q_NULLPTR));
-        GouraudButton->setText(QApplication::translate("MainWindow", "&Gouraud", Q_NULLPTR));
-        RGBLight->setTitle(QApplication::translate("MainWindow", "RGB light", Q_NULLPTR));
-        RGBMaterial->setTitle(QApplication::translate("MainWindow", "Color material", Q_NULLPTR));
-        verticalGroupBox->setTitle(QApplication::translate("MainWindow", "Ambient Material", Q_NULLPTR));
-        verticalGroupBox1->setTitle(QApplication::translate("MainWindow", "Speculalar Material", Q_NULLPTR));
-        verticalGroupBox_2->setTitle(QApplication::translate("MainWindow", "P Material", Q_NULLPTR));
-        verticalGroupBox2->setTitle(QApplication::translate("MainWindow", "Diffuse material", Q_NULLPTR));
+        ResetRotationButton->setText(QApplication::translate("MainWindow", "Reset Rotation", 0));
+        scalingBox->setTitle(QApplication::translate("MainWindow", "Scaling", 0));
+        ResetScaleButton->setText(QApplication::translate("MainWindow", "Reset Scaling", 0));
+        shadingBox->setTitle(QApplication::translate("MainWindow", "Shading", 0));
+        PhongButton->setText(QApplication::translate("MainWindow", "Pho&ng", 0));
+        NormalButton->setText(QApplication::translate("MainWindow", "Nor&mal", 0));
+        GouraudButton->setText(QApplication::translate("MainWindow", "&Gouraud", 0));
+        RGBLight->setTitle(QApplication::translate("MainWindow", "RGB light", 0));
+        RGBMaterial->setTitle(QApplication::translate("MainWindow", "Color material", 0));
+        Kcoefficient_1->setTitle(QApplication::translate("MainWindow", "Ambient Material", 0));
+        Kcoefficient_3->setTitle(QApplication::translate("MainWindow", "Speculalar Material", 0));
+        Kcoefficient_4->setTitle(QApplication::translate("MainWindow", "P Material", 0));
+        Kcoefficient_2->setTitle(QApplication::translate("MainWindow", "Diffuse material", 0));
     } // retranslateUi
 
 };
