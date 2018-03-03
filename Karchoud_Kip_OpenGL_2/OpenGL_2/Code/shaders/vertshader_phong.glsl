@@ -19,6 +19,10 @@ out vec4 worldPosition;
 out vec3 vertNormal;
 
 
+//incoming texture coordinates
+in vec2 vertexUV;
+out vec2 UV;
+
 void main()
 {
     // gl_Position is the output (a vec4) of the vertex shader

@@ -8,6 +8,9 @@
 in vec4 worldPosition;
 in vec3 vertNormal;
 
+//texture coordinates
+in vec2 UV;
+
 // Specify the Uniforms of the fragment shaders
 // uniform vec3 lightPosition; // for example
 uniform vec3 material_Color_Phong;
@@ -15,9 +18,13 @@ uniform vec4 material_Components_Phong;
 uniform vec3 light_Position_Phong;
 uniform vec3 light_Color_Phong;
 
+
+uniform sampler2D texture;
+
 // Specify the output of the fragment shader
 // Usually a vec4 describing a color (Red, Green, Blue, Alpha/Transparency)
 out vec4 fColor;
+out vec4 textureColor;
 
 void main()
 {
@@ -32,5 +39,9 @@ void main()
     specular += pow(max(0.0, dot(R, -1*worldPosition.xyz)), material_Components_Phong.w)*light_Color_Phong*material_Components_Phong.z;
 
     fColor = vec4(ambient+diffuse+specular, 1.0);
+
+    //Texture
+
+    textureColor = texture2D(texture, UV);
 
 }

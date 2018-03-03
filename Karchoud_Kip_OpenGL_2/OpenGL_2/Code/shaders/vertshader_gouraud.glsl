@@ -23,6 +23,11 @@ uniform vec3 light_Color_Gouraud;
 // Specify the output of the vertex stage
 out vec4 color;
 
+//incoming texture coordinates
+in vec2 vertexUV;
+out vec2 UV;
+
+
 void main()
 {
     //We first calculate ligthing values on the original model here because of fixed lighting, TODO: this doesnt seem to work
@@ -50,4 +55,7 @@ void main()
     specular += pow(max(0.0, dot(R, -1*worldPosition.xyz)), material_Components_Gouraud.w)*light_Color_Gouraud*material_Components_Gouraud.z;
 
     color = vec4(ambient+diffuse+specular,1.0);
+
+    //texture mapping
+    UV = vertexUV;
 }

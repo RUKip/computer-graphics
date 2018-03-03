@@ -76,7 +76,7 @@ public:
     Model* sphereModel;
 
 
-    //Texture mapping
+    //Texture mapping step 2
     GLuint texture;
 
 
@@ -132,6 +132,8 @@ private:
     void uploadUniformPhong();
     void uploadUniformNormal();
     void uploadUniformGouraud();
+
+    //texture step 1
     //QVector<quint8> imagesToBytes(QImage image);
 };
 

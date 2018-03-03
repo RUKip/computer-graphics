@@ -275,6 +275,13 @@ void MainView::paintGL() {
     glDrawArrays(GL_TRIANGLES, 0, sphereModel->getNumTriangles()*3);
 
     shaderProgram.release();
+
+    //texture binding/drawing 11t/m 13
+    //glActiveTexture(GL_TEXTURE0);
+    //glBindTexture(GL_TEXTURE_2D, texturePtr);
+    //glUniform1i(texture, 1);
+
+
 }
 
 
@@ -492,11 +499,14 @@ void MainView::setShadingMode(ShadingMode shading)
     }
 
 }
-
-//void MainView::imagesToBytes(QImage texture){
-
-
-//}
+//texture 2t/m 7
+/*void MainView::loadTexture(QString file, Gluint texturePtr){
+    QVector texturePtr = texture.imageToBytes();
+    glGenTextures(GLsizei n, GLuint *texturePtr);
+    glBindTexture(GLenum GL_TEXTURE_2D, GLuint texture);
+    glTexParameteri(GLenum GL_TEXTURE_2D, GLenum GL_TEXTURE_WRAP_S, GLint param); //TODO: param should specify the value of param 2 ??
+    glTexImage2D(GLenum GL_TEXTURE_2D, GLint 0, GLint GL_RGBA8, GLsizei width, GLsizei height, GLint 0, GLenum GL_RGBA, GLenum GL_UNSIGNED_BYTE, const QVector texturePtr.data()); //TODO:width and height 1024?
+}*/
 
 // --- Private helpers
 
