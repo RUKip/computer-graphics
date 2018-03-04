@@ -282,7 +282,7 @@ void MainView::paintGL() {
     }
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texturePtr);
+    glBindTexture(GL_TEXTURE_2D, texData);
     glUniform1i(texturePtr, 0);
 
     // Draw
@@ -292,13 +292,13 @@ void MainView::paintGL() {
     shaderProgram.release();
 }
 
-void MainView::loadTexture(QString file, GLuint texturePtr){
+void MainView::loadTexture(QString file, GLuint textureData){
     QImage image = *new QImage(file);
-    QVector<quint8> textureData = imageToBytes(image);
-    glGenTextures(1, &texturePtr);
-    glBindTexture(GL_TEXTURE_2D, texturePtr); //TODO: GL_texture_2D?
+    QVector<quint8> data = imageToBytes(image);
+    glGenTextures(1, &textureData);
+    glBindTexture(GL_TEXTURE_2D, textureData); //TODO: GL_texture_2D?
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //What param is the best?
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, image.width(), image.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData.data());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, image.width(), image.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, data.data());
     //glGenerateMipmap(GL TEXTURE 2D) //use if we are gonna use a mipmap
 }
 
