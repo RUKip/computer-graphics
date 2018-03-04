@@ -55,6 +55,11 @@ void main()
 
     color = vec4(ambient+diffuse+specular,1.0);
 
+//    //cell shading, not fully implemented, still needs heavy lines (fat mesh)
+//    int numShades = 5;
+//    vec4 shadeIntensity = ceil(vec4(ambient+diffuse+specular,1.0)*numShades)/numShades;
+//    color = vec4(material_Color_Gouraud,1)*shadeIntensity;
+
     //texture mapping
     texCoord = textureCoordinates;
 }

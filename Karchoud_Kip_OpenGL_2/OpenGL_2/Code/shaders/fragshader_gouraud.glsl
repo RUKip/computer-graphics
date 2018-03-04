@@ -20,6 +20,9 @@ out vec4 fColor;
 void main()
 {
     fColor = texture2D(texture, texCoord)*color;
+
+    //without textures
+    //fColor = color;
 }
 
 
