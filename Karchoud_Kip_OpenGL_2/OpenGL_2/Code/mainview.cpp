@@ -283,7 +283,7 @@ void MainView::paintGL() {
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texData);
-    glUniform1i(textureColors, 0);
+    glUniform1i(texturePtr, 0);
 
     // Draw
     glBindVertexArray(sphereVao);
@@ -298,7 +298,12 @@ void MainView::loadTexture(QString file, GLuint texturePtr){
     glGenTextures(1, &texturePtr);
     glBindTexture(GL_TEXTURE_2D, texturePtr); //TODO: GL_texture_2D?
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //What param is the best?
-    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 1024, 1024, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData.data()); //TODO: texturePtr.data() is stored in a pointer here? Or lost after this function?, why does it crash
+    float pixels[] = {
+        0.0f, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f
+    };
+    qDebug() << textureData.size() << "\n";
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, image.width(), image.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData.data()); //TODO: texturePtr.data() is stored in a pointer here? Or lost after this function?, why does it crash
     //glGenerateMipmap(GL TEXTURE 2D) //use if we are gonna use a mipmap
 }
 
@@ -361,7 +366,7 @@ void MainView::createGouraudShaderProgram()
     material_Components_Gouraud = shaderProgram.uniformLocation("material_Components_Gouraud");
     light_Position_Gouraud = shaderProgram.uniformLocation("light_Position_Gouraud");
     light_Color_Gouraud = shaderProgram.uniformLocation("light_Color_Gouraud");
-    textureColors = shaderProgram.uniformLocation("texture");
+    texturePtr = shaderProgram.uniformLocation("texture");
 }
 
 void MainView::createPhongShaderProgram()
@@ -379,7 +384,7 @@ void MainView::createPhongShaderProgram()
     material_Components_Phong = shaderProgram.uniformLocation("material_Components_Phong");
     light_Position_Phong = shaderProgram.uniformLocation("light_Position_Phong");
     light_Color_Phong = shaderProgram.uniformLocation("light_Color_Phong");
-    textureColors = shaderProgram.uniformLocation("texture");
+    texturePtr = shaderProgram.uniformLocation("texture");
 }
 
 //transformations on the objects in the world

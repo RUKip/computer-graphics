@@ -43,7 +43,7 @@ public:
     GLuint texCoord;    //Textures coordinates buffer
     GLuint texData;     //Texture data
 
-    GLint textureColors; //Texture ptr to uniform sampler2D texture;
+    GLint texturePtr; //Texture ptr to uniform sampler2D texture;
 
     ShadingMode shadingMode;
 
