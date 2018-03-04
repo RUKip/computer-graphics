@@ -40,9 +40,12 @@ public:
     GLuint sphereVao;
     GLuint sphereVbo;
 
+    GLuint texCoord;    //Textures coordinates buffer
+    GLuint texData;     //Texture data
+
     ShadingMode shadingMode;
 
-    QMatrix4x4 modelTransformSphere; //TODO: add to a struct?
+    QMatrix4x4 modelTransformSphere;
     QMatrix4x4 projectionModel;
 
     float materialColor[3];
@@ -50,6 +53,7 @@ public:
     float colorLight[3];
     float positionLight[3];
 
+    GLint textureColors;
     //All normal shading specific uniforms
     GLint modelTransformVert_Normal;
     GLint modelProjectionVert_Normal;
@@ -73,12 +77,7 @@ public:
     GLint material_Color_Gouraud;
     GLint material_Components_Gouraud;
 
-    Model* sphereModel;
-
-
-    //Texture mapping step 2
-    GLuint texture;
-
+    Model* model;
 
     float initScale;
     float worldRotationX;
@@ -126,15 +125,16 @@ private:
     void initWorld();
     void doModelTransformations(QMatrix4x4 &modelTransform, QVector3D translation, float scale);
     void modelToVertices(Model* model, vertex* vertices);
-    void createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int numberOfVertices);
+    void createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, vertex* model, int numberOfVertices);
     QVector<vertex> giveCubeData();
     QVector<vertex> givePyramidData();
     void uploadUniformPhong();
     void uploadUniformNormal();
     void uploadUniformGouraud();
+    void loadTexture(QString file, GLuint texturepointer);
 
     //texture step 1
-    //QVector<quint8> imagesToBytes(QImage image);
+    QVector<quint8> imageToBytes(QImage image);
 };
 
 #endif // MAINVIEW_H

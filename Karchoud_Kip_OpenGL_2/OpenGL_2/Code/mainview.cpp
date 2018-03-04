@@ -28,7 +28,7 @@ MainView::~MainView() {
     debugLogger->stopLogging();
     glDeleteBuffers(1,&sphereVao);
     glDeleteBuffers(1,&sphereVbo);
-    free(sphereModel);
+    free(model);
     qDebug() << "MainView destructor";
 }
 
@@ -167,14 +167,15 @@ void MainView::initializeGL() {
      QVector<vertex> cube = giveCubeData();
 
     //create sphere (from model)
-    sphereModel = new Model(":/models/cat.obj");
-    vertex sphere[sphereModel->getNumTriangles()*3];
-    modelToVertices(sphereModel, sphere);
-    createObjectBuffers(sphereVao, sphereVbo, sphere, sphereModel->getNumTriangles()*3);
+    model = new Model(":/models/cat.obj");
+    vertex sphere[model->getNumTriangles()*3];
+    modelToVertices(model, sphere);
+    createObjectBuffers(sphereVao, sphereVbo, texCoord, sphere, model->getNumTriangles()*3); //TODO: change so the vertex* is replaced by the a Model
+    loadTexture(":/textures/cat_diff.png", texData); //not working correctly yet, crashes program
 }
 
 //creates VAO and VBO buffers and binds them, assumes always uses a vertex with xyz and rgb
-void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int numberOfVertices)
+void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, vertex* modelData, int numberOfVertices)
 {
     //create VAO
     glGenVertexArrays(1, &vao);
@@ -184,7 +185,7 @@ void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int 
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-    glBufferData(GL_ARRAY_BUFFER, numberOfVertices*sizeof(vertex), model, GL_STATIC_DRAW); //set vertices as data of our vbo
+    glBufferData(GL_ARRAY_BUFFER, numberOfVertices*sizeof(vertex), modelData, GL_STATIC_DRAW); //set vertices as data of our vbo
 
     glEnableVertexAttribArray(0);   //Say we send data for postion 0(coordinates) to shaders, (still to define what is data and match in shader)
     glEnableVertexAttribArray(1);   //Say we send data for postion 1(colors) to shaders
@@ -192,6 +193,14 @@ void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, vertex* model, int 
     //give the size and location of the different attributes in the VBO
     glVertexAttribPointer(0,3, GL_FLOAT, false, sizeof(vertex), 0);
     glVertexAttribPointer(1,3, GL_FLOAT, false, sizeof(vertex), (GLvoid*)(3*sizeof(GLfloat)));
+
+    //Bind texture coordinates
+    glGenBuffers(1, &tex);
+    glBindBuffer(GL_ARRAY_BUFFER, tex);
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2,2, GL_FLOAT, false, 0, 0);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*numberOfVertices*2, model->getTextureCoords().data(), GL_DYNAMIC_DRAW);
+
 }
 
 //initialize rotation and scale variables and set initial projection
@@ -207,7 +216,6 @@ void MainView::initWorld()
     projectionModel.perspective(60, 1, 0.1, 1000);
 
     //TODO: Now we have some random value for light position here
-    //TODO: fix color light to be the same with widgets, start at white light
     positionLight[0] = 2.0f;
     positionLight[1] = 10.0f;
     positionLight[2] = 1.0f;
@@ -270,24 +278,31 @@ void MainView::paintGL() {
             break;
     }
 
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texData);
+    glUniform1i(textureColors, 0);
+
     // Draw here sphere
     glBindVertexArray(sphereVao);
-    glDrawArrays(GL_TRIANGLES, 0, sphereModel->getNumTriangles()*3);
+    glDrawArrays(GL_TRIANGLES, 0, model->getNumTriangles()*3);
 
     shaderProgram.release();
-
-    //texture binding/drawing 11t/m 13
-    //glActiveTexture(GL_TEXTURE0);
-    //glBindTexture(GL_TEXTURE_2D, texturePtr);
-    //glUniform1i(texture, 1);
-
-
 }
 
+void MainView::loadTexture(QString file, GLuint texturePtr){
+    QImage image = *new QImage(file);
+    QVector<quint8> textureData = imageToBytes(image);
+    glGenTextures(1, &texturePtr);
+    glBindTexture(GL_TEXTURE_2D, texturePtr); //TODO: GL_texture_2D?
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //What param is the best?
+    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 1024, 1024, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData.data()); //TODO: texturePtr.data() is stored in a pointer here? Or lost after this function?, why does it crash
+    //glGenerateMipmap(GL TEXTURE 2D) //use if we are gonna use a mipmap
+}
 
 void MainView::uploadUniformPhong(){
     //set unifrom matrices normals
     QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+
     glUniformMatrix3fv(modelNormalVert_Phong, 1, false, normalTransformation.data());
     glUniform3fv(material_Color_Phong, 1, materialColor);
     glUniform4fv(material_Components_Phong, 1, materialComponents);
@@ -343,7 +358,7 @@ void MainView::createGouraudShaderProgram()
     material_Components_Gouraud = shaderProgram.uniformLocation("material_Components_Gouraud");
     light_Position_Gouraud = shaderProgram.uniformLocation("light_Position_Gouraud");
     light_Color_Gouraud = shaderProgram.uniformLocation("light_Color_Gouraud");
-
+    textureColors = shaderProgram.uniformLocation("texture");
 }
 
 void MainView::createPhongShaderProgram()
@@ -361,6 +376,7 @@ void MainView::createPhongShaderProgram()
     material_Components_Phong = shaderProgram.uniformLocation("material_Components_Phong");
     light_Position_Phong = shaderProgram.uniformLocation("light_Position_Phong");
     light_Color_Phong = shaderProgram.uniformLocation("light_Color_Phong");
+    textureColors = shaderProgram.uniformLocation("texture");
 }
 
 //transformations on the objects in the world
@@ -499,14 +515,6 @@ void MainView::setShadingMode(ShadingMode shading)
     }
 
 }
-//texture 2t/m 7
-/*void MainView::loadTexture(QString file, Gluint texturePtr){
-    QVector texturePtr = texture.imageToBytes();
-    glGenTextures(GLsizei n, GLuint *texturePtr);
-    glBindTexture(GLenum GL_TEXTURE_2D, GLuint texture);
-    glTexParameteri(GLenum GL_TEXTURE_2D, GLenum GL_TEXTURE_WRAP_S, GLint param); //TODO: param should specify the value of param 2 ??
-    glTexImage2D(GLenum GL_TEXTURE_2D, GLint 0, GLint GL_RGBA8, GLsizei width, GLsizei height, GLint 0, GLenum GL_RGBA, GLenum GL_UNSIGNED_BYTE, const QVector texturePtr.data()); //TODO:width and height 1024?
-}*/
 
 // --- Private helpers
 

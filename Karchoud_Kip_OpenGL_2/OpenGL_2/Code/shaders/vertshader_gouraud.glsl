@@ -6,6 +6,7 @@
 // Specify the input locations of attributes
 layout (location = 0) in vec3 vertCoordinates_in;
 layout (location = 1) in vec3 vertNormal_in;
+layout (location = 2) in vec2 textureCoordinates;
 
 //TODO: change material to input, input is per object
 
@@ -23,9 +24,7 @@ uniform vec3 light_Color_Gouraud;
 // Specify the output of the vertex stage
 out vec4 color;
 
-//incoming texture coordinates
-in vec2 vertexUV;
-out vec2 UV;
+out vec2 texCoord;
 
 
 void main()
@@ -57,5 +56,5 @@ void main()
     color = vec4(ambient+diffuse+specular,1.0);
 
     //texture mapping
-    UV = vertexUV;
+    texCoord = textureCoordinates;
 }

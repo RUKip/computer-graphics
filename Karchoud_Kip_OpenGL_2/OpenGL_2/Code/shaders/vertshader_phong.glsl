@@ -6,6 +6,7 @@
 // Specify the input locations of attributes
 layout (location = 0) in vec3 vertCoordinates_in;
 layout (location = 1) in vec3 vertNormal_in;
+layout (location = 2) in vec2 textureCoordinates;
 
 
 // Specify the Uniforms of the vertex shader
@@ -20,8 +21,7 @@ out vec3 vertNormal;
 
 
 //incoming texture coordinates
-in vec2 vertexUV;
-out vec2 UV;
+out vec2 texCoord;
 
 void main()
 {
@@ -32,4 +32,5 @@ void main()
 //    //Below for non fixed lighting
     worldPosition = modelTransform_Phong*vec4(vertCoordinates_in,1);
     vertNormal = normalize(normalTransform_Phong*vertNormal_in);
+    texCoord = textureCoordinates;
 }
