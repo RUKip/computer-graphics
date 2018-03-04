@@ -43,6 +43,8 @@ public:
     GLuint texCoord;    //Textures coordinates buffer
     GLuint texData;     //Texture data
 
+    GLint textureColors; //Texture ptr to uniform sampler2D texture;
+
     ShadingMode shadingMode;
 
     QMatrix4x4 modelTransformSphere;
@@ -53,7 +55,6 @@ public:
     float colorLight[3];
     float positionLight[3];
 
-    GLint textureColors;
     //All normal shading specific uniforms
     GLint modelTransformVert_Normal;
     GLint modelProjectionVert_Normal;
@@ -132,8 +133,6 @@ private:
     void uploadUniformNormal();
     void uploadUniformGouraud();
     void loadTexture(QString file, GLuint texturepointer);
-
-    //texture step 1
     QVector<quint8> imageToBytes(QImage image);
 };
 

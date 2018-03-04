@@ -28,6 +28,9 @@ MainView::~MainView() {
     debugLogger->stopLogging();
     glDeleteBuffers(1,&sphereVao);
     glDeleteBuffers(1,&sphereVbo);
+    glDeleteBuffers(1,&texCoord);
+    glDeleteBuffers(1,&texData);
+
     free(model);
     qDebug() << "MainView destructor";
 }
@@ -282,7 +285,7 @@ void MainView::paintGL() {
     glBindTexture(GL_TEXTURE_2D, texData);
     glUniform1i(textureColors, 0);
 
-    // Draw here sphere
+    // Draw
     glBindVertexArray(sphereVao);
     glDrawArrays(GL_TRIANGLES, 0, model->getNumTriangles()*3);
 

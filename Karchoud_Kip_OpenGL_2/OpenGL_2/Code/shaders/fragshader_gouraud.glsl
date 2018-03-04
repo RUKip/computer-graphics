@@ -13,7 +13,6 @@ in vec2 texCoord;
 
 uniform sampler2D texture;
 
-
 // Specify the output of the fragment shader
 // Usually a vec4 describing a color (Red, Green, Blue, Alpha/Transparency)
 out vec4 fColor;
