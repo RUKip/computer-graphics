@@ -282,7 +282,7 @@ void MainView::paintGL() {
     }
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texData);
+    glBindTexture(GL_TEXTURE_2D, texturePtr);
     glUniform1i(texturePtr, 0);
 
     // Draw
@@ -298,12 +298,7 @@ void MainView::loadTexture(QString file, GLuint texturePtr){
     glGenTextures(1, &texturePtr);
     glBindTexture(GL_TEXTURE_2D, texturePtr); //TODO: GL_texture_2D?
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //What param is the best?
-    float pixels[] = {
-        0.0f, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,
-        1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f
-    };
-    qDebug() << textureData.size() << "\n";
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, image.width(), image.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData.data()); //TODO: texturePtr.data() is stored in a pointer here? Or lost after this function?, why does it crash
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, image.width(), image.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData.data());
     //glGenerateMipmap(GL TEXTURE 2D) //use if we are gonna use a mipmap
 }
 
