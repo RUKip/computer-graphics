@@ -23,18 +23,28 @@ With the normal matrix the normals move with the object so if we rotate the obje
 
 -- Part 5 Texture mapping --
 
+For the texturing we followed the steps and created a new buffer for the texture coordinates and one for the texture data. Further we added a pointer to the uniform sampler2D so we could sent the texture to the shader. The coordinates we sent as input of the object to the shader. 
+The different options for the texture do this:
+WRAPPING:
+GL_REPEAT = repeats the texture if it cant be wrapped once. 
+GL_MIRRORED_REPEAT = repeats the texture aswell but the repetition is mirrorred to its neighbours
+GL_CLAMP_TO_EDGE = everything that falls out will be repeated with the last pixel
+GL_CLAMP_TO_BORDER = everything that falls out will be set to a given color
 
+FILTERING:
+GL_NEAREST = When texture coordinates doesn't match with the pixel it takes the nearest pixel instead. Gives a blocky look.
+GL_LINEAR = Same as nearest but instead of taking nearest will take the 4 nearest and averages the values. Gives a more smoothed look.
 
 #####
 Problems/difficulties:
 
--
--
+-Textures didnt work for a long time cause we thought we needed only one setting for the textures.
+-Fixed lighting, couldnt get it to work
 
 #####
 Bonus code: 
-
-
+Start on cel-shading, no extra fat lines yet.
+Added some extra buttons/options to change values.
 
 
 

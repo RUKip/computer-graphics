@@ -174,6 +174,8 @@ void MainView::initializeGL() {
     vertex sphere[model->getNumTriangles()*3];
     modelToVertices(model, sphere);
     createObjectBuffers(sphereVao, sphereVbo, texCoord, sphere, model->getNumTriangles()*3); //TODO: change so the vertex* is replaced by the a Model
+
+    glGenTextures(1, &texData);
     loadTexture(":/textures/cat_diff.png", texData); //not working correctly yet, crashes program
 }
 
@@ -295,9 +297,11 @@ void MainView::paintGL() {
 void MainView::loadTexture(QString file, GLuint textureData){
     QImage image = *new QImage(file);
     QVector<quint8> data = imageToBytes(image);
-    glGenTextures(1, &textureData);
-    glBindTexture(GL_TEXTURE_2D, textureData); //TODO: GL_texture_2D?
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //What param is the best?
+    glBindTexture(GL_TEXTURE_2D, textureData);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, image.width(), image.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, data.data());
     //glGenerateMipmap(GL TEXTURE 2D) //use if we are gonna use a mipmap
 }

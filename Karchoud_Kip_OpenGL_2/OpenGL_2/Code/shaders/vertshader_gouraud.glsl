@@ -29,16 +29,6 @@ out vec2 texCoord;
 
 void main()
 {
-    //We first calculate ligthing values on the original model here because of fixed lighting, TODO: this doesnt seem to work
-//    vec3 diffuse = vec3(0.0,0.0,0.0);
-//    vec3 specular = vec3(0.0,0.0,0.0);
-//    //below should be done over all the lights,  //TODO: what if we want to incorparate more lights?? Do we send an array of lights to the shader??
-//    vec3 L = normalize(light_Position_Gouraud - vertCoordinates_in);
-//    vec3 R = normalize(-reflect(L, vertNormal_in));
-//    diffuse += max(0.0, dot(L,vertNormal_in))*material_Color_Gouraud*material_Components_Gouraud.y*light_Color_Gouraud;
-//    specular += pow(max(0.0, dot(R, -1*vertCoordinates_in)), material_Components_Gouraud.w)*light_Color_Gouraud*material_Components_Gouraud.z;
-
-
     vec4 worldPosition = modelTransform_Gouraud * vec4(vertCoordinates_in, 1.0);
     gl_Position = projectionTransform_Gouraud * worldPosition;
     vec3 vertNormal = normalize(normalTransform_Gouraud*vertNormal_in);
