@@ -26,7 +26,7 @@ We also made sure every shader was updated accordingly. We also added these shad
 -- Part 5 Texture mapping --
 
 For the texturing we followed the steps and created a new buffer for the texture coordinates and one for the texture data. Further we added a pointer to the uniform sampler2D so we could sent the texture to the shader. The coordinates we sent as input of the object to the shader. 
-The different options for the texture do this:
+The different options for the texture do this: (but we didn't saw any real difference on our cat texture)
 WRAPPING:
 GL_REPEAT = repeats the texture if it cant be wrapped once. 
 GL_MIRRORED_REPEAT = repeats the texture aswell but the repetition is mirrorred to its neighbours
