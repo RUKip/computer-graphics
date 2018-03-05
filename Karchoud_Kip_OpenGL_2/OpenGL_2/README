@@ -18,7 +18,8 @@ We also made sure every shader was updated accordingly. We also added these shad
 
 
 -- Part 3 Gourad Shader --
-
+We used the phong illumination model from the slides to get acquinted with the defenitions. We have now several uniforms implemented in our shaders, for the light(color and position) and the material
+(color and compononents). Then we used the vertex shader with all the components to calculate the finar color.
 
 -- Part 4 Phong Shader --
 
