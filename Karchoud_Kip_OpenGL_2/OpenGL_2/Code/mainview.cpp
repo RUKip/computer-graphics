@@ -277,6 +277,9 @@ void MainView::paintGL() {
         case ShadingMode::GOURAUD:
             uploadUniformGouraud();
             break;
+        case ShadingMode::CELL:
+            uploadUniformCell();
+            break;
         default:
             qDebug() << "unknown shader setting <" << shadingMode << ">\n";
             uploadUniformPhong();
@@ -337,6 +340,17 @@ void MainView::uploadUniformGouraud(){
     glUniformMatrix4fv(modelTransformVert_Gouraud, 1, false, modelTransformSphere.data());
 }
 
+void MainView::uploadUniformCell(){
+    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+    glUniform3fv(material_Color_Cell, 1, materialColor);
+    glUniform4fv(material_Components_Cell, 1, materialComponents);
+    glUniform3fv(light_Color_Cell, 1, colorLight);
+    glUniform3fv(light_Position_Cell, 1, positionLight);
+    glUniformMatrix3fv(modelNormalVert_Cell, 1, false, normalTransformation.data());
+    glUniformMatrix4fv(modelProjectionVert_Cell, 1, false, projectionModel.data());
+    glUniformMatrix4fv(modelTransformVert_Cell, 1, false, modelTransformSphere.data());
+}
+
 void MainView::createNormalShaderProgram()
 {
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
@@ -365,6 +379,24 @@ void MainView::createGouraudShaderProgram()
     material_Components_Gouraud = shaderProgram.uniformLocation("material_Components_Gouraud");
     light_Position_Gouraud = shaderProgram.uniformLocation("light_Position_Gouraud");
     light_Color_Gouraud = shaderProgram.uniformLocation("light_Color_Gouraud");
+    texturePtr = shaderProgram.uniformLocation("texture");
+}
+
+void MainView::createCellShaderProgram()
+{
+    shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
+                                           ":/shaders/vertshader_cell.glsl");
+    shaderProgram.addShaderFromSourceFile(QOpenGLShader::Fragment,
+                                           ":/shaders/fragshader_cell.glsl");
+    shaderProgram.link();
+
+    modelTransformVert_Cell = shaderProgram.uniformLocation("modelTransform_Cell");
+    modelProjectionVert_Cell = shaderProgram.uniformLocation("projectionTransform_Cell");
+    modelNormalVert_Cell = shaderProgram.uniformLocation("normalTransform_Cell");
+    material_Color_Cell = shaderProgram.uniformLocation("material_Color_Cell");
+    material_Components_Cell = shaderProgram.uniformLocation("material_Components_Cell");
+    light_Position_Cell = shaderProgram.uniformLocation("light_Position_Cell");
+    light_Color_Cell = shaderProgram.uniformLocation("light_Color_Cell");
     texturePtr = shaderProgram.uniformLocation("texture");
 }
 
@@ -514,6 +546,9 @@ void MainView::setShadingMode(ShadingMode shading)
         break;
     case ShadingMode::GOURAUD:
         createGouraudShaderProgram();
+        break;
+    case ShadingMode::CELL:
+        createCellShaderProgram();
         break;
     default:
         qDebug() << "unknown shader setting <" << shadingMode << ">\n";
