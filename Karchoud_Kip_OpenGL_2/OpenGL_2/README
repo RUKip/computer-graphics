@@ -13,6 +13,8 @@ Without the normal matrix, the colors of our cat stay the same, so the normals o
 With the normal matrix the normals move with the object so if we rotate the object we also rotate the normals and the colors.
 
 -- Part 2 Selecting shaders --
+We choose to make a switch statement to select a different newly implemented shaders(Phong/Gouraud). We also added the corresponding colour values for the shaders. 
+We also made sure every shader was updated accordingly. We also added these shaders in the UI so you can select them.
 
 
 -- Part 3 Gourad Shader --
