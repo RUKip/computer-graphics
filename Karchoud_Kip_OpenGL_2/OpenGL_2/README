@@ -13,14 +13,19 @@ Without the normal matrix, the colors of our cat stay the same, so the normals o
 With the normal matrix the normals move with the object so if we rotate the object we also rotate the normals and the colors.
 
 -- Part 2 Selecting shaders --
+
 We choose to make a switch statement to select a different newly implemented shaders(Phong/Gouraud). We also added the corresponding colour values for the shaders. 
 We also made sure every shader was updated accordingly. We also added these shaders in the UI so you can select them.
 
 
 -- Part 3 Gourad Shader --
 
+We used the phong illumination model from the slides to get acquinted with the defenitions. We have now several uniforms implemented in our shaders, for the light(color and position) and the material
+(color and compononents). Then we used the vertex shader with all the components to calculate the finar color.
 
 -- Part 4 Phong Shader --
+
+
 
 
 -- Part 5 Texture mapping --
