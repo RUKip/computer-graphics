@@ -1,0 +1,25 @@
+{
+    "Eye": [0, 0, 600],
+    "Lights": [{
+        "position": [-1000, 600, 500],
+        "color": [1.0, 1.0, 1.0]
+    }],
+    "Objects": [
+		{
+            "type": "mesh",
+            "model": "../Scenes/objects/cat.obj",
+            "scaling": 100,
+            "xAdded": 100,
+            "yAdded": 100,
+            "zAdded": 0,
+            "material":
+			{
+                "color": [0.3, 0.8, 0.3],
+                "ka": 0.2,
+                "kd": 0.3,
+                "ks": 0.5,
+                "n": 18
+            }
+		}
+	]
+}
