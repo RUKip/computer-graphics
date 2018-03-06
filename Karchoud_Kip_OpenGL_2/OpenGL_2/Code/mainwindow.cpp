@@ -87,6 +87,15 @@ void MainWindow::on_GouraudButton_toggled(bool checked)
     }
 }
 
+void MainWindow::on_CellButton_toggled(bool checked)
+{
+    if (checked)
+    {
+        ui->mainView->setShadingMode(MainView::CELL);
+        ui->mainView->update();
+    }
+}
+
 void MainWindow::on_RLight_valueChanged(int value)
 {
     ui->mainView->setRLight(value);

@@ -196,58 +196,7 @@
          </layout>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QGroupBox" name="shadingBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>205</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>205</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="title">
-          <string>Shading</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QRadioButton" name="PhongButton">
-            <property name="text">
-             <string>Pho&amp;ng</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="NormalButton">
-            <property name="text">
-             <string>Nor&amp;mal</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="GouraudButton">
-            <property name="text">
-             <string>&amp;Gouraud</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="4" column="0">
+       <item row="3" column="0">
         <widget class="QGroupBox" name="RGBLight">
          <property name="minimumSize">
           <size>
@@ -307,7 +256,7 @@
          </layout>
         </widget>
        </item>
-       <item row="8" column="0">
+       <item row="7" column="0">
         <widget class="QGroupBox" name="RGBMaterial">
          <property name="minimumSize">
           <size>
@@ -379,7 +328,7 @@
          </layout>
         </widget>
        </item>
-       <item row="10" column="0" colspan="2">
+       <item row="9" column="0" colspan="2">
         <widget class="QGroupBox" name="Kcoefficient_1">
          <property name="title">
           <string>Ambient Material</string>
@@ -404,51 +353,7 @@
          </layout>
         </widget>
        </item>
-       <item row="13" column="0" colspan="2">
-        <widget class="QGroupBox" name="Kcoefficient_3">
-         <property name="title">
-          <string>Speculalar Material</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
-          <item>
-           <widget class="QSlider" name="KSpecular">
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>50</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="14" column="0" colspan="2">
-        <widget class="QGroupBox" name="Kcoefficient_4">
-         <property name="title">
-          <string>P Material</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_9">
-          <item>
-           <widget class="QSlider" name="KP">
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="11" column="0" colspan="2">
+       <item row="10" column="0" colspan="2">
         <widget class="QGroupBox" name="Kcoefficient_2">
          <property name="title">
           <string>Diffuse material</string>
@@ -474,6 +379,130 @@
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item row="12" column="0" colspan="2">
+        <widget class="QGroupBox" name="Kcoefficient_3">
+         <property name="title">
+          <string>Speculalar Material</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QSlider" name="KSpecular">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>50</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="13" column="0" colspan="2">
+        <widget class="QGroupBox" name="Kcoefficient_4">
+         <property name="title">
+          <string>P Material</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <widget class="QSlider" name="KP">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QGroupBox" name="shadingBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>205</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>205</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Shading</string>
+         </property>
+         <widget class="QRadioButton" name="PhongButton">
+          <property name="geometry">
+           <rect>
+            <x>17</x>
+            <y>25</y>
+            <width>66</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Pho&amp;ng</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="NormalButton">
+          <property name="geometry">
+           <rect>
+            <x>17</x>
+            <y>53</y>
+            <width>72</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Nor&amp;mal</string>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="GouraudButton">
+          <property name="geometry">
+           <rect>
+            <x>17</x>
+            <y>81</y>
+            <width>79</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&amp;Gouraud</string>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="CellButton">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>80</y>
+            <width>79</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&amp;Cell</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>

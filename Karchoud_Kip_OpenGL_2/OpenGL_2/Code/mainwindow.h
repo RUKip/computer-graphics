@@ -29,6 +29,7 @@ private slots:
     void on_PhongButton_toggled(bool checked);
     void on_NormalButton_toggled(bool checked);
     void on_GouraudButton_toggled(bool checked);
+    void on_CellButton_toggled(bool checked);
 
     void on_RLight_valueChanged(int value);
     void on_GLight_valueChanged(int value);
