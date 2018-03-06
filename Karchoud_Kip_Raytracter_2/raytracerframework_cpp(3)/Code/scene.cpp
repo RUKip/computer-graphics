@@ -13,6 +13,7 @@ using namespace std;
 
 Color Scene::trace(Ray const &ray)
 {
+    int intersectsObject = 0;
     // Find hit object and distance
     Hit min_hit(numeric_limits<double>::infinity(), Vector());
     ObjectPtr obj = nullptr;
@@ -23,11 +24,13 @@ Color Scene::trace(Ray const &ray)
         {
             min_hit = hit;
             obj = objects[idx];
+            intersectsObject++; //TODO: not working out correctly
         }
     }
 
     // No hit? Return background color.
     if (!obj) return Color(0.0, 0.0, 0.0);
+    if (shadows && intersectsObject>1) return Color(0.0,0.0,0.0);
 
     Material material = obj->material;          //the hit objects material
     Point hit = ray.at(min_hit.t);                 //the hit point
@@ -105,6 +108,10 @@ void Scene::addLight(Light const &light)
 void Scene::setEye(Triple const &position)
 {
     eye = position;
+}
+
+void Scene::setShadows(bool value){
+    shadows = value;
 }
 
 unsigned Scene::getNumObject()

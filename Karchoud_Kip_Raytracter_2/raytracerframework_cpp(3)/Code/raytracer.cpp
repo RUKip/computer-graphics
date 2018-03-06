@@ -128,6 +128,9 @@ try
 
     // TODO: add your other configuration settings here
 
+    scene.setShadows(false);
+    if(jsonscene["Shadows"]) scene.setShadows(true);
+
     for (auto const &lightNode : jsonscene["Lights"])
         scene.addLight(parseLightNode(lightNode));
 
