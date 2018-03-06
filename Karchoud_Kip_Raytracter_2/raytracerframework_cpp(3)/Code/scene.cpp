@@ -11,9 +11,8 @@
 
 using namespace std;
 
-Color Scene::trace(Ray const &ray)
+Color Scene::trace(Ray const &ray, int reflectionDepth)
 {
-    int intersectsObject = 0;
     // Find hit object and distance
     Hit min_hit(numeric_limits<double>::infinity(), Vector());
     ObjectPtr obj = nullptr;
@@ -24,13 +23,11 @@ Color Scene::trace(Ray const &ray)
         {
             min_hit = hit;
             obj = objects[idx];
-            intersectsObject++; //TODO: not working out correctly
         }
     }
 
     // No hit? Return background color.
     if (!obj) return Color(0.0, 0.0, 0.0);
-    if (shadows && intersectsObject>1) return Color(0.0,0.0,0.0);
 
     Material material = obj->material;          //the hit objects material
     Point hit = ray.at(min_hit.t);                 //the hit point
@@ -54,15 +51,44 @@ Color Scene::trace(Ray const &ray)
     *        Color * Color      dito
     *        pow(a,b)           a to the power of b
     ****************************************************/
+    const float CONSTANT_MOVEMENT_DIR = 0.1;
 
     Color intensityA = material.color * material.ka;
     Color intensityD = Color(0.0,0.0,0.0);
     Color intensityS = Color(0.0,0.0,0.0);
+    Color reflectedColor = Color(0.0,0.0,0.0);
+
+    //Reflection stuff
+    if(reflectionDepth<2){ //should be maximum amount of reflections
+        Vector R = (2*(N.dot(V))*N - V).normalized();
+        Ray reflectionRay = Ray(hit+(R*CONSTANT_MOVEMENT_DIR), R);
+        reflectedColor = trace(reflectionRay, reflectionDepth+1)*material.ks;
+    }
 
     for(unsigned int i=0; i<lights.size(); i++){
          //material diffuse part
         Light light = *lights[i];
         Vector L = (light.position - hit).normalized();
+
+        //shadow stuff
+        if(shadows){
+            Vector shadowDir = (light.position - hit).normalized();
+            Ray shadowRay = Ray(hit+(shadowDir*CONSTANT_MOVEMENT_DIR),shadowDir);
+            Hit min_hit(numeric_limits<double>::infinity(), Vector());
+            ObjectPtr obj = nullptr;
+            bool hasHit = false;
+            for (unsigned idx = 0; idx != objects.size(); ++idx)
+            {
+                Hit hitS(objects[idx]->intersect(shadowRay));
+                if (hitS.t < min_hit.t)
+                {
+                    hasHit=true;
+                    break;
+                }
+            }
+            if(hasHit) continue;
+        }
+
         intensityD +=  light.color * max(0.0,(L.dot(N))) * material.color * material.kd;
 
         //material specular part
@@ -72,7 +98,7 @@ Color Scene::trace(Ray const &ray)
 
     Color color = intensityA + intensityD + intensityS;
 
-    return color;
+    return color+reflectedColor;
 }
 
 void Scene::render(Image &img)
@@ -86,7 +112,7 @@ void Scene::render(Image &img)
         {
             Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
             Ray ray(eye, (pixel - eye).normalized());
-            Color col = trace(ray);
+            Color col = trace(ray, 0);
             col.clamp();
             img(x, y) = col;
         }

@@ -1,4 +1,4 @@
-# Install script for directory: /home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)
+# Install script for directory: /home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

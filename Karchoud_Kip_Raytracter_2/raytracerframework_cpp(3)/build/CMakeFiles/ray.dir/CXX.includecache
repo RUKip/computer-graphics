@@ -6,31 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/hit.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/hit.h
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 limits
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.cpp
 image.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.h
 lode/lodepng.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
 iostream
 -
 fstream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.h
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 string
 -
 vector
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json.h
 algorithm
 -
 cassert
@@ -294,7 +294,7 @@ utility
 utility
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json_fwd.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json_fwd.h
 cstdint
 -
 map
@@ -306,15 +306,15 @@ string
 vector
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/light.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/light.h
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 memory
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.cpp
 lodepng.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
 limits.h
 -
 stdio.h
@@ -322,7 +322,7 @@ stdio.h
 stdlib.h
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
 string.h
 -
 vector
@@ -330,39 +330,39 @@ vector
 string
 -
 lodepng.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
 iostream
 -
 lodepng.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/lode/lodepng.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/main.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/main.cpp
 raytracer.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/raytracer.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/raytracer.h
 iostream
 -
 string
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/material.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/material.h
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 material.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/material.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/material.h
 hit.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/hit.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/hit.h
 ray.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/ray.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/ray.h
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 memory
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.cpp
 objloader.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.h
 fstream
 -
 iostream
@@ -370,45 +370,45 @@ iostream
 sstream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.h
 vertex.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/vertex.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/vertex.h
 string
 -
 vector
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/ray.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/ray.h
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/raytracer.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/raytracer.cpp
 raytracer.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/raytracer.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/raytracer.h
 image.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.h
 light.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/light.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/light.h
 material.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/material.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/material.h
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 objloader.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.h
 shapes/sphere.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/sphere.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/sphere.h
 shapes/triangle.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.h
 shapes/mesh.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/mesh.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/mesh.h
 shapes/plane.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/plane.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/plane.h
 shapes/cylinder.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/cylinder.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/cylinder.h
 shapes/quad.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/quad.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/quad.h
 json/json.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json.h
 exception
 -
 fstream
@@ -416,25 +416,25 @@ fstream
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/raytracer.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/raytracer.h
 scene.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/scene.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/scene.h
 string
 -
 json/json_fwd.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json_fwd.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json_fwd.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/scene.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/scene.cpp
 scene.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/scene.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/scene.h
 hit.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/hit.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/hit.h
 image.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/image.h
 material.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/material.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/material.h
 ray.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/ray.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/ray.h
 cmath
 -
 limits
@@ -442,41 +442,41 @@ limits
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/scene.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/scene.h
 light.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/light.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/light.h
 object.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 vector
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/cylinder.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/cylinder.cpp
 cylinder.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/cylinder.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/cylinder.h
 cmath
 -
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/cylinder.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/cylinder.h
 ../object.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/example.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/example.cpp
 example.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/example.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/example.h
 cmath
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/example.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/example.h
 ../object.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/mesh.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/mesh.cpp
 mesh.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/mesh.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/mesh.h
 limits
 -
 cmath
@@ -486,67 +486,67 @@ math.h
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/mesh.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/mesh.h
 ../object.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 triangle.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.h
 ../objloader.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/objloader.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/plane.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/plane.cpp
 plane.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/plane.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/plane.h
 cmath
 -
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/plane.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/plane.h
 ../object.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/quad.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/quad.cpp
 quad.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/quad.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/quad.h
 cmath
 -
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/quad.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/quad.h
 ../object.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/sphere.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/sphere.cpp
 sphere.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/sphere.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/sphere.h
 cmath
 -
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/sphere.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/sphere.h
 ../object.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.cpp
 triangle.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.h
 cmath
 -
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/shapes/triangle.h
 ../object.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/object.h
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.cpp
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.cpp
 triple.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 json/json.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json.h
 cmath
 -
 exception
@@ -554,11 +554,11 @@ exception
 iostream
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/triple.h
 json/json_fwd.h
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json_fwd.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/json/json_fwd.h
 iosfwd
 -
 
-/home/chewbaka/Computer-graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/vertex.h
+/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_Raytracter_2/raytracerframework_cpp(3)/Code/vertex.h
 
