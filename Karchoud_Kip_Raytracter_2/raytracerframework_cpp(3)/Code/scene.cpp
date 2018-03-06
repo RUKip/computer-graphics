@@ -59,7 +59,7 @@ Color Scene::trace(Ray const &ray, int reflectionDepth)
     Color reflectedColor = Color(0.0,0.0,0.0);
 
     //Reflection stuff
-    if(reflectionDepth<2){ //should be maximum amount of reflections
+    if(reflectionDepth<maxRecursionDepth){ //should be maximum amount of reflections
         Vector R = (2*(N.dot(V))*N - V).normalized();
         Ray reflectionRay = Ray(hit+(R*CONSTANT_MOVEMENT_DIR), R);
         reflectedColor = trace(reflectionRay, reflectionDepth+1)*material.ks;
@@ -70,7 +70,7 @@ Color Scene::trace(Ray const &ray, int reflectionDepth)
         Light light = *lights[i];
         Vector L = (light.position - hit).normalized();
 
-        //shadow stuff
+        //Shadow stuff
         if(shadows){
             Vector shadowDir = (light.position - hit).normalized();
             Ray shadowRay = Ray(hit+(shadowDir*CONSTANT_MOVEMENT_DIR),shadowDir);
@@ -110,9 +110,17 @@ void Scene::render(Image &img)
     {
         for (unsigned x = 0; x < w; ++x)
         {
-            Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
-            Ray ray(eye, (pixel - eye).normalized());
-            Color col = trace(ray, 0);
+            Color col = Color(0.0,0.0,0.0);
+            for(int i=0; i<superSampling; i++){
+                double xOffset = (i+1)*((double)1/(superSampling+1));
+                for(int j=0; j<superSampling; j++){
+                    double yOffset = (j+1)*((double)1/(superSampling+1));
+                    Point pixel(x + xOffset, h - 1 - y + yOffset, 0);
+                    Ray ray(eye, (pixel - eye).normalized());
+                    col += trace(ray, 0);
+                }
+            }
+            col = col/((double) superSampling*superSampling);
             col.clamp();
             img(x, y) = col;
         }
@@ -138,6 +146,14 @@ void Scene::setEye(Triple const &position)
 
 void Scene::setShadows(bool value){
     shadows = value;
+}
+
+void Scene::setMaxRecursionDepth(int depth){
+    maxRecursionDepth = depth;
+}
+
+void Scene::setSuperSampling(int value){
+    superSampling = value;
 }
 
 unsigned Scene::getNumObject()
