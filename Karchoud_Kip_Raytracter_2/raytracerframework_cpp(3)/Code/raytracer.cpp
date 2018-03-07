@@ -88,7 +88,11 @@ bool Raytracer::parseObjectNode(json const &node)
         return false;
 
     // Parse material and add object to the scene
-    obj->material = parseMaterialNode(node["material"]);
+    obj->material = parseMaterialNode(node["material"], obj);
+    if(node["rotation"].count()) obj->rotationAxis = node["rotation"];
+    if(node["angle"].count()) obj->rotationAngle = node["angle"];
+    //TODO: for sphere only rotation texture needed, there is generla rotation matrix. But not needed now
+
     scene.addObject(obj);
     return true;
 }
@@ -100,9 +104,21 @@ Light Raytracer::parseLightNode(json const &node) const
     return Light(pos, col);
 }
 
-Material Raytracer::parseMaterialNode(json const &node) const
+Material Raytracer::parseMaterialNode(json const &node, ObjectPtr obj) const
 {
-    Color color(node["color"]);
+    Color color(0);
+
+    if (node.count("color"))
+        color = Color(node["color"]);
+
+    if(node.count("texture")){
+        string name = node["texture"];
+        obj->texture = Image(name);
+        obj->hasTex = true;
+    }else{
+        obj->hasTex = false;
+    }
+
     double ka = node["ka"];
     double kd = node["kd"];
     double ks = node["ks"];

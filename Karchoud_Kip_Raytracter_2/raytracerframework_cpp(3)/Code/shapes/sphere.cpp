@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -47,6 +48,14 @@ Hit Sphere::intersect(Ray const &ray)
     Vector N = (hitPoint - position).normalized();
 
     return Hit(t,N);
+}
+
+Vector Sphere::getTextureCoordinates(Point hit){
+    hit = (hit - position);
+    hit.normalize();
+    double u = 0.5 + atan2(hit.y, hit.x)/(2*M_PI);
+    double v = 1 - (acos(hit.z)/M_PI);
+    return Vector(u,v);
 }
 
 Sphere::Sphere(Point const &pos, double radius)

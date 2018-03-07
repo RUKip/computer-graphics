@@ -2,6 +2,7 @@
 #define RAYTRACER_H_
 
 #include "scene.h"
+#include "object.h"
 
 #include <string>
 
@@ -25,7 +26,7 @@ class Raytracer
         bool parseObjectNode(nlohmann::json const &node);
 
         Light parseLightNode(nlohmann::json const &node) const;
-        Material parseMaterialNode(nlohmann::json const &node) const;
+        Material parseMaterialNode(nlohmann::json const &node, ObjectPtr obj) const;
 };
 
 #endif

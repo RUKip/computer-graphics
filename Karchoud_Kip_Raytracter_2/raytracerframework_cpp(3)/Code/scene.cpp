@@ -34,6 +34,11 @@ Color Scene::trace(Ray const &ray, int reflectionDepth)
     Vector N = min_hit.N;                          //the normal at hit point
     Vector V = -ray.D;                             //the view vector
 
+    if(obj->hasTex){
+        Vector uv = obj->getTextureCoordinates(hit);
+        material.color = obj->texture.colorAt(uv.x, uv.y);
+    }
+
     /****************************************************
     * This is where you should insert the color
     * calculation (Phong model).
