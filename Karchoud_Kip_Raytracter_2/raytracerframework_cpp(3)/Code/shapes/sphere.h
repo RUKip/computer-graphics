@@ -10,7 +10,7 @@ class Sphere: public Object
 
         virtual Hit intersect(Ray const &ray);
         virtual Vector getTextureCoordinates(Point hit);
-
+        Point rotateUV(Point hit);
         Point const position;
         double const r;
 };

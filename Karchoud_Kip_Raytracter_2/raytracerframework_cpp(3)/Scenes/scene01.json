@@ -14,7 +14,7 @@
             "radius": 50,
             "material":
             {
-				"texture": "../Scenes/bluegrid.png",
+		"texture": "../Scenes/bluegrid.png",
                 "ka": 0.2,
                 "kd": 0.7,
                 "ks": 0.5,

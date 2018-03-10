@@ -61,7 +61,7 @@
             "comment": "Earth sphere",
             "position": [140, 220, 400],
             "radius": 50,
-            "rotation": [0,1,0.7],
+            "rotation": [1,0,0],
             "angle": 90,
             "material":
             {

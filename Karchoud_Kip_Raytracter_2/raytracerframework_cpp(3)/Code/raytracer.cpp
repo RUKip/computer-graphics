@@ -88,10 +88,9 @@ bool Raytracer::parseObjectNode(json const &node)
         return false;
 
     // Parse material and add object to the scene
+    if(node.count("rotation")) obj->rotationAxis = Vector(node["rotation"]);
+    if(node.count("angle")) obj->rotationAngle = node["angle"];
     obj->material = parseMaterialNode(node["material"], obj);
-    if(node["rotation"].count()) obj->rotationAxis = node["rotation"];
-    if(node["angle"].count()) obj->rotationAngle = node["angle"];
-    //TODO: for sphere only rotation texture needed, there is generla rotation matrix. But not needed now
 
     scene.addObject(obj);
     return true;
