@@ -1,37 +1,41 @@
 Students: Jamil Karchoud & Ruben Kip
 
-This assignment was about: Raytracing
+
+This assignment was about: Raytracing 2
+
 
 Division of labour: (requirement for second year computer graphics)
-We worked together on the sphere calcutions and part of the phong shading in the first practical, Jamil also did the plane intersection at home however cause of personal problems he was unable to participate in the rest of the assignment.
+
+We worked most of the time in the practicles for the assignment. We did part 1 fully in the practicles, part 2 was done from home by Ruben and part 3 was mostly done in the praticles and we both worked on it from home.
 
 #####
 Explanation added code
 
--- Part 1 Phong shading --
-We added the phong shading according to the rules given in the slides. So diffuse, specular and ambient colors which are then added at the end for the final color.
-Further we added the normal for the sphere, which is the vector from origin to hitpoint. The sphere-ray intersection/hitpoint is calculated using the formula from the slides. (quadratic-formula)
 
--- Part 2 Shapes --
-We added triangle, planar quad and plane. Which are all used in the dog.json file. (which also contains the unfinished mesh object and the extra unfinished cylinder shape)
-The intersection algorithms were all taken from the internet, however some of the normal calculations we could do ourselves.
-For the triangle we use the Möller–Trumbore intersection algorithm, the normal is calculated by taking the crossproduct of two edges. 
-For the plane we check if the line is parralel or behind the eye, else we simply take the hit, using the algorithm (see code). 
-For the planar quad we use the same algorithm as the plane however we added a check were we calculate the crossproduct between the lines of the quad and the hitpoint (and quad point), so to find out if the hitpoint is always to the left or right of all the edges(thus inside the quad), the normal is calculated like the triangle(cause we assume its planar). 
+-- Part 1 Optical laws --
+First we looked for the the minimal distance Hit with the objects and if there was no Hit we returned to background color. Then we went over every lightsource to create multiple shadows. In order to create correct shadows we added a small constant to the shadowRay, otherwise it could interact with the object. 
+We calculated the shadowRay the following: we subtracted the hit from light position and normalize this in order to get the direction of the shadow. And now we can use the constant added to the direction and multiplied it with the hit to get the shadowRay. After that we made a recursive call to trace to get our 
+reflections with a maximal recurision depth of 2. We used the formula's from the lecture slides and normalized the outcome to get the direction of the reflectionRay, again we added a small constant for the same reason to the direction of the reflection. In order to get the reflectedColor we made our recursive 
+call to trace with the reflectionRay and a count in order to have a maximum of 2 reflections and we multiplied the recursive call with the specular component of the material. In the end we returned an addition of the reflectedColor and Color for our final colors.
 
--- Part 3 Object loading --
-This part we tried to implement by converting the vertices to an array of triangles in the mesh object. However because of some unknown json error we were unable to finish it.
+-- Part 2 Anti-aliasing --
+
+
+-- Part 3 Texturing --
+In order to get the texture coordinates of the sphere we needed to calculate our U V vector, this was done with with formula's from the slides and the x/y/z from the normalized hit=(hit-position) 
+
 
 #####
 Problems/difficulties:
 
--Normalizing the normal (strangely) gave us some trouble with the sphere intersection, which costed us a whole practical to figure out.
--All the intersection algorithms, they were hard to understand and to implement correctly.
--The object loader gave us lots of trouble, mostly conversion/json problems.
+- The rotation of a sphrere was a difficult part for us, we tried multiple different approaches, but we still did not get the rotation we wanted.
+-
 
 #####
 Bonus code: 
-None (not working cylinder)
+
+
+
 
 
 
