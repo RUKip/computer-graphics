@@ -19,21 +19,21 @@ reflections with a maximal recurision depth of 2. We used the formula's from the
 call to trace with the reflectionRay and a count in order to have a maximum of 2 reflections and we multiplied the recursive call with the specular component of the material. In the end we returned an addition of the reflectedColor and Color for our final colors.
 
 -- Part 2 Anti-aliasing --
-
+Our supersampling is done like shown in the figure. So we divide the pixel by parts of our alliasing level, so parts of 1/(alliasing + 1). Which gives us equal/symmetric points along the pixel in x and y axis. We raytrace for each of these points then we average the color over the returned total color which is the result of each ray shot from each of these points. 
 
 -- Part 3 Texturing --
-In order to get the texture coordinates of the sphere we needed to calculate our U V vector, this was done with with formula's from the slides and the x/y/z from the normalized hit=(hit-position) 
+In order to get the texture coordinates of the sphere we needed to calculate our U V vector, this was done with with formula's from the slides and the x/y/z from the normalized hit=(hit-position), then the color elment is substituted in our shading calculations for the color of the texture.
 
 
 #####
 Problems/difficulties:
 
-- The rotation of a sphrere was a difficult part for us, we tried multiple different approaches, but we still did not get the rotation we wanted.
--
+- The rotation of a sphrere was misread (https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) and so we had regular product instead of cross/dot products.
+- A lot of small questions and problems like wrong path, c++ pointers etc.
 
 #####
 Bonus code: 
-
+None, maybe in the future
 
 
 
