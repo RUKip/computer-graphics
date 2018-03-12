@@ -24,7 +24,7 @@ class MainView : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core {
 public:
     enum ShadingMode : GLuint
     {
-        PHONG = 0, NORMAL, GOURAUD, CELL
+        PHONG = 0, NORMAL, GOURAUD, CELL, SILHOUETTE
     };
 
     MainView(QWidget *parent = 0);
@@ -78,7 +78,7 @@ public:
     GLint material_Color_Gouraud;
     GLint material_Components_Gouraud;
 
-    //All shading specific uniforms
+    //All cell shading specific uniforms
     GLint modelTransformVert_Cell;
     GLint modelProjectionVert_Cell;
     GLint modelNormalVert_Cell;
@@ -87,6 +87,10 @@ public:
     GLint material_Color_Cell;
     GLint material_Components_Cell;
 
+    //All silhouette shading specific uniforms (used in cell shading)
+    GLint modelTransformVert_Silhouette;
+    GLint modelProjectionVert_Silhouette;
+    GLint material_Color_Silhouette;
 
     Model* model;
 
@@ -134,6 +138,7 @@ private:
     void createGouraudShaderProgram();
     void createPhongShaderProgram();
     void createCellShaderProgram();
+    void createSilhouetteShaderProgram();
     void initWorld();
     void doModelTransformations(QMatrix4x4 &modelTransform, QVector3D translation, float scale);
     void modelToVertices(Model* model, vertex* vertices);
@@ -144,6 +149,7 @@ private:
     void uploadUniformNormal();
     void uploadUniformGouraud();
     void uploadUniformCell();
+    void uploadUniformSilhouette();
     void loadTexture(QString file, GLuint texturepointer);
     QVector<quint8> imageToBytes(QImage image);
 };

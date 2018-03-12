@@ -16,5 +16,7 @@
         <file>shaders/fragshader_phong.glsl</file>
         <file>shaders/vertshader_cell.glsl</file>
         <file>shaders/fragshader_cell.glsl</file>
+        <file>shaders/fragshader_silhouette.glsl</file>
+        <file>shaders/vertshader_silhouette.glsl</file>
     </qresource>
 </RCC>

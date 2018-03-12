@@ -25,10 +25,6 @@ out vec4 fColor;
 
 void main()
 {
-    float edgeValue = dot(normalize(vertNormal), normalize(-worldPosition.xyz));
-    if(edgeValue<0.5 && edgeValue>0){
-        fColor = vec4(0.1,0.1,0.1,1); //black color
-    }else{
         vec3 ambient = material_Components_Cell.x*material_Color_Cell;
 
         //below is for ligth not fixed TODO: add boolean uniform to set unset fixed lighting
@@ -46,8 +42,6 @@ void main()
         vec4 shadeIntensity = ceil(vec4(ambient+diffuse+specular,1.0)*numShades)/numShades;
         fColor = vec4(material_Color_Cell,1)*shadeIntensity*texture2D(texture, texCoord);
         fColor = vec4(material_Color_Cell,1)*shadeIntensity;
-    }
-
 }
 
 

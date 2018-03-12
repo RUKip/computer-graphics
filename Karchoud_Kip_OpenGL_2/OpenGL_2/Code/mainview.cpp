@@ -278,8 +278,24 @@ void MainView::paintGL() {
             uploadUniformGouraud();
             break;
         case ShadingMode::CELL:
-            uploadUniformCell();
-            break;
+            {
+                float originalScale = 4;
+                shaderProgram.release();
+                setShadingMode(ShadingMode::SILHOUETTE);
+                shaderProgram.bind();
+                glCullFace(GL_FRONT);
+                doModelTransformations(modelTransformSphere, {0,0,-10}, originalScale + 0.1f); //should be a little more then normal one
+                uploadUniformSilhouette();
+                glBindVertexArray(sphereVao);
+                glDrawArrays(GL_TRIANGLES, 0, model->getNumTriangles()*3);
+                shaderProgram.release();
+                setShadingMode(ShadingMode::CELL);
+                shaderProgram.bind();
+                glCullFace(GL_BACK);
+                doModelTransformations(modelTransformSphere, {0,0,-10}, originalScale);
+                uploadUniformCell();
+                break;
+            }
         default:
             qDebug() << "unknown shader setting <" << shadingMode << ">\n";
             uploadUniformPhong();
@@ -351,6 +367,13 @@ void MainView::uploadUniformCell(){
     glUniformMatrix4fv(modelTransformVert_Cell, 1, false, modelTransformSphere.data());
 }
 
+void MainView::uploadUniformSilhouette(){
+    float silhouetteColor[3] = {0.0f,0.0f,0.0f};
+    glUniform3fv(material_Color_Silhouette, 1, silhouetteColor);
+    glUniformMatrix4fv(modelProjectionVert_Silhouette, 1, false, projectionModel.data());
+    glUniformMatrix4fv(modelTransformVert_Silhouette, 1, false, modelTransformSphere.data());
+}
+
 void MainView::createNormalShaderProgram()
 {
     shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
@@ -416,6 +439,19 @@ void MainView::createPhongShaderProgram()
     light_Position_Phong = shaderProgram.uniformLocation("light_Position_Phong");
     light_Color_Phong = shaderProgram.uniformLocation("light_Color_Phong");
     texturePtr = shaderProgram.uniformLocation("texture");
+}
+
+void MainView::createSilhouetteShaderProgram()
+{
+    shaderProgram.addShaderFromSourceFile(QOpenGLShader::Vertex,
+                                           ":/shaders/vertshader_silhouette.glsl");
+    shaderProgram.addShaderFromSourceFile(QOpenGLShader::Fragment,
+                                           ":/shaders/fragshader_silhouette.glsl");
+    shaderProgram.link();
+
+    modelTransformVert_Silhouette = shaderProgram.uniformLocation("modelTransform_Silhouette");
+    modelProjectionVert_Silhouette = shaderProgram.uniformLocation("projectionTransform_Silhouette");
+    material_Color_Silhouette = shaderProgram.uniformLocation("material_Color_Silhouette");
 }
 
 //transformations on the objects in the world
@@ -549,6 +585,9 @@ void MainView::setShadingMode(ShadingMode shading)
         break;
     case ShadingMode::CELL:
         createCellShaderProgram();
+        break;
+    case ShadingMode::SILHOUETTE:
+        createSilhouetteShaderProgram();
         break;
     default:
         qDebug() << "unknown shader setting <" << shadingMode << ">\n";
