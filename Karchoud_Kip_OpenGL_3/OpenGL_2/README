@@ -1,0 +1,57 @@
+This assignment was about: Shading types and texturing
+
+Division of labour: (requirement for second year computer graphics)
+
+
+#####
+Explanation added code
+
+
+-- Part 1 Normal Shader --
+
+Without the normal matrix, the colors of our cat stay the same, so the normals of base model make up the colors of the cat.
+With the normal matrix the normals move with the object so if we rotate the object we also rotate the normals and the colors.
+
+-- Part 2 Selecting shaders --
+We choose to make a switch statement to select a different newly implemented shaders(Phong/Gouraud). We also added the corresponding colour values for the shaders. 
+We also made sure every shader was updated accordingly. We also added these shaders in the UI so you can select them.
+
+
+-- Part 3 Gourad Shader --
+
+We used the phong illumination model from the slides to get acquinted with the defenitions. We have now several uniforms implemented in our shaders, for the light(color and position) and the material
+(color and compononents). Then we used the vertex shader with all the components to calculate the finar color. The calculations are not different from the ones we use in the raytracer. However we now calculate with world coordinates because we can move the model. The gouraud does its calculations in the vertex shader.
+
+
+-- Part 4 Phong Shader --
+
+This is exactly the same as gouraud but in the fragshader so we past some values like the normal etc. to the fragshader. 
+
+-- Part 5 Texture mapping --
+
+For the texturing we followed the steps and created a new buffer for the texture coordinates and one for the texture data. Further we added a pointer to the uniform sampler2D so we could sent the texture to the shader. The coordinates we sent as input of the object to the shader. 
+The different options for the texture do this: (but we didn't saw any real difference on our cat texture)
+WRAPPING:
+GL_REPEAT = repeats the texture if it cant be wrapped once. 
+GL_MIRRORED_REPEAT = repeats the texture aswell but the repetition is mirrorred to its neighbours
+GL_CLAMP_TO_EDGE = everything that falls out will be repeated with the last pixel
+GL_CLAMP_TO_BORDER = everything that falls out will be set to a given color
+
+FILTERING:
+GL_NEAREST = When texture coordinates doesn't match with the pixel it takes the nearest pixel instead. Gives a blocky look.
+GL_LINEAR = Same as nearest but instead of taking nearest will take the 4 nearest and averages the values. Gives a more smoothed look.
+
+#####
+Problems/difficulties:
+
+-Textures didnt work for a long time cause we thought we needed only one setting for the textures.
+-Fixed lighting, couldnt get it to work
+
+#####
+Bonus code: 
+Start on cel-shading, no extra fat lines yet.
+Added some extra buttons/options to change values.
+
+
+
+
