@@ -51,22 +51,13 @@ Hit Sphere::intersect(Ray const &ray)
 }
 
 Point Sphere::rotateUV(Point hit){
-    Point b = cos(rotationAngle)*hit + sin(rotationAngle)*(rotationAxis*hit)+(rotationAxis*hit)*(1-cos(rotationAngle))*rotationAxis;
+    //Formula from https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
+    Point b = cos(rotationAngle)*hit + sin(rotationAngle)*(rotationAxis.cross(hit))+(rotationAxis.dot(hit))*(1-cos(rotationAngle))*rotationAxis;
 
-    //transform to cartesian, https://math.stackexchange.com/questions/1019910/rotation-matrix-in-spherical-coordinates
-    //double angle1 = atan(b.y/b.x);
-    //double angle2 = atan((sqrt(pow(b.x,2)+pow(b.y,2)))/b.z);
-    //return Point(sin(angle2)*cos(angle1), sin(angle2)*sin(angle1), cos(angle2));
-
-    //another transformation to cartesian??, http://mathworld.wolfram.com/SphericalCoordinates.html
-    double r = sqrt(pow(b.x,2)+pow(b.y,2)+pow(b.z,2));
+    //Transform to cartesian, https://math.stackexchange.com/questions/1019910/rotation-matrix-in-spherical-coordinates
     double angle1 = atan(b.y/b.x);
-    double angle2 = acos(b.z/r);
-    double x = r*cos(angle1)*sin(angle2);
-    double y = r*sin(angle1)*sin(angle2);
-    double z = r*cos(angle2);
-    return Point(x, y, z);
-
+    double angle2 = atan((sqrt(pow(b.x,2)+pow(b.y,2)))/b.z);
+    return Point(sin(angle2)*cos(angle1), sin(angle2)*sin(angle1), cos(angle2));
 }
 
 Vector Sphere::getTextureCoordinates(Point hit){
