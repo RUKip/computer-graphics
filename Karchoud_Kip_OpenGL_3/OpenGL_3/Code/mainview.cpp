@@ -177,6 +177,7 @@ void MainView::initializeGL() {
 
     glGenTextures(1, &texData);
     loadTexture(":/textures/cat_diff.png", texData); //not working correctly yet, crashes program
+    timer.start(1000.0 / 60.0);
 }
 
 //creates VAO and VBO buffers and binds them, assumes always uses a vertex with xyz and rgb
@@ -237,6 +238,9 @@ void MainView::initWorld()
     materialComponents[1] = 1.0f;
     materialComponents[2] = 0.0f;
     materialComponents[3] = 1.0f;
+
+    //set transformations each object
+    transformationsObj1 = transformation(0,0,-10,0,0,0);
 }
 
 void MainView::modelToVertices(Model* model, vertex* vertices)
@@ -265,7 +269,9 @@ void MainView::paintGL() {
 
     shaderProgram.bind();
 
-    doModelTransformations(modelTransformSphere, {0,0,-10}, 4);
+    doModelTransformations(modelTransformSphere, {0,0,-10}, 4); //TODO: make world transform
+    addRotationModel(transformationsObj1,0,1,0);
+
 
     switch(shadingMode){
         case ShadingMode::PHONG:
@@ -431,6 +437,7 @@ void MainView::createPhongShaderProgram()
                                            ":/shaders/fragshader_phong.glsl");
     shaderProgram.link();
 
+
     modelTransformVert_Phong = shaderProgram.uniformLocation("modelTransform_Phong");
     modelProjectionVert_Phong = shaderProgram.uniformLocation("projectionTransform_Phong");
     modelNormalVert_Phong = shaderProgram.uniformLocation("normalTransform_Phong");
@@ -463,6 +470,12 @@ void MainView::doModelTransformations(QMatrix4x4 &modelTransform, QVector3D tran
     modelTransform.rotate(worldRotationX, {1,0,0}); //x-axis rotation
     modelTransform.rotate(worldRotationY, {0,1,0}); //y-axis rotation
     modelTransform.rotate(worldRotationZ, {0,0,1}); //z-axis rotation
+}
+
+void MainView::addRotationModel(transformation &transformations,float rotationX, float rotationY, float rotationZ){
+    transformations.rotX = std::fmod(transformations.rotX + rotationX,360);
+    transformations.rotY = std::fmod(transformations.rotY + rotationY,360);
+    transformations.rotZ = std::fmod(transformations.rotZ + rotationZ,360);
 }
 
 /**

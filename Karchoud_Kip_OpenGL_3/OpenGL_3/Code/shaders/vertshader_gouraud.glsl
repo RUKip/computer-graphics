@@ -26,6 +26,7 @@ out vec4 color;
 
 out vec2 texCoord;
 
+//TODO: worldmatrix(which doesnt exist yet) * modelTansform, has to be sent to the shader
 
 void main()
 {

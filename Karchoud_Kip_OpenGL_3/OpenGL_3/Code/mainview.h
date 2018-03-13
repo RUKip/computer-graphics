@@ -29,6 +29,7 @@ public:
 
     MainView(QWidget *parent = 0);
     ~MainView();
+    //TODO: move structs to there own files
     struct vertex{
         GLfloat posX;
         GLfloat posY;
@@ -37,6 +38,16 @@ public:
         GLfloat colorG;
         GLfloat colorB;
     };
+
+    struct transformation{
+        GLfloat posX;
+        GLfloat posY;
+        GLfloat posZ;
+        GLfloat rotX;
+        GLfloat rotY;
+        GLfloat rotZ;
+    };
+
     GLuint sphereVao;
     GLuint sphereVbo;
 
@@ -47,7 +58,6 @@ public:
 
     ShadingMode shadingMode;
 
-    QMatrix4x4 modelTransformSphere;
     QMatrix4x4 projectionModel;
 
     float materialColor[3];
@@ -92,12 +102,17 @@ public:
     GLint modelProjectionVert_Silhouette;
     GLint material_Color_Silhouette;
 
-    Model* model;
 
     float initScale;
     float worldRotationX;
     float worldRotationY;
     float worldRotationZ;
+
+    //All transformations Vectors and model settings
+    QMatrix4x4 modelTransformSphere;
+    Model* model;
+
+    transformation transformationsObj1;
 
     // Functions for widget input events
     void setRotation(int rotateX, int rotateY, int rotateZ);
@@ -151,6 +166,7 @@ private:
     void uploadUniformCell();
     void uploadUniformSilhouette();
     void loadTexture(QString file, GLuint texturepointer);
+    void addRotationModel(QVector<QVector> &transformations, float rotationX, float rotationY, float rotationZ);
     QVector<quint8> imageToBytes(QImage image);
 };
 
