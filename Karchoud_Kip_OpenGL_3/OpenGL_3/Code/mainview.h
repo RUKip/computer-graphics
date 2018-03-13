@@ -48,13 +48,8 @@ public:
         GLfloat rotZ;
     };
 
-    GLuint sphereVao;
-    GLuint sphereVbo;
-
-    GLuint texCoord;    //Textures coordinates buffer
-    GLuint texData;     //Texture data
-
     GLint texturePtr; //Texture ptr to uniform sampler2D texture;
+
 
     ShadingMode shadingMode;
 
@@ -102,17 +97,47 @@ public:
     GLint modelProjectionVert_Silhouette;
     GLint material_Color_Silhouette;
 
-
+    //World stuff
     float initScale;
     float worldRotationX;
     float worldRotationY;
     float worldRotationZ;
 
-    //All transformations Vectors and model settings
-    QMatrix4x4 modelTransformSphere;
-    Model* model;
-
+    //All transformations Vectors and model specific values
+    //object 1
+    QMatrix4x4 obj1Transform;
     transformation transformationsObj1;
+    Model* model1;
+    //GLuints
+    GLuint model1Vao;
+    GLuint model1Vbo;
+
+    GLuint tex1Coord;    //Textures coordinates buffer
+    GLuint tex1Data;     //Texture data
+
+    //object 2
+    QMatrix4x4 obj2Transform;
+    transformation transformationsObj2;
+    Model* model2;
+    //GLuints
+    GLuint model2Vao;
+    GLuint model2Vbo;
+    GLuint tex2Coord;    //Textures coordinates buffer
+    GLuint tex2Data;     //Texture data
+
+    //object 3
+    QMatrix4x4 obj3Transform;
+    transformation transformationsObj3;
+    Model* model3;
+    //GLuints
+    GLuint model3Vao;
+    GLuint model3Vbo;
+    GLuint tex3Coord;    //Textures coordinates buffer
+    GLuint tex3Data;     //Texture data
+
+    //object 4
+    QMatrix4x4 obj4Transform;
+    transformation transformationsObj4;
 
     // Functions for widget input events
     void setRotation(int rotateX, int rotateY, int rotateZ);
@@ -155,19 +180,18 @@ private:
     void createCellShaderProgram();
     void createSilhouetteShaderProgram();
     void initWorld();
-    void doModelTransformations(QMatrix4x4 &modelTransform, QVector3D translation, float scale);
-    void modelToVertices(Model* model, vertex* vertices);
-    void createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, vertex* model, int numberOfVertices);
-    QVector<vertex> giveCubeData();
-    QVector<vertex> givePyramidData();
+    void doModelTransformations(QMatrix4x4 &obj1Transform, transformation translation, float scale);
+    void modelToVertices(Model* model1, vertex* vertices);
+    void createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, Model* &model);
     void uploadUniformPhong();
     void uploadUniformNormal();
     void uploadUniformGouraud();
     void uploadUniformCell();
     void uploadUniformSilhouette();
     void loadTexture(QString file, GLuint texturepointer);
-    void addRotationModel(QVector<QVector> &transformations, float rotationX, float rotationY, float rotationZ);
+    void addRotationModel(transformation &transformations, float rotationX, float rotationY, float rotationZ);
     QVector<quint8> imageToBytes(QImage image);
+    void createModelBuffersAndTextures();
 };
 
 #endif // MAINVIEW_H

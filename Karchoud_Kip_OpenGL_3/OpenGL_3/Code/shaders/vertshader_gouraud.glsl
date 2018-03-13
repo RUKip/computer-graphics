@@ -35,7 +35,6 @@ void main()
     vec3 vertNormal = normalize(normalTransform_Gouraud*vertNormal_in);
     vec3 ambient = material_Components_Gouraud.x*material_Color_Gouraud;
 
-    //below is for ligth not fixed TODO: add boolean uniform to set unset fixed lighting
     vec3 diffuse = vec3(0.0,0.0,0.0);
     vec3 specular = vec3(0.0,0.0,0.0);
     //below should be done over all the lights,  //TODO: what if we want to incorparate more lights?? Do we send an array of lights to the shader??
@@ -45,11 +44,6 @@ void main()
     specular += pow(max(0.0, dot(R, -1*worldPosition.xyz)), material_Components_Gouraud.w)*light_Color_Gouraud*material_Components_Gouraud.z;
 
     color = vec4(ambient+diffuse+specular,1.0);
-
-//    //cell shading, not fully implemented, still needs heavy lines (fat mesh)
-//    int numShades = 5;
-//    vec4 shadeIntensity = ceil(vec4(ambient+diffuse+specular,1.0)*numShades)/numShades;
-//    color = vec4(material_Color_Gouraud,1)*shadeIntensity;
 
     //texture mapping
     texCoord = textureCoordinates;

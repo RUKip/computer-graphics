@@ -26,98 +26,22 @@ MainView::MainView(QWidget *parent) : QOpenGLWidget(parent) {
  */
 MainView::~MainView() {
     debugLogger->stopLogging();
-    glDeleteBuffers(1,&sphereVao);
-    glDeleteBuffers(1,&sphereVbo);
-    glDeleteBuffers(1,&texCoord);
-    glDeleteBuffers(1,&texData);
-
-    free(model);
+    glDeleteBuffers(1,&model1Vao);
+    glDeleteBuffers(1,&model1Vbo);
+    glDeleteBuffers(1,&tex1Coord);
+    glDeleteBuffers(1,&tex1Data);
+    glDeleteBuffers(1,&model2Vao);
+    glDeleteBuffers(1,&model2Vbo);
+    glDeleteBuffers(1,&tex2Coord);
+    glDeleteBuffers(1,&tex2Data);
+    glDeleteBuffers(1,&model3Vao);
+    glDeleteBuffers(1,&model3Vbo);
+    glDeleteBuffers(1,&tex3Coord);
+    glDeleteBuffers(1,&tex3Data);
+    free(model1);
+    free(model2);
+    free(model3);
     qDebug() << "MainView destructor";
-}
-
-QVector<MainView::vertex> MainView::givePyramidData(){
-    QVector<vertex> pyramid = {
-        //front sideGL_CW
-        {1.0f, -1.0f, 1.0f, 0.0f, 0.5f, 0.0f},
-        {0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.5f},
-        {-1.0f, -1.0f, 1.0f, 0.5f, 0.0f, 0.0f},
-
-
-        //left side
-        {-1.0f, -1.0f, 1.0f, 0.9f, 0.4f, 1.0f},
-        {0.0f, 1.0f, 0.0f, 0.0f, 0.3f, 1.0f},
-        {0.0f, -1.0f, -1.0f, 0.3f, 0.2f, 1.0f},
-
-        //right side
-        {0.0f, -1.0f, -1.0f, 0.1f, 0.0f, 1.0f},
-        {0.0f, 1.0f, 0.0f, 0.1f, 0.2f, 0.7f},
-        {1.0f, -1.0f, 1.0f, 0.2f, 1.0f, 0.3f},
-
-        //bottom side
-        {1.0f, -1.0f, 1.0f, 0.9f, 1.0f, 0.0f},
-        {-1.0f, -1.0f, 1.0f, 0.0f, 1.0f, 0.0f},
-        {0.0f, -1.0f, -1.0f, 1.0f, 0.3f, 1.0f}
-    };
-    return pyramid;
-}
-
-QVector<MainView::vertex> MainView::giveCubeData(){
-     QVector<vertex> cube = {
-        //front square
-        {1.0f,-1.0f,1.0f,0.4f,1.0f,0.5f},
-        {-1.0f,1.0f,1.0f,0.2f,1.0f,0.0f},
-        {-1.0f,-1.0f,1.0f,0.3f,1.0f,0.9f},
-
-        {-1.0f,1.0f,1.0f,0.5f,0.1f,1.0f},
-        {1.0f,-1.0f,1.0f,0.1f,0.2f,1.0f},
-        {1.0f,1.0f,1.0f,0.2f,0.1f,1.0f},
-
-        //left side square
-        {-1.0f,1.0f,-1.0f,3.0f,1.0f,0.0f},
-        {-1.0f,-1.0f,1.0f,1.0f,1.0f,0.4f},
-        {-1.0f,1.0f,1.0f,8.0f,1.0f,0.0f},
-
-        {-1.0f,-1.0f,-1.0f,1.0f,0.1f,0.4f},
-        {-1.0f,-1.0f,1.0f,1.0f,0.8f,0.2f},
-        {-1.0f,1.0f,-1.0f,1.0f,0.0f,0.2f},
-
-        //top square
-        {-1.0f,1.0f,-1.0f,0.1f,0.5f,1.0f},
-        {-1.0f,1.0f,1.0f,0.7f,0.6f,1.0f},
-        {1.0f,1.0f,1.0f,0.2f,0.7f,1.0f},
-
-        {-1.0f,1.0f,-1.0f,0.3f,1.0f,0.5f},
-        {1.0f,1.0f,1.0f,0.3f,1.0f,0.1f},
-        {1.0f,1.0f,-1.0f,0.9f,1.0f,0.0f},
-
-        //bottom square
-        {-1.0f,-1.0f,1.0f,0.5f,1.0f,0.3f},
-        {-1.0f,-1.0f,-1.0f,0.3f,1.0f,0.5f},
-        {1.0f,-1.0f,-1.0f,0.5f,1.0f,0.5f},
-
-        {-1.0f,-1.0f,1.0f,0.2f,1.0f,0.5f},
-        {1.0f,-1.0f,-1.0f,0.6f,1.0f,0.0f},
-        {1.0f,-1.0f,1.0f,0.3f,1.0f,0.8f},
-
-        //right square
-        {1.0f,1.0f,1.0f,0.9f,1.0f,0.3f},
-        {1.0f,-1.0f,1.0f,0.9f,1.0f,0.9f},
-        {1.0f,-1.0f,-1.0f,0.2f,1.0f,0.9f},
-
-        {1.0f,1.0f,-1.0f,1.0f,1.0f,0.9f},
-        {1.0f,1.0f,1.0f,1.0f,1.0f,0.1f},
-        {1.0f,-1.0f,-1.0f,1.0f,1.0f,0.3f},
-
-        //back square
-        {1.0f,1.0f,-1.0f,0.6f,0.8f,0.1},
-        {1.0f,-1.0f,-1.0f,0.6f,0.7f,0.2f},
-        {-1.0f,-1.0f,-1.0f,0.6f,0.6f,0.3f},
-
-        {1.0f,1.0f,-1.0f,0.2f,0.1f,1.0f},
-        {-1.0f,-1.0f,-1.0f,0.6f,0.1f,1.0f},
-        {-1.0f,1.0f,-1.0f,0.2f,0.9f,1.0f},
-    };
-    return cube;
 }
 
 // --- OpenGL initialization
@@ -164,25 +88,19 @@ void MainView::initializeGL() {
     //Initialze camera an world settings
     initWorld();
 
-     QVector<vertex> pyramid = givePyramidData();
+    createModelBuffersAndTextures();
 
-    //creates objects below
-     QVector<vertex> cube = giveCubeData();
-
-    //create sphere (from model)
-    model = new Model(":/models/car.obj");
-    vertex sphere[model->getNumTriangles()*3];
-    modelToVertices(model, sphere);
-    createObjectBuffers(sphereVao, sphereVbo, texCoord, sphere, model->getNumTriangles()*3); //TODO: change so the vertex* is replaced by the a Model
-
-    glGenTextures(1, &texData);
-    loadTexture(":/textures/cat_diff.png", texData); //not working correctly yet, crashes program
     timer.start(1000.0 / 60.0);
 }
 
 //creates VAO and VBO buffers and binds them, assumes always uses a vertex with xyz and rgb
-void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, vertex* modelData, int numberOfVertices)
+void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, Model* &model)
 {
+    model->unitize();
+    vertex vertexData[model->getNumTriangles()*3];
+    modelToVertices(model, vertexData);
+    int numberOfVertices = model->getNumTriangles()*3;
+
     //create VAO
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
@@ -191,7 +109,7 @@ void MainView::createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, vertex
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-    glBufferData(GL_ARRAY_BUFFER, numberOfVertices*sizeof(vertex), modelData, GL_STATIC_DRAW); //set vertices as data of our vbo
+    glBufferData(GL_ARRAY_BUFFER, numberOfVertices*sizeof(vertex), vertexData, GL_STATIC_DRAW); //set vertices as data of our vbo
 
     glEnableVertexAttribArray(0);   //Say we send data for postion 0(coordinates) to shaders, (still to define what is data and match in shader)
     glEnableVertexAttribArray(1);   //Say we send data for postion 1(colors) to shaders
@@ -240,7 +158,39 @@ void MainView::initWorld()
     materialComponents[3] = 1.0f;
 
     //set transformations each object
-    transformationsObj1 = transformation(0,0,-10,0,0,0);
+    transformationsObj1 = {0,0,-10,0,0,0};
+    transformationsObj2 = {5,0,-20,0,0,0};
+    transformationsObj3 = {-5,0,-10,0,0,0};
+    transformationsObj4 = {0,0,-10,0,0,0};
+
+}
+
+
+void MainView::createModelBuffersAndTextures(){
+    //Generate model buffers
+    //create car (from model)
+    model1 = new Model(":/models/car.obj");
+    createObjectBuffers(model1Vao, model1Vbo, tex1Coord, model1);
+
+    //create rocket (from model)
+    model2 = new Model(":/models/cat.obj");
+    createObjectBuffers(model2Vao, model2Vbo, tex2Coord, model2);
+
+    //create planets (from model)
+    model3 = new Model(":/models/sphere.obj");
+    createObjectBuffers(model3Vao, model3Vbo, tex3Coord, model3);
+
+
+    //Generate textures
+    glGenTextures(1, &tex1Data);
+    loadTexture(":/textures/cat_diff.png", tex1Data);
+
+    glGenTextures(1, &tex2Data);
+    loadTexture(":/textures/rug_logo.png", tex2Data);
+
+    glGenTextures(1, &tex3Data);
+    loadTexture(":/textures/earth.png", tex3Data);
+
 }
 
 void MainView::modelToVertices(Model* model, vertex* vertices)
@@ -267,12 +217,19 @@ void MainView::paintGL() {
     // Clear the screen before rendering
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    shaderProgram.bind();
+    if(shadingMode != ShadingMode::CELL) shaderProgram.bind();
 
-    doModelTransformations(modelTransformSphere, {0,0,-10}, 4); //TODO: make world transform
+    //Do transformations for each object
+    doModelTransformations(obj1Transform, transformationsObj1, 4); //TODO: make world transform
+    doModelTransformations(obj2Transform, transformationsObj2, 1);
+    doModelTransformations(obj3Transform, transformationsObj3, 1);
+    doModelTransformations(obj4Transform, transformationsObj4, 1);
+
     addRotationModel(transformationsObj1,0,1,0);
+    addRotationModel(transformationsObj2,0,0.5,0);
+    addRotationModel(transformationsObj3,0,0.1,0);
 
-
+    //Choose shading mode
     switch(shadingMode){
         case ShadingMode::PHONG:
             uploadUniformPhong();
@@ -283,22 +240,22 @@ void MainView::paintGL() {
         case ShadingMode::GOURAUD:
             uploadUniformGouraud();
             break;
-        case ShadingMode::CELL:
+        case ShadingMode::CELL:     //TODO: needs to be cleaned up and done properly, not only for one object
             {
                 float originalScale = 4;
-                shaderProgram.release();
                 setShadingMode(ShadingMode::SILHOUETTE);
                 shaderProgram.bind();
                 glCullFace(GL_FRONT);
-                doModelTransformations(modelTransformSphere, {0,0,-10}, originalScale + 0.1f); //should be a little more then normal one
+                doModelTransformations(obj1Transform, transformationsObj1, originalScale + 0.1f); //should be a little more then normal one
                 uploadUniformSilhouette();
-                glBindVertexArray(sphereVao);
-                glDrawArrays(GL_TRIANGLES, 0, model->getNumTriangles()*3);
+                glBindVertexArray(model1Vao);
+                glDrawArrays(GL_TRIANGLES, 0, model1->getNumTriangles()*3);
                 shaderProgram.release();
+
                 setShadingMode(ShadingMode::CELL);
                 shaderProgram.bind();
                 glCullFace(GL_BACK);
-                doModelTransformations(modelTransformSphere, {0,0,-10}, originalScale);
+                doModelTransformations(obj1Transform, transformationsObj1, originalScale);
                 uploadUniformCell();
                 break;
             }
@@ -308,13 +265,33 @@ void MainView::paintGL() {
             break;
     }
 
+
+
+    // Draw object 1
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texData);
+    glBindTexture(GL_TEXTURE_2D, tex1Data);
     glUniform1i(texturePtr, 0);
 
-    // Draw
-    glBindVertexArray(sphereVao);
-    glDrawArrays(GL_TRIANGLES, 0, model->getNumTriangles()*3);
+    glBindVertexArray(model1Vao);
+    glDrawArrays(GL_TRIANGLES, 0, model1->getNumTriangles()*3);
+
+
+    // Draw object 2
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex2Data);
+    glUniform1i(texturePtr, 0);
+
+    glBindVertexArray(model2Vao);
+    glDrawArrays(GL_TRIANGLES, 0, model2->getNumTriangles()*3);
+
+
+    // Draw object 3
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex3Data);
+    glUniform1i(texturePtr, 0);
+
+    glBindVertexArray(model3Vao);
+    glDrawArrays(GL_TRIANGLES, 0, model3->getNumTriangles()*3);
 
     shaderProgram.release();
 }
@@ -333,7 +310,7 @@ void MainView::loadTexture(QString file, GLuint textureData){
 
 void MainView::uploadUniformPhong(){
     //set unifrom matrices normals
-    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+    QMatrix3x3 normalTransformation = obj1Transform.normalMatrix();
 
     glUniformMatrix3fv(modelNormalVert_Phong, 1, false, normalTransformation.data());
     glUniform3fv(material_Color_Phong, 1, materialColor);
@@ -341,43 +318,43 @@ void MainView::uploadUniformPhong(){
     glUniform3fv(light_Color_Phong, 1, colorLight);
     glUniform3fv(light_Position_Phong, 1, positionLight);
     glUniformMatrix4fv(modelProjectionVert_Phong, 1, false, projectionModel.data());
-    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, modelTransformSphere.data());
+    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, obj1Transform.data());
 }
 
 void MainView::uploadUniformNormal(){
-    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+    QMatrix3x3 normalTransformation = obj1Transform.normalMatrix();
     glUniformMatrix3fv(modelNormalVert_Normal, 1, false, normalTransformation.data());
     glUniformMatrix4fv(modelProjectionVert_Normal, 1, false, projectionModel.data());
-    glUniformMatrix4fv(modelTransformVert_Normal, 1, false, modelTransformSphere.data());
+    glUniformMatrix4fv(modelTransformVert_Normal, 1, false, obj1Transform.data());
 }
 
 void MainView::uploadUniformGouraud(){
-    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+    QMatrix3x3 normalTransformation = obj1Transform.normalMatrix();
     glUniform3fv(material_Color_Gouraud, 1, materialColor);
     glUniform4fv(material_Components_Gouraud, 1, materialComponents);
     glUniform3fv(light_Color_Gouraud, 1, colorLight);
     glUniform3fv(light_Position_Gouraud, 1, positionLight);
     glUniformMatrix3fv(modelNormalVert_Gouraud, 1, false, normalTransformation.data());
     glUniformMatrix4fv(modelProjectionVert_Gouraud, 1, false, projectionModel.data());
-    glUniformMatrix4fv(modelTransformVert_Gouraud, 1, false, modelTransformSphere.data());
+    glUniformMatrix4fv(modelTransformVert_Gouraud, 1, false, obj1Transform.data());
 }
 
 void MainView::uploadUniformCell(){
-    QMatrix3x3 normalTransformation = modelTransformSphere.normalMatrix();
+    QMatrix3x3 normalTransformation = obj1Transform.normalMatrix();
     glUniform3fv(material_Color_Cell, 1, materialColor);
     glUniform4fv(material_Components_Cell, 1, materialComponents);
     glUniform3fv(light_Color_Cell, 1, colorLight);
     glUniform3fv(light_Position_Cell, 1, positionLight);
     glUniformMatrix3fv(modelNormalVert_Cell, 1, false, normalTransformation.data());
     glUniformMatrix4fv(modelProjectionVert_Cell, 1, false, projectionModel.data());
-    glUniformMatrix4fv(modelTransformVert_Cell, 1, false, modelTransformSphere.data());
+    glUniformMatrix4fv(modelTransformVert_Cell, 1, false, obj1Transform.data());
 }
 
 void MainView::uploadUniformSilhouette(){
     float silhouetteColor[3] = {0.0f,0.0f,0.0f};
     glUniform3fv(material_Color_Silhouette, 1, silhouetteColor);
     glUniformMatrix4fv(modelProjectionVert_Silhouette, 1, false, projectionModel.data());
-    glUniformMatrix4fv(modelTransformVert_Silhouette, 1, false, modelTransformSphere.data());
+    glUniformMatrix4fv(modelTransformVert_Silhouette, 1, false, obj1Transform.data());
 }
 
 void MainView::createNormalShaderProgram()
@@ -462,14 +439,14 @@ void MainView::createSilhouetteShaderProgram()
 }
 
 //transformations on the objects in the world
-void MainView::doModelTransformations(QMatrix4x4 &modelTransform, QVector3D translation, float scale)
+void MainView::doModelTransformations(QMatrix4x4 &modelTransform, transformation modelTransformations, float scale)
 {
     modelTransform.setToIdentity();
-    modelTransform.translate(translation.x(), translation.y(), translation.z());
+    modelTransform.translate(modelTransformations.posX, modelTransformations.posY, modelTransformations.posZ);
     modelTransform.scale(initScale*scale);
-    modelTransform.rotate(worldRotationX, {1,0,0}); //x-axis rotation
-    modelTransform.rotate(worldRotationY, {0,1,0}); //y-axis rotation
-    modelTransform.rotate(worldRotationZ, {0,0,1}); //z-axis rotation
+    modelTransform.rotate(modelTransformations.rotX, {1,0,0}); //x-axis rotation
+    modelTransform.rotate(modelTransformations.rotY, {0,1,0}); //y-axis rotation
+    modelTransform.rotate(modelTransformations.rotZ, {0,0,1}); //z-axis rotation
 }
 
 void MainView::addRotationModel(transformation &transformations,float rotationX, float rotationY, float rotationZ){
