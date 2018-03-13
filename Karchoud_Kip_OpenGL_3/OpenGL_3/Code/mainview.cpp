@@ -170,7 +170,7 @@ void MainView::initializeGL() {
      QVector<vertex> cube = giveCubeData();
 
     //create sphere (from model)
-    model = new Model(":/models/cat.obj");
+    model = new Model(":/models/car.obj");
     vertex sphere[model->getNumTriangles()*3];
     modelToVertices(model, sphere);
     createObjectBuffers(sphereVao, sphereVbo, texCoord, sphere, model->getNumTriangles()*3); //TODO: change so the vertex* is replaced by the a Model
