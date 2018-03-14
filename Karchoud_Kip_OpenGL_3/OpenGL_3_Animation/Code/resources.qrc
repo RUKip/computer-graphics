@@ -19,5 +19,8 @@
         <file>shaders/fragshader_silhouette.glsl</file>
         <file>shaders/vertshader_silhouette.glsl</file>
         <file>models/car.obj</file>
+        <file>textures/earth.png</file>
+        <file>textures/rocket.png</file>
+        <file>models/rocket.obj</file>
     </qresource>
 </RCC>

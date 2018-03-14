@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.1
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -363,32 +363,32 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        settingsBox->setTitle(QApplication::translate("MainWindow", "Settings", Q_NULLPTR));
-        rotationBox->setTitle(QApplication::translate("MainWindow", "Rotation", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        settingsBox->setTitle(QApplication::translate("MainWindow", "Settings", 0));
+        rotationBox->setTitle(QApplication::translate("MainWindow", "Rotation", 0));
 #ifndef QT_NO_TOOLTIP
-        RotationDialX->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the X-axis</p></body></html>", Q_NULLPTR));
+        RotationDialX->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the X-axis</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        RotationDialY->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the Y-axis</p></body></html>", Q_NULLPTR));
+        RotationDialY->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the Y-axis</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        RotationDialZ->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the Z-axis</p></body></html>", Q_NULLPTR));
+        RotationDialZ->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Rotation along the Z-axis</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
-        ResetRotationButton->setText(QApplication::translate("MainWindow", "Reset Rotation", Q_NULLPTR));
-        scalingBox->setTitle(QApplication::translate("MainWindow", "Scaling", Q_NULLPTR));
-        ResetScaleButton->setText(QApplication::translate("MainWindow", "Reset Scaling", Q_NULLPTR));
-        RGBLight->setTitle(QApplication::translate("MainWindow", "RGB light", Q_NULLPTR));
-        RGBMaterial->setTitle(QApplication::translate("MainWindow", "Color material", Q_NULLPTR));
-        Kcoefficient_1->setTitle(QApplication::translate("MainWindow", "Ambient Material", Q_NULLPTR));
-        Kcoefficient_2->setTitle(QApplication::translate("MainWindow", "Diffuse material", Q_NULLPTR));
-        Kcoefficient_3->setTitle(QApplication::translate("MainWindow", "Speculalar Material", Q_NULLPTR));
-        Kcoefficient_4->setTitle(QApplication::translate("MainWindow", "P Material", Q_NULLPTR));
-        shadingBox->setTitle(QApplication::translate("MainWindow", "Shading", Q_NULLPTR));
-        PhongButton->setText(QApplication::translate("MainWindow", "Pho&ng", Q_NULLPTR));
-        NormalButton->setText(QApplication::translate("MainWindow", "Nor&mal", Q_NULLPTR));
-        GouraudButton->setText(QApplication::translate("MainWindow", "&Gouraud", Q_NULLPTR));
-        CellButton->setText(QApplication::translate("MainWindow", "&Cell", Q_NULLPTR));
+        ResetRotationButton->setText(QApplication::translate("MainWindow", "Reset Rotation", 0));
+        scalingBox->setTitle(QApplication::translate("MainWindow", "Scaling", 0));
+        ResetScaleButton->setText(QApplication::translate("MainWindow", "Reset Scaling", 0));
+        RGBLight->setTitle(QApplication::translate("MainWindow", "RGB light", 0));
+        RGBMaterial->setTitle(QApplication::translate("MainWindow", "Color material", 0));
+        Kcoefficient_1->setTitle(QApplication::translate("MainWindow", "Ambient Material", 0));
+        Kcoefficient_2->setTitle(QApplication::translate("MainWindow", "Diffuse material", 0));
+        Kcoefficient_3->setTitle(QApplication::translate("MainWindow", "Speculalar Material", 0));
+        Kcoefficient_4->setTitle(QApplication::translate("MainWindow", "P Material", 0));
+        shadingBox->setTitle(QApplication::translate("MainWindow", "Shading", 0));
+        PhongButton->setText(QApplication::translate("MainWindow", "Pho&ng", 0));
+        NormalButton->setText(QApplication::translate("MainWindow", "Nor&mal", 0));
+        GouraudButton->setText(QApplication::translate("MainWindow", "&Gouraud", 0));
+        CellButton->setText(QApplication::translate("MainWindow", "&Cell", 0));
     } // retranslateUi
 
 };

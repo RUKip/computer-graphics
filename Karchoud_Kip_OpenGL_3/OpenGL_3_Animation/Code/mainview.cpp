@@ -173,7 +173,7 @@ void MainView::createModelBuffersAndTextures(){
     createObjectBuffers(model1Vao, model1Vbo, tex1Coord, model1);
 
     //create rocket (from model)
-    model2 = new Model(":/models/cat.obj");
+    model2 = new Model(":/models/rocket.obj");
     createObjectBuffers(model2Vao, model2Vbo, tex2Coord, model2);
 
     //create planets (from model)
@@ -186,7 +186,7 @@ void MainView::createModelBuffersAndTextures(){
     loadTexture(":/textures/cat_diff.png", tex1Data);
 
     glGenTextures(1, &tex2Data);
-    loadTexture(":/textures/rug_logo.png", tex2Data);
+    loadTexture(":/textures/rocket.png", tex2Data);
 
     glGenTextures(1, &tex3Data);
     loadTexture(":/textures/earth.png", tex3Data);
