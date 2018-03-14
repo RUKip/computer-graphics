@@ -15,7 +15,5 @@
         <file>shaders/fragshader_normal.glsl</file>
         <file>shaders/fragshader_gouraud.glsl</file>
         <file>models/grid.obj</file>
-        <file>shaders/fragshader_waves.glsl</file>
-        <file>shaders/vertshader_waves.glsl</file>
     </qresource>
 </RCC>

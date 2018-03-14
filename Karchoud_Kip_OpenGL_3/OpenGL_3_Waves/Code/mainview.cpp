@@ -125,7 +125,7 @@ void MainView::createShaderProgram()
 
 void MainView::loadMesh()
 {
-    Model model(":/models/cat.obj");
+    Model model(":/models/grid.obj");
     model.unitize();
     QVector<float> meshData = model.getVNTInterleaved();
 

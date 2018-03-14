@@ -22,11 +22,24 @@ out vec2 texCoords;
 
 void main()
 {
-    gl_Position  = projectionTransform * modelViewTransform * vec4(vertCoordinates_in, 1.0);
+
+    vec3 currentPosition = vertCoordinates_in;
+
+    float amplitude = 0.2;
+    float frequency = 10;
+    float phase = 1;
+    float time = 0;
+    float height = amplitude*sin(2*M_PI*(frequency*texCoords_in.x)+phase+time);
+    float derivative = amplitude*2*M_PI*frequency*cos(2*M_PI*(frequency*texCoords_in.x)+phase+time);
+
+    currentPosition.z = height;
+
+    gl_Position  = projectionTransform * modelViewTransform * vec4(currentPosition, 1.0);
+
 
     // Pass the required information to the fragment stage.
     relativeLightPosition = vec3(modelViewTransform * vec4(lightPosition, 1));
-    vertPosition = vec3(modelViewTransform * vec4(vertCoordinates_in, 1));
+    vertPosition = vec3(modelViewTransform * vec4(currentPosition, 1));
     vertNormal   = normalTransform * vertNormals_in;
     texCoords    = texCoords_in;
 }
