@@ -12,9 +12,8 @@ in vec2 texCoords;
 // Lighting model constants.
 uniform vec4 material;
 uniform vec3 lightColour;
+uniform vec3 materialColour;
 
-// Texture sampler
-uniform sampler2D textureSampler;
 
 // Specify the output of the fragment shader
 // Usually a vec4 describing a color (Red, Green, Blue, Alpha/Transparency)
@@ -23,7 +22,7 @@ out vec4 vertColour;
 void main()
 {
   // Ambient colour does not depend on any vectors.
-  vec3 texColour = texture2D(textureSampler, texCoords).xyz;
+  vec3 texColour = materialColour;
   vec3 colour    = material.x * texColour;
 
   // Calculate light direction vectors in the phong model.

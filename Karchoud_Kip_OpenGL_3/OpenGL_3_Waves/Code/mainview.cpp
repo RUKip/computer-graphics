@@ -63,7 +63,7 @@ void MainView::initializeGL() {
     qDebug() << ":: Using OpenGL" << qPrintable(glVersion);
 
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_CULL_FACE);
     glDepthFunc(GL_LEQUAL);
     glClearColor(0.0, 1.0, 0.0, 1.0);
 
@@ -74,6 +74,7 @@ void MainView::initializeGL() {
     // Initialize transformations
     updateProjectionTransform();
     updateModelTransforms();
+    timer.start(1000.0 / 60.0);
 }
 
 void MainView::createShaderProgram()
@@ -120,7 +121,12 @@ void MainView::createShaderProgram()
     uniformMaterialPhong            = phongShaderProgram.uniformLocation("material");
     uniformLightPositionPhong       = phongShaderProgram.uniformLocation("lightPosition");
     uniformLightColourPhong         = phongShaderProgram.uniformLocation("lightColour");
-    uniformTextureSamplerPhong      = phongShaderProgram.uniformLocation("textureSampler");
+    uniformFrequencyPhong           = phongShaderProgram.uniformLocation("frequency");
+    uniformAmplitudePhong           = phongShaderProgram.uniformLocation("amplitude");
+    uniformPhasePhong               = phongShaderProgram.uniformLocation("phase");
+    uniformMaterialColourPhong      = phongShaderProgram.uniformLocation("materialColour");
+    uniformTimePhong                = phongShaderProgram.uniformLocation("time");
+
 }
 
 void MainView::loadMesh()
@@ -193,6 +199,9 @@ void MainView::paintGL() {
     // Clear the screen before rendering
     glClearColor(0.2f, 0.5f, 0.7f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    time+=(1.0/60.0);
+    time = fmod(time, (1000.0*100.0)); //Dont overflow so reset time after 100 sec
 
     // Choose the selected shader.
     QOpenGLShaderProgram *shaderProgram;
@@ -269,7 +278,13 @@ void MainView::updatePhongUniforms()
     glUniform3fv(uniformLightPositionPhong, 1, &lightPosition[0]);
     glUniform3fv(uniformLightColourPhong, 1, &lightColour[0]);
 
-    glUniform1i(uniformTextureSamplerGouraud, 0);
+    glUniform3fv(uniformMaterialColourPhong, 1, &materialColour[0]);
+
+    glUniform1fv(uniformAmplitudePhong, 2, amplitudePhong); //TODO: good like this??
+    glUniform1fv(uniformFrequencyPhong, 2, frequencyPhong);
+    glUniform1fv(uniformPhasePhong, 2, phasePhong);
+    glUniform1fv(uniformTimePhong, 1, &time);
+
 }
 
 void MainView::updateProjectionTransform()

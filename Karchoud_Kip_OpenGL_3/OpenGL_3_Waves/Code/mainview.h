@@ -51,7 +51,12 @@ class MainView : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core {
     GLint uniformLightPositionPhong;
     GLint uniformLightColourPhong;
 
-    GLint uniformTextureSamplerPhong;
+    GLint uniformFrequencyPhong;
+    GLint uniformAmplitudePhong;
+    GLint uniformPhasePhong;
+    GLint uniformTimePhong;
+
+    GLint uniformMaterialColourPhong;
 
     // Buffers
     GLuint meshVAO;
@@ -70,8 +75,14 @@ class MainView : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core {
 
     // Phong model constants.
     QVector4D material = {0.5, 0.5, 1, 5};
-    QVector3D lightPosition = {1, 100, 1};
+    QVector3D lightPosition = {10, 10, 1};
     QVector3D lightColour = {1, 1, 1};
+    float amplitudePhong[4] = {0.1,0.12,0.08,0.03};
+    float frequencyPhong[4] = {4.0,2.2,4.0,1.0};
+    float phasePhong[4] = {0.0,1.2,0.5,0.2};
+    QVector3D materialColour = {0.0, 0.7, 1.0};
+    float time =0;
+
 
 public:
     enum ShadingMode : GLuint
