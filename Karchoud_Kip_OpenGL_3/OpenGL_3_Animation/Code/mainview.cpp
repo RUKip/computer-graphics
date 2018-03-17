@@ -158,10 +158,17 @@ void MainView::initWorld()
     materialComponents[3] = 1.0f;
 
     //set transformations each object
-    transformationsObj1 = {5,0,-10,0,0,0};
+    transformationsObj1 = {0,0,-10,0,0,0};
     transformationsObj2 = {0,0,-10,0,0,0};
-    transformationsObj3 = {-5,0,-10,0,0,0};
+    transformationsObj3 = {0,0,-10,0,0,0};
     transformationsObj4 = {0,0,-10,0,0,0};
+
+    //animation values
+
+
+    moveObj1 = {0,0,2.5,0,0,0}; //rocket
+    moveObj2 = {0,0,0,0,0,0};   //earth
+    moveObj3 = {0,0,3.5,0,0,0}; //car
 
 }
 
@@ -220,14 +227,18 @@ void MainView::paintGL() {
     if(shadingMode != ShadingMode::CELL) shaderProgram.bind();
 
     //Do transformations for each object
-    doModelTransformations(obj1Transform, transformationsObj1, 1); //TODO: make world transform
+    doModelTransformations(obj1Transform, transformationsObj1, 0.8); //TODO: make world transform
     doModelTransformations(obj2Transform, transformationsObj2, 1);
-    doModelTransformations(obj3Transform, transformationsObj3, 1);
+    doModelTransformations(obj3Transform, transformationsObj3, 0.4);
     doModelTransformations(obj4Transform, transformationsObj4, 1);
 
-    addRotationModel(transformationsObj1,0,1,0);
-    addRotationModel(transformationsObj2,0,1,0);
-    addRotationModel(transformationsObj3,0,1,0);
+    addRotationModel(transformationsObj1,0,1,0);    //rocket
+    addRotationModel(transformationsObj2,0,0.5,0);  //earth
+    addRotationModel(transformationsObj3,0,1,0);    //car
+
+    moveObjects(obj1Transform, moveObj1);
+    moveObjects(obj2Transform, moveObj2);
+    moveObjects(obj3Transform, moveObj3);
 
     //Choose shading mode
     switch(shadingMode){
@@ -459,6 +470,11 @@ void MainView::addRotationModel(transformation &transformations,float rotationX,
     transformations.rotX = std::fmod(transformations.rotX + rotationX,360);
     transformations.rotY = std::fmod(transformations.rotY + rotationY,360);
     transformations.rotZ = std::fmod(transformations.rotZ + rotationZ,360);
+}
+
+void MainView::moveObjects(QMatrix4x4 &modelTransform, transformation modelTransformations){
+
+    modelTransform.translate(modelTransformations.posX, modelTransformations.posY, modelTransformations.posZ);
 }
 
 /**

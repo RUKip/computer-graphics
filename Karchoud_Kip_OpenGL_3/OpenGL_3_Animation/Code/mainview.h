@@ -107,6 +107,7 @@ public:
     //object 1
     QMatrix4x4 obj1Transform;
     transformation transformationsObj1;
+    transformation moveObj1;
     Model* model1;
     //GLuints
     GLuint model1Vao;
@@ -118,6 +119,7 @@ public:
     //object 2
     QMatrix4x4 obj2Transform;
     transformation transformationsObj2;
+    transformation moveObj2;
     Model* model2;
     //GLuints
     GLuint model2Vao;
@@ -128,6 +130,7 @@ public:
     //object 3
     QMatrix4x4 obj3Transform;
     transformation transformationsObj3;
+    transformation moveObj3;
     Model* model3;
     //GLuints
     GLuint model3Vao;
@@ -192,6 +195,7 @@ private:
     void addRotationModel(transformation &transformations, float rotationX, float rotationY, float rotationZ);
     QVector<quint8> imageToBytes(QImage image);
     void createModelBuffersAndTextures();
+    void moveObjects(QMatrix4x4 &modelTransform, transformation modelTransformations);
 };
 
 #endif // MAINVIEW_H
