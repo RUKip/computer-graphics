@@ -158,8 +158,8 @@ void MainView::initWorld()
     materialComponents[3] = 1.0f;
 
     //set transformations each object
-    transformationsObj1 = {0,0,-10,0,0,0};
-    transformationsObj2 = {5,0,-20,0,0,0};
+    transformationsObj1 = {5,0,-10,0,0,0};
+    transformationsObj2 = {0,0,-10,0,0,0};
     transformationsObj3 = {-5,0,-10,0,0,0};
     transformationsObj4 = {0,0,-10,0,0,0};
 
@@ -183,7 +183,7 @@ void MainView::createModelBuffersAndTextures(){
 
     //Generate textures
     glGenTextures(1, &tex1Data);
-    loadTexture(":/textures/cat_diff.png", tex1Data);
+    loadTexture(":/textures/car.png", tex1Data);
 
     glGenTextures(1, &tex2Data);
     loadTexture(":/textures/rocket.png", tex2Data);
@@ -220,14 +220,14 @@ void MainView::paintGL() {
     if(shadingMode != ShadingMode::CELL) shaderProgram.bind();
 
     //Do transformations for each object
-    doModelTransformations(obj1Transform, transformationsObj1, 4); //TODO: make world transform
+    doModelTransformations(obj1Transform, transformationsObj1, 1); //TODO: make world transform
     doModelTransformations(obj2Transform, transformationsObj2, 1);
     doModelTransformations(obj3Transform, transformationsObj3, 1);
     doModelTransformations(obj4Transform, transformationsObj4, 1);
 
     addRotationModel(transformationsObj1,0,1,0);
-    addRotationModel(transformationsObj2,0,0.5,0);
-    addRotationModel(transformationsObj3,0,0.1,0);
+    addRotationModel(transformationsObj2,0,1,0);
+    addRotationModel(transformationsObj3,0,1,0);
 
     //Choose shading mode
     switch(shadingMode){
@@ -274,6 +274,7 @@ void MainView::paintGL() {
 
     glBindVertexArray(model1Vao);
     glDrawArrays(GL_TRIANGLES, 0, model1->getNumTriangles()*3);
+    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, obj1Transform.data());
 
 
     // Draw object 2
@@ -283,6 +284,7 @@ void MainView::paintGL() {
 
     glBindVertexArray(model2Vao);
     glDrawArrays(GL_TRIANGLES, 0, model2->getNumTriangles()*3);
+    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, obj2Transform.data());
 
 
     // Draw object 3
@@ -292,6 +294,7 @@ void MainView::paintGL() {
 
     glBindVertexArray(model3Vao);
     glDrawArrays(GL_TRIANGLES, 0, model3->getNumTriangles()*3);
+    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, obj3Transform.data());
 
     shaderProgram.release();
 }
@@ -312,13 +315,16 @@ void MainView::uploadUniformPhong(){
     //set unifrom matrices normals
     QMatrix3x3 normalTransformation = obj1Transform.normalMatrix();
 
+
     glUniformMatrix3fv(modelNormalVert_Phong, 1, false, normalTransformation.data());
     glUniform3fv(material_Color_Phong, 1, materialColor);
     glUniform4fv(material_Components_Phong, 1, materialComponents);
     glUniform3fv(light_Color_Phong, 1, colorLight);
     glUniform3fv(light_Position_Phong, 1, positionLight);
     glUniformMatrix4fv(modelProjectionVert_Phong, 1, false, projectionModel.data());
-    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, obj1Transform.data());
+
+
+
 }
 
 void MainView::uploadUniformNormal(){

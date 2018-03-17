@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = OpenGL_transformations1.0.0
-DISTDIR = /home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_OpenGL_2/OpenGL_2/build-OpenGL_2-Desktop-Debug/.tmp/OpenGL_transformations1.0.0
+DISTDIR = /home/s2756560/Desktop/computer-grpahics2/Karchoud_Kip_OpenGL_2/OpenGL_2/build-OpenGL_2-Desktop-Debug/.tmp/OpenGL_transformations1.0.0
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -353,6 +353,7 @@ qrc_resources.cpp: ../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/resour
 		../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/textures/cat_diff.png \
 		../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/textures/earth.png \
 		../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/textures/rocket.png \
+		../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/textures/car.png \
 		../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/textures/rug_logo.png \
 		../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/textures/cat_spec.png \
 		../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/textures/cat_norm.png
@@ -362,11 +363,11 @@ compiler_moc_header_make_all: moc_mainwindow.cpp moc_mainview.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_mainview.cpp
 moc_mainwindow.cpp: ../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/mainwindow.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/s2756560/Desktop/computer-grpahics2/Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/mainwindow.h -o moc_mainwindow.cpp
 
 moc_mainview.cpp: ../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/model.h \
 		../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/mainview.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/s2756781/computer_graphics2/computer-grpahics2/Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/mainview.h -o moc_mainview.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/s2756560/Desktop/computer-grpahics2/Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../Karchoud_Kip_OpenGL_3/OpenGL_3_Animation/Code/mainview.h -o moc_mainview.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
