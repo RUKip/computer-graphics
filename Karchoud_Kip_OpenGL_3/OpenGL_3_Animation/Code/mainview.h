@@ -11,10 +11,7 @@
 #include <QOpenGLShaderProgram>
 #include <QTimer>
 #include <QVector3D>
-#include <QImage>
-#include <QVector>
 #include <memory>
-#include <QMatrix4x4>
 
 class MainView : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core {
     Q_OBJECT
@@ -22,81 +19,151 @@ class MainView : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core {
     QOpenGLDebugLogger *debugLogger;
     QTimer timer; // timer used for animation
 
-    QOpenGLShaderProgram normalShaderProgram,
-                         gouraudShaderProgram,
-                         phongShaderProgram;
-
-    // Uniforms for the normal shader.
-    GLint uniformModelViewTransformNormal;
-    GLint uniformProjectionTransformNormal;
-    GLint uniformNormalTransformNormal;
-
-    // Uniforms for the gouraud shader.
-    GLint uniformModelViewTransformGouraud;
-    GLint uniformProjectionTransformGouraud;
-    GLint uniformNormalTransformGouraud;
-
-    GLint uniformMaterialGouraud;
-    GLint uniformLightPositionGouraud;
-    GLint uniformLightColourGouraud;
-
-    GLint uniformTextureSamplerGouraud;
-
-    // Uniforms for the phong shader.
-    GLint uniformModelViewTransformPhong;
-    GLint uniformProjectionTransformPhong;
-    GLint uniformNormalTransformPhong;
-
-    GLint uniformMaterialPhong;
-    GLint uniformLightPositionPhong;
-    GLint uniformLightColourPhong;
-
-    GLint uniformFrequencyPhong;
-    GLint uniformAmplitudePhong;
-    GLint uniformPhasePhong;
-    GLint uniformTimePhong;
-
-    GLint uniformMaterialColourPhong;
-
-    // Buffers
-    GLuint meshVAO;
-    GLuint meshVBO;
-    GLuint meshSize;
-
-    // Texture
-    GLuint texturePtr;
-
-    // Transforms
-    float scale = 1.f;
-    QVector3D rotation;
-    QMatrix4x4 projectionTransform;
-    QMatrix3x3 meshNormalTransform;
-    QMatrix4x4 meshTransform;
-
-    // Phong model constants.
-    QVector4D material = {0.5, 0.5, 1, 5};
-    QVector3D lightPosition = {10, 10, 1};
-    QVector3D lightColour = {1, 1, 1};
-    float amplitudePhong[4] = {0.1,0.12,0.08,0.03};
-    float frequencyPhong[4] = {4.0,2.2,4.0,1.0};
-    float phasePhong[4] = {0.0,1.2,0.5,0.2};
-    QVector3D materialColour = {0.0, 0.7, 1.0};
-    float time =0;
-
+    QOpenGLShaderProgram shaderProgram;
 
 public:
     enum ShadingMode : GLuint
     {
-        PHONG = 0, NORMAL, GOURAUD
+        PHONG = 0, NORMAL, GOURAUD, CELL, SILHOUETTE
     };
 
     MainView(QWidget *parent = 0);
     ~MainView();
+    //TODO: move structs to there own files
+    struct vertex{
+        GLfloat posX;
+        GLfloat posY;
+        GLfloat posZ;
+        GLfloat colorR;
+        GLfloat colorG;
+        GLfloat colorB;
+    };
+
+    struct transformation{
+        GLfloat posX;
+        GLfloat posY;
+        GLfloat posZ;
+        GLfloat rotX;
+        GLfloat rotY;
+        GLfloat rotZ;
+    };
+
+    GLint texturePtr; //Texture ptr to uniform sampler2D texture;
+
+
+    ShadingMode shadingMode;
+
+    QMatrix4x4 projectionModel;
+
+    float materialColor[3];
+    float materialComponents[4];
+    float colorLight[3];
+    float positionLight[3];
+
+    //All normal shading specific uniforms
+    GLint modelTransformVert_Normal;
+    GLint modelProjectionVert_Normal;
+    GLint modelNormalVert_Normal;
+
+    //All phong shading specific uniforms
+    GLint modelTransformVert_Phong;
+    GLint modelProjectionVert_Phong;
+    GLint modelNormalVert_Phong;
+    GLint light_Position_Phong;
+    GLint light_Color_Phong;
+    GLint material_Color_Phong;
+    GLint material_Components_Phong;
+
+    //All gourad shading specific uniforms
+    GLint modelTransformVert_Gouraud;
+    GLint modelProjectionVert_Gouraud;
+    GLint modelNormalVert_Gouraud;
+    GLint light_Position_Gouraud;
+    GLint light_Color_Gouraud;
+    GLint material_Color_Gouraud;
+    GLint material_Components_Gouraud;
+
+    //All cell shading specific uniforms
+    GLint modelTransformVert_Cell;
+    GLint modelProjectionVert_Cell;
+    GLint modelNormalVert_Cell;
+    GLint light_Position_Cell;
+    GLint light_Color_Cell;
+    GLint material_Color_Cell;
+    GLint material_Components_Cell;
+
+    //All silhouette shading specific uniforms (used in cell shading)
+    GLint modelTransformVert_Silhouette;
+    GLint modelProjectionVert_Silhouette;
+    GLint material_Color_Silhouette;
+
+    //World stuff
+    float initScale;
+    float worldRotationX;
+    float worldRotationY;
+    float worldRotationZ;
+
+    //All transformations Vectors and model specific values
+    //object 1
+    QMatrix4x4 obj1Transform;
+    transformation transformationsObj1;
+    transformation moveObj1;
+    Model* model1;
+    //GLuints
+    GLuint model1Vao;
+    GLuint model1Vbo;
+
+    GLuint tex1Coord;    //Textures coordinates buffer
+    GLuint tex1Data;     //Texture data
+
+    //object 2
+    QMatrix4x4 obj2Transform;
+    transformation transformationsObj2;
+    transformation moveObj2;
+    Model* model2;
+    //GLuints
+    GLuint model2Vao;
+    GLuint model2Vbo;
+    GLuint tex2Coord;    //Textures coordinates buffer
+    GLuint tex2Data;     //Texture data
+
+    //object 3
+    QMatrix4x4 obj3Transform;
+    transformation transformationsObj3;
+    transformation moveObj3;
+    Model* model3;
+    //GLuints
+    GLuint model3Vao;
+    GLuint model3Vbo;
+    GLuint tex3Coord;    //Textures coordinates buffer
+    GLuint tex3Data;     //Texture data
+
+    //object 4
+    QMatrix4x4 obj4Transform;
+    transformation transformationsObj4;
+    transformation moveObj4;
+    Model* model4;
+
+    //object 5
+    QMatrix4x4 obj5Transform;
+    transformation transformationsObj5;
+    transformation moveObj5;
+    Model* model5;
 
     // Functions for widget input events
     void setRotation(int rotateX, int rotateY, int rotateZ);
     void setScale(int scale);
     void setShadingMode(ShadingMode shading);
+    void setRLight(int R);
+    void setGLight(int G);
+    void setBLight(int B);
+    void setRMaterial(int R);
+    void setGMaterial(int G);
+    void setBMaterial(int B);
+    void setKAmbient(int A);
+    void setKDiffuse(int D);
+    void setKSpecular(int S);
+    void setKP(int P);
 
 protected:
     void initializeGL();
@@ -118,27 +185,25 @@ private slots:
     void onMessageLogged( QOpenGLDebugMessage Message );
 
 private:
-    void createShaderProgram();
-    void loadMesh();
-
-    // Loads texture data into the buffer of texturePtr.
-    void loadTextures();
-    void loadTexture(QString file, GLuint texturePtr);
-
-    void destroyModelBuffers();
-
-    void updateProjectionTransform();
-    void updateModelTransforms();
-
-    void updateNormalUniforms();
-    void updateGouraudUniforms();
-    void updatePhongUniforms();
-
-    // Useful utility method to convert image to bytes.
+    void createNormalShaderProgram();
+    void createGouraudShaderProgram();
+    void createPhongShaderProgram();
+    void createCellShaderProgram();
+    void createSilhouetteShaderProgram();
+    void initWorld();
+    void doModelTransformations(QMatrix4x4 &obj1Transform, transformation translation, float scale);
+    void modelToVertices(Model* model1, vertex* vertices);
+    void createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, Model* &model);
+    void uploadUniformPhong(QMatrix4x4 objTransform);
+    void uploadUniformNormal();
+    void uploadUniformGouraud();
+    void uploadUniformCell();
+    void uploadUniformSilhouette();
+    void loadTexture(QString file, GLuint texturepointer);
+    void addRotationModel(transformation &transformations, float rotationX, float rotationY, float rotationZ);
     QVector<quint8> imageToBytes(QImage image);
-
-    // The current shader to use.
-    ShadingMode currentShader = PHONG;
+    void createModelBuffersAndTextures();
+    void moveObjects(QMatrix4x4 &modelTransform, transformation modelTransformations);
 };
 
 #endif // MAINVIEW_H
