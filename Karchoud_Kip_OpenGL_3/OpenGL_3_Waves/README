@@ -1,8 +1,41 @@
-This is a README file
+This assignment was about: Animation OpenGL 3
 
-When submitting your assignment, describe (briefly) the changes you made and what difficulties you encountered in this file.
+Division of labour: (requirement for second year computer graphics)
 
-Also describe what controls (key short-cuts, mouse clicks, mouse movement etc) and possible bonus assignments you implemented, so we can check them more easily.
 
-If you have any suggestions/feedback for improving the practical assignments or support from teaching assistants, you may include it here OR post in anonymously on Nestor under Feedback.
+#####
+Explanation added code
+
+
+-- Part 2 Advanced certex manipulation: water shader --
+
+Height map:
+
+We downloaded the grid and added it to the recources. Created a new shader program and made the fragment so that it would get a vec2 with the uv coord and output them as color.
+We also added the current position as a vec3 in the vertex shader. We then changed the the value of z(stored position based on the coord u)
+
+Normals:
+
+We started with creating an output in the vertex shader for the normals. Then we the use of the serivative we calculated the normal in vec3. Each frag shader is also made to be showing normals.
+
+
+Multiple wave: 
+
+First we created three uniform arrays of floats for Amplitude, freq and phase and we filled these with the glUniform1fv() call. Then we created the waveHeight and waveDU with the uniforms we made earlier and the waveIdx(offset to the uniforms).
+After all that we loop in main of the vertshader over all waves and take the sum of the two floats, this is used to calculate the actual wave height and normal. then we implemented the phong shader and defined all material components(ambient, specular and diffuse) 
+We used smoothstep and mix to set the boundaries and interpolkate between two colors.
+
+
+
+ 
+#####
+Problems/difficulties:
+
+
+#####
+Bonus code: 
+
+
+
+
 
