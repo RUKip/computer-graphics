@@ -158,10 +158,10 @@ void MainView::initWorld()
     materialComponents[3] = 1.0f;
 
     //set transformations each object
-    transformationsObj1 = {0,0,-10,0,0,0};
+    transformationsObj1 = {0,0,-30,0,0,0};
     transformationsObj2 = {5,0,-20,0,0,0};
     transformationsObj3 = {-5,0,-10,0,0,0};
-    transformationsObj4 = {0,0,-10,0,0,0};
+    transformationsObj4 = {0,3,-10,0,0,0};
 
 }
 
@@ -232,7 +232,7 @@ void MainView::paintGL() {
     //Choose shading mode
     switch(shadingMode){
         case ShadingMode::PHONG:
-            uploadUniformPhong();
+            uploadUniformPhong(obj1Transform);
             break;
         case ShadingMode::NORMAL:
             uploadUniformNormal();
@@ -261,7 +261,7 @@ void MainView::paintGL() {
             }
         default:
             qDebug() << "unknown shader setting <" << shadingMode << ">\n";
-            uploadUniformPhong();
+            uploadUniformPhong(obj1Transform);
             break;
     }
 
@@ -276,6 +276,7 @@ void MainView::paintGL() {
     glDrawArrays(GL_TRIANGLES, 0, model1->getNumTriangles()*3);
 
 
+    uploadUniformPhong(obj2Transform);
     // Draw object 2
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex2Data);
@@ -285,7 +286,17 @@ void MainView::paintGL() {
     glDrawArrays(GL_TRIANGLES, 0, model2->getNumTriangles()*3);
 
 
+    uploadUniformPhong(obj3Transform);
     // Draw object 3
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex3Data);
+    glUniform1i(texturePtr, 0);
+
+    glBindVertexArray(model3Vao);
+    glDrawArrays(GL_TRIANGLES, 0, model3->getNumTriangles()*3);
+
+    uploadUniformPhong(obj4Transform);
+    // Draw object 4
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex3Data);
     glUniform1i(texturePtr, 0);
@@ -308,9 +319,9 @@ void MainView::loadTexture(QString file, GLuint textureData){
     //glGenerateMipmap(GL TEXTURE 2D) //use if we are gonna use a mipmap
 }
 
-void MainView::uploadUniformPhong(){
+void MainView::uploadUniformPhong(QMatrix4x4 objTransform){
     //set unifrom matrices normals
-    QMatrix3x3 normalTransformation = obj1Transform.normalMatrix();
+    QMatrix3x3 normalTransformation = objTransform.normalMatrix();
 
     glUniformMatrix3fv(modelNormalVert_Phong, 1, false, normalTransformation.data());
     glUniform3fv(material_Color_Phong, 1, materialColor);
@@ -318,7 +329,7 @@ void MainView::uploadUniformPhong(){
     glUniform3fv(light_Color_Phong, 1, colorLight);
     glUniform3fv(light_Position_Phong, 1, positionLight);
     glUniformMatrix4fv(modelProjectionVert_Phong, 1, false, projectionModel.data());
-    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, obj1Transform.data());
+    glUniformMatrix4fv(modelTransformVert_Phong, 1, false, objTransform.data());
 }
 
 void MainView::uploadUniformNormal(){

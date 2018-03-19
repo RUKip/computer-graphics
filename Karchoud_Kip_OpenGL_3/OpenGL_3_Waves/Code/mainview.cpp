@@ -124,7 +124,6 @@ void MainView::createShaderProgram()
     uniformFrequencyPhong           = phongShaderProgram.uniformLocation("frequency");
     uniformAmplitudePhong           = phongShaderProgram.uniformLocation("amplitude");
     uniformPhasePhong               = phongShaderProgram.uniformLocation("phase");
-    uniformMaterialColourPhong      = phongShaderProgram.uniformLocation("materialColour");
     uniformTimePhong                = phongShaderProgram.uniformLocation("time");
 
 }
@@ -277,8 +276,6 @@ void MainView::updatePhongUniforms()
     glUniform4fv(uniformMaterialPhong, 1, &material[0]);
     glUniform3fv(uniformLightPositionPhong, 1, &lightPosition[0]);
     glUniform3fv(uniformLightColourPhong, 1, &lightColour[0]);
-
-    glUniform3fv(uniformMaterialColourPhong, 1, &materialColour[0]);
 
     glUniform1fv(uniformAmplitudePhong, 2, amplitudePhong); //TODO: good like this??
     glUniform1fv(uniformFrequencyPhong, 2, frequencyPhong);

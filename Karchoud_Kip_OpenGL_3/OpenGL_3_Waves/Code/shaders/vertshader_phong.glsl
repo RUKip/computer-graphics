@@ -20,6 +20,7 @@ uniform float phase[AMOUNT_OF_WAVES];
 uniform float time;
 
 // Specify the output of the vertex stage
+out float heightOut;
 out vec3 vertNormal;
 out vec3 vertPosition;
 out vec3 relativeLightPosition;
@@ -46,6 +47,7 @@ void main()
     }
     vec3 normal = normalize(vec3(-derivative, 0.0, 1.0));
 
+    heightOut = height;
     currentPosition.z = height;
 
     gl_Position  = projectionTransform * modelViewTransform * vec4(currentPosition, 1.0);

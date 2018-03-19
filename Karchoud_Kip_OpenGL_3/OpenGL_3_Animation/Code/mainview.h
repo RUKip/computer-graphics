@@ -183,7 +183,7 @@ private:
     void doModelTransformations(QMatrix4x4 &obj1Transform, transformation translation, float scale);
     void modelToVertices(Model* model1, vertex* vertices);
     void createObjectBuffers(GLuint &vao, GLuint &vbo, GLuint &tex, Model* &model);
-    void uploadUniformPhong();
+    void uploadUniformPhong(QMatrix4x4 obj1Transform);
     void uploadUniformNormal();
     void uploadUniformGouraud();
     void uploadUniformCell();

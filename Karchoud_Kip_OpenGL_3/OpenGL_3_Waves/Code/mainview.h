@@ -56,8 +56,6 @@ class MainView : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core {
     GLint uniformPhasePhong;
     GLint uniformTimePhong;
 
-    GLint uniformMaterialColourPhong;
-
     // Buffers
     GLuint meshVAO;
     GLuint meshVBO;
@@ -80,7 +78,6 @@ class MainView : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core {
     float amplitudePhong[4] = {0.1,0.12,0.08,0.03};
     float frequencyPhong[4] = {4.0,2.2,4.0,1.0};
     float phasePhong[4] = {0.0,1.2,0.5,0.2};
-    QVector3D materialColour = {0.0, 0.7, 1.0};
     float time =0;
 
 
