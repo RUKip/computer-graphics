@@ -43,9 +43,13 @@ public:
         GLfloat posX;
         GLfloat posY;
         GLfloat posZ;
+        GLfloat changeX;
+        GLfloat changeY;
+        GLfloat changeZ;
         GLfloat rotX;
         GLfloat rotY;
         GLfloat rotZ;
+        GLfloat time;
     };
 
     GLint texturePtr; //Texture ptr to uniform sampler2D texture;
@@ -195,7 +199,8 @@ private:
     void addRotationModel(transformation &transformations, float rotationX, float rotationY, float rotationZ);
     QVector<quint8> imageToBytes(QImage image);
     void createModelBuffersAndTextures();
-    void moveObjects(transformation &modelTransformations, float moveX, float moveY, float moveZ, int scaleFactor);
+    void BFMoveObject(transformation &modelTransformations, float moveX, float moveY, float moveZ);
+    void circleMoveObject(transformation &modelTransformations, float radius);
 };
 
 #endif // MAINVIEW_H

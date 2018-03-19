@@ -1,8 +1,7 @@
 #include "mainview.h"
 #include "math.h"
-
+#include <iostream>
 #include <QDateTime>
-#define M_PI 3.141593
 
 /**
  * @brief MainView::MainView
@@ -159,11 +158,11 @@ void MainView::initWorld()
     materialComponents[3] = 1.0f;
 
     //set transformations each object
-    transformationsObj1 = {0,0,-3.5,0,0,0};       //car
-    transformationsObj2 = {0,0,-2.5,0,0,0};       //rocket
-    transformationsObj3 = {0,0,-10,0,0,0};         //earth
-    transformationsObj4 = {0,0,-5.5,0,0,0};         //earth.moon
-    transformationsObj5 = {0,0,-7,0,0,0};
+    transformationsObj1 = {-1.5,0,-13.5,0,0.0,0,0,0,0,0};       //car
+    transformationsObj2 = {0,0,-12.5,0,0.0,0,0,0,0,0};       //rocket
+    transformationsObj3 = {0,0,-10,0,0,0.0,0,0,0,0};         //earth
+    transformationsObj4 = {0,0,-10,0,0,0,0.0,0,0,0};         //earth.moon
+    transformationsObj5 = {2,0,-17,0,0,0,0,0.0,0,0};
 }
 
 
@@ -219,9 +218,15 @@ void MainView::paintGL() {
 
     if(shadingMode != ShadingMode::CELL) shaderProgram.bind();
 
-    cout << transformationsObj4.posX << "\n"; //test
+    //std::cout << transformationsObj4.posX << "\n"; //test
 
     //Do transformations for each object
+    transformationsObj1.time = std::fmod(1.0/60.0 + transformationsObj1.time, 60*10000);
+    transformationsObj2.time = std::fmod(1.0/60.0 + transformationsObj2.time, 60*10000);
+    transformationsObj3.time = std::fmod(1.0/60.0 + transformationsObj3.time, 60*10000);
+    transformationsObj4.time = std::fmod(1.0/60.0 + transformationsObj4.time, 60*10000);
+    transformationsObj5.time = std::fmod(1.0/60.0 + transformationsObj5.time, 60*10000);
+
     doModelTransformations(obj1Transform, transformationsObj1, 0.4); //TODO: make world transform
     doModelTransformations(obj2Transform, transformationsObj2, 0.8);
     doModelTransformations(obj3Transform, transformationsObj3, 1.0);
@@ -234,12 +239,14 @@ void MainView::paintGL() {
     addRotationModel(transformationsObj4,0,1.1,0);    //earth.moon
     addRotationModel(transformationsObj5,0,0.7,0);    //car 2
 
-    moveObjects(transformationsObj1, 0.2, 0.0, 0.0, 1);
-    moveObjects(transformationsObj2, 0.2, 0.0, 0.0, 1);
-    moveObjects(transformationsObj3, 0.2, 0.0, 0.0, 1);
-    moveObjects(transformationsObj4, 0.2, 0.0, 0.0, 1);
-    moveObjects(transformationsObj5, 0.2, 0.0, 0.0, 1);
+    BFMoveObject(transformationsObj1, 0.2, 0.0, 0.0);
+    BFMoveObject(transformationsObj2, 0.5, 0.0, 0.0);
+   // BFMoveObject(transformationsObj3, 1, 1.0, 0.0);
+    //BFMoveObject(transformationsObj4, 0, 1.0, 0.0);
 
+    circleMoveObject(transformationsObj1, 2);
+    circleMoveObject(transformationsObj3, 2);
+    circleMoveObject(transformationsObj4, 4);
 
     //Choose shading mode
     switch(shadingMode){
@@ -466,7 +473,7 @@ void MainView::createSilhouetteShaderProgram()
 void MainView::doModelTransformations(QMatrix4x4 &modelTransform, transformation modelTransformations, float scale)
 {
     modelTransform.setToIdentity();
-    modelTransform.translate(modelTransformations.posX, modelTransformations.posY, modelTransformations.posZ);
+    modelTransform.translate(modelTransformations.posX + modelTransformations.changeX, modelTransformations.posY + modelTransformations.changeY, modelTransformations.posZ + modelTransformations.changeZ);
     modelTransform.scale(initScale*scale);
     modelTransform.rotate(modelTransformations.rotX, {1,0,0}); //x-axis rotation
     modelTransform.rotate(modelTransformations.rotY, {0,1,0}); //y-axis rotation
@@ -479,14 +486,20 @@ void MainView::addRotationModel(transformation &transformations,float rotationX,
     transformations.rotZ = std::fmod(transformations.rotZ + rotationZ,360);
 }
 
-void MainView::moveObjects(transformation &modelTransformations, float moveX, float moveY, float moveZ, int scaleFactor){
+void MainView::BFMoveObject(transformation &modelTransformations, float moveX, float moveY, float moveZ){
+
     if(moveX > 0.001)
-        modelTransformations.posX = scaleFactor*sin(((float)modelTransformations.posX/scaleFactor)*moveX*M_PI);
+        modelTransformations.changeX = initScale*moveX*sin(M_PI*modelTransformations.time);
     if(moveY > 0.001)
-        modelTransformations.posY = scaleFactor*sin((modelTransformations.posY/scaleFactor)*moveY*M_PI);
+        modelTransformations.changeY = initScale*moveY*sin(M_PI*modelTransformations.time);
     if(moveZ > 0.001)
-        modelTransformations.posZ = scaleFactor*sin((modelTransformations.posZ/scaleFactor)*moveZ*M_PI);
-    //obj1Transform.translate(modelTransformations.posX, modelTransformations.posY, modelTransformations.posZ);
+        modelTransformations.changeZ = initScale*moveZ*sin(M_PI*modelTransformations.time);
+}
+
+void MainView::circleMoveObject(transformation &modelTransformations, float radius){
+
+    modelTransformations.changeX = radius*cos(M_PI*modelTransformations.time);
+    modelTransformations.changeZ = radius*sin(M_PI*modelTransformations.time);
 }
 
 /**
