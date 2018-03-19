@@ -158,11 +158,11 @@ void MainView::initWorld()
     materialComponents[3] = 1.0f;
 
     //set transformations each object
-    transformationsObj1 = {0,0,-30,0,0,0};
-    transformationsObj2 = {5,0,-20,0,0,0};
-    transformationsObj3 = {-5,0,-10,0,0,0};
-    transformationsObj4 = {0,3,-10,0,0,0};
-
+    transformationsObj1 = {0,0,3.5,0,0,0};       //car
+    transformationsObj2 = {0,0,2.5,0,0,0};       //rocket
+    transformationsObj3 = {0,0,0,0,0,0};         //earth
+    transformationsObj4 = {0,0,5.5,0,0,0};         //earth.moon
+    transformationObj5 	= {0,0,7,0,0,0};
 }
 
 
@@ -180,10 +180,18 @@ void MainView::createModelBuffersAndTextures(){
     model3 = new Model(":/models/sphere.obj");
     createObjectBuffers(model3Vao, model3Vbo, tex3Coord, model3);
 
+    //create planets (from model)
+    model4 = new Model(":/models/sphere.obj");
+    createObjectBuffers(model3Vao, model3Vbo, tex3Coord, model4);
+
+    //create planets (from model)
+    model5 = new Model(":/models/car.obj");
+    createObjectBuffers(model1Vao, model1Vbo, tex1Coord, model5);
+
 
     //Generate textures
     glGenTextures(1, &tex1Data);
-    loadTexture(":/textures/cat_diff.png", tex1Data);
+    loadTexture(":/textures/car.png", tex1Data);
 
     glGenTextures(1, &tex2Data);
     loadTexture(":/textures/rocket.png", tex2Data);
@@ -220,14 +228,23 @@ void MainView::paintGL() {
     if(shadingMode != ShadingMode::CELL) shaderProgram.bind();
 
     //Do transformations for each object
-    doModelTransformations(obj1Transform, transformationsObj1, 4); //TODO: make world transform
-    doModelTransformations(obj2Transform, transformationsObj2, 1);
+    doModelTransformations(obj1Transform, transformationsObj1, 0.4); //TODO: make world transform
+    doModelTransformations(obj2Transform, transformationsObj2, 0.8);
     doModelTransformations(obj3Transform, transformationsObj3, 1);
-    doModelTransformations(obj4Transform, transformationsObj4, 1);
+    doModelTransformations(obj4Transform, transformationsObj4, 0.5);
+    doModelTransformations(obj5Transform, transformationsObj5, 0.7);
 
-    addRotationModel(transformationsObj1,0,1,0);
-    addRotationModel(transformationsObj2,0,0.5,0);
-    addRotationModel(transformationsObj3,0,0.1,0);
+    addRotationModel(transformationsObj1,0,0.8,0);    //car
+    addRotationModel(transformationsObj2,0,0.9,0);  //rocket
+    addRotationModel(transformationsObj3,0,1,0);    //earth
+    addRotationModel(transformationsObj4,0,1.1,0);    //earth.moon
+    addRotationModel(transformationsObj5,0,0.7,0);    //car 2
+
+    moveObjects(obj1Transform, transformationsObj1);
+    moveObjects(obj2Transform, transformationsObj2);
+    moveObjects(obj3Transform, transformationsObj3);
+    moveObjects(obj4Transform, transformationsObj4);
+    moveObjects(obj5Transform, transformationsObj5);
 
     //Choose shading mode
     switch(shadingMode){
@@ -276,8 +293,13 @@ void MainView::paintGL() {
     glDrawArrays(GL_TRIANGLES, 0, model1->getNumTriangles()*3);
 
 
+<<<<<<< HEAD
     uploadUniformPhong(obj2Transform);
+=======
+
+>>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
     // Draw object 2
+    uploadUniformPhong(obj2Transform);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex2Data);
     glUniform1i(texturePtr, 0);
@@ -286,8 +308,13 @@ void MainView::paintGL() {
     glDrawArrays(GL_TRIANGLES, 0, model2->getNumTriangles()*3);
 
 
+<<<<<<< HEAD
     uploadUniformPhong(obj3Transform);
+=======
+
+>>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
     // Draw object 3
+    uploadUniformPhong(obj3Transform);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex3Data);
     glUniform1i(texturePtr, 0);
@@ -295,6 +322,7 @@ void MainView::paintGL() {
     glBindVertexArray(model3Vao);
     glDrawArrays(GL_TRIANGLES, 0, model3->getNumTriangles()*3);
 
+<<<<<<< HEAD
     uploadUniformPhong(obj4Transform);
     // Draw object 4
     glActiveTexture(GL_TEXTURE0);
@@ -303,6 +331,24 @@ void MainView::paintGL() {
 
     glBindVertexArray(model3Vao);
     glDrawArrays(GL_TRIANGLES, 0, model3->getNumTriangles()*3);
+=======
+
+
+    //draw object 4
+    uploadUniformPhong(obj4Transform);
+    glDrawArrays(GL_TRIANGLES, 0, model4->getNumTriangles()*3);
+
+
+
+    //draw object 5
+    uploadUniformPhong(obj5Transform);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex1Data);
+    glUniform1i(texturePtr, 0);
+
+    glBindVertexArray(model1Vao);
+    glDrawArrays(GL_TRIANGLES, 0, model5->getNumTriangles()*3);
+>>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
 
     shaderProgram.release();
 }
@@ -322,6 +368,10 @@ void MainView::loadTexture(QString file, GLuint textureData){
 void MainView::uploadUniformPhong(QMatrix4x4 objTransform){
     //set unifrom matrices normals
     QMatrix3x3 normalTransformation = objTransform.normalMatrix();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
 
     glUniformMatrix3fv(modelNormalVert_Phong, 1, false, normalTransformation.data());
     glUniform3fv(material_Color_Phong, 1, materialColor);
@@ -330,6 +380,11 @@ void MainView::uploadUniformPhong(QMatrix4x4 objTransform){
     glUniform3fv(light_Position_Phong, 1, positionLight);
     glUniformMatrix4fv(modelProjectionVert_Phong, 1, false, projectionModel.data());
     glUniformMatrix4fv(modelTransformVert_Phong, 1, false, objTransform.data());
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
 }
 
 void MainView::uploadUniformNormal(){
@@ -464,6 +519,11 @@ void MainView::addRotationModel(transformation &transformations,float rotationX,
     transformations.rotX = std::fmod(transformations.rotX + rotationX,360);
     transformations.rotY = std::fmod(transformations.rotY + rotationY,360);
     transformations.rotZ = std::fmod(transformations.rotZ + rotationZ,360);
+}
+
+void MainView::moveObjects(QMatrix4x4 &modelTransform, transformation modelTransformations){
+
+    modelTransform.translate(modelTransformations.posX, modelTransformations.posY, modelTransformations.posZ);
 }
 
 /**

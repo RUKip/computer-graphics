@@ -22,5 +22,6 @@
         <file>textures/earth.png</file>
         <file>textures/rocket.png</file>
         <file>models/rocket.obj</file>
+        <file>textures/car.png</file>
     </qresource>
 </RCC>
