@@ -2,6 +2,7 @@
 #include "math.h"
 
 #include <QDateTime>
+#define M_PI 3.141593
 
 /**
  * @brief MainView::MainView
@@ -158,11 +159,11 @@ void MainView::initWorld()
     materialComponents[3] = 1.0f;
 
     //set transformations each object
-    transformationsObj1 = {0,0,3.5,0,0,0};       //car
-    transformationsObj2 = {0,0,2.5,0,0,0};       //rocket
-    transformationsObj3 = {0,0,0,0,0,0};         //earth
-    transformationsObj4 = {0,0,5.5,0,0,0};         //earth.moon
-    transformationObj5 	= {0,0,7,0,0,0};
+    transformationsObj1 = {0,0,-3.5,0,0,0};       //car
+    transformationsObj2 = {0,0,-2.5,0,0,0};       //rocket
+    transformationsObj3 = {0,0,-10,0,0,0};         //earth
+    transformationsObj4 = {0,0,-5.5,0,0,0};         //earth.moon
+    transformationsObj5 = {0,0,-7,0,0,0};
 }
 
 
@@ -179,15 +180,6 @@ void MainView::createModelBuffersAndTextures(){
     //create planets (from model)
     model3 = new Model(":/models/sphere.obj");
     createObjectBuffers(model3Vao, model3Vbo, tex3Coord, model3);
-
-    //create planets (from model)
-    model4 = new Model(":/models/sphere.obj");
-    createObjectBuffers(model3Vao, model3Vbo, tex3Coord, model4);
-
-    //create planets (from model)
-    model5 = new Model(":/models/car.obj");
-    createObjectBuffers(model1Vao, model1Vbo, tex1Coord, model5);
-
 
     //Generate textures
     glGenTextures(1, &tex1Data);
@@ -227,10 +219,12 @@ void MainView::paintGL() {
 
     if(shadingMode != ShadingMode::CELL) shaderProgram.bind();
 
+    cout << transformationsObj4.posX << "\n"; //test
+
     //Do transformations for each object
     doModelTransformations(obj1Transform, transformationsObj1, 0.4); //TODO: make world transform
     doModelTransformations(obj2Transform, transformationsObj2, 0.8);
-    doModelTransformations(obj3Transform, transformationsObj3, 1);
+    doModelTransformations(obj3Transform, transformationsObj3, 1.0);
     doModelTransformations(obj4Transform, transformationsObj4, 0.5);
     doModelTransformations(obj5Transform, transformationsObj5, 0.7);
 
@@ -240,11 +234,12 @@ void MainView::paintGL() {
     addRotationModel(transformationsObj4,0,1.1,0);    //earth.moon
     addRotationModel(transformationsObj5,0,0.7,0);    //car 2
 
-    moveObjects(obj1Transform, transformationsObj1);
-    moveObjects(obj2Transform, transformationsObj2);
-    moveObjects(obj3Transform, transformationsObj3);
-    moveObjects(obj4Transform, transformationsObj4);
-    moveObjects(obj5Transform, transformationsObj5);
+    moveObjects(transformationsObj1, 0.2, 0.0, 0.0, 1);
+    moveObjects(transformationsObj2, 0.2, 0.0, 0.0, 1);
+    moveObjects(transformationsObj3, 0.2, 0.0, 0.0, 1);
+    moveObjects(transformationsObj4, 0.2, 0.0, 0.0, 1);
+    moveObjects(transformationsObj5, 0.2, 0.0, 0.0, 1);
+
 
     //Choose shading mode
     switch(shadingMode){
@@ -282,8 +277,6 @@ void MainView::paintGL() {
             break;
     }
 
-
-
     // Draw object 1
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex1Data);
@@ -293,11 +286,6 @@ void MainView::paintGL() {
     glDrawArrays(GL_TRIANGLES, 0, model1->getNumTriangles()*3);
 
 
-<<<<<<< HEAD
-    uploadUniformPhong(obj2Transform);
-=======
-
->>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
     // Draw object 2
     uploadUniformPhong(obj2Transform);
     glActiveTexture(GL_TEXTURE0);
@@ -307,12 +295,6 @@ void MainView::paintGL() {
     glBindVertexArray(model2Vao);
     glDrawArrays(GL_TRIANGLES, 0, model2->getNumTriangles()*3);
 
-
-<<<<<<< HEAD
-    uploadUniformPhong(obj3Transform);
-=======
-
->>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
     // Draw object 3
     uploadUniformPhong(obj3Transform);
     glActiveTexture(GL_TEXTURE0);
@@ -322,23 +304,9 @@ void MainView::paintGL() {
     glBindVertexArray(model3Vao);
     glDrawArrays(GL_TRIANGLES, 0, model3->getNumTriangles()*3);
 
-<<<<<<< HEAD
-    uploadUniformPhong(obj4Transform);
-    // Draw object 4
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, tex3Data);
-    glUniform1i(texturePtr, 0);
-
-    glBindVertexArray(model3Vao);
-    glDrawArrays(GL_TRIANGLES, 0, model3->getNumTriangles()*3);
-=======
-
-
     //draw object 4
     uploadUniformPhong(obj4Transform);
-    glDrawArrays(GL_TRIANGLES, 0, model4->getNumTriangles()*3);
-
-
+    glDrawArrays(GL_TRIANGLES, 0, model3->getNumTriangles()*3);
 
     //draw object 5
     uploadUniformPhong(obj5Transform);
@@ -347,8 +315,7 @@ void MainView::paintGL() {
     glUniform1i(texturePtr, 0);
 
     glBindVertexArray(model1Vao);
-    glDrawArrays(GL_TRIANGLES, 0, model5->getNumTriangles()*3);
->>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
+    glDrawArrays(GL_TRIANGLES, 0, model1->getNumTriangles()*3);
 
     shaderProgram.release();
 }
@@ -368,10 +335,6 @@ void MainView::loadTexture(QString file, GLuint textureData){
 void MainView::uploadUniformPhong(QMatrix4x4 objTransform){
     //set unifrom matrices normals
     QMatrix3x3 normalTransformation = objTransform.normalMatrix();
-<<<<<<< HEAD
-=======
-
->>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
 
     glUniformMatrix3fv(modelNormalVert_Phong, 1, false, normalTransformation.data());
     glUniform3fv(material_Color_Phong, 1, materialColor);
@@ -380,11 +343,6 @@ void MainView::uploadUniformPhong(QMatrix4x4 objTransform){
     glUniform3fv(light_Position_Phong, 1, positionLight);
     glUniformMatrix4fv(modelProjectionVert_Phong, 1, false, projectionModel.data());
     glUniformMatrix4fv(modelTransformVert_Phong, 1, false, objTransform.data());
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 14683f185880e13a69979f24d6b32999fd6bd70e
 }
 
 void MainView::uploadUniformNormal(){
@@ -521,9 +479,14 @@ void MainView::addRotationModel(transformation &transformations,float rotationX,
     transformations.rotZ = std::fmod(transformations.rotZ + rotationZ,360);
 }
 
-void MainView::moveObjects(QMatrix4x4 &modelTransform, transformation modelTransformations){
-
-    modelTransform.translate(modelTransformations.posX, modelTransformations.posY, modelTransformations.posZ);
+void MainView::moveObjects(transformation &modelTransformations, float moveX, float moveY, float moveZ, int scaleFactor){
+    if(moveX > 0.001)
+        modelTransformations.posX = scaleFactor*sin(((float)modelTransformations.posX/scaleFactor)*moveX*M_PI);
+    if(moveY > 0.001)
+        modelTransformations.posY = scaleFactor*sin((modelTransformations.posY/scaleFactor)*moveY*M_PI);
+    if(moveZ > 0.001)
+        modelTransformations.posZ = scaleFactor*sin((modelTransformations.posZ/scaleFactor)*moveZ*M_PI);
+    //obj1Transform.translate(modelTransformations.posX, modelTransformations.posY, modelTransformations.posZ);
 }
 
 /**
